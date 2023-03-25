@@ -1,11 +1,11 @@
 {
-    "name": "WARUNG KOPI GUNUNG ROASTERY",
-    "short_name": "WKG ROASTERY",
-    "description": "Landing Page WARUNG KOPI GUNUNG ROASTERY",
+    "name": "Rumah Tahfizh Quran Ar-Rahman",
+    "short_name": "Ar-Rahman",
+    "description": "Landing Page Rumah Tahfizh Quran Ar-Rahman",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#548235",
+    "theme_color": "#26B683",
     "icons": [
         {
             "src": "./android-icon-36x36.png",

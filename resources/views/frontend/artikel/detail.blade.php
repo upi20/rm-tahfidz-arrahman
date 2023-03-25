@@ -2,13 +2,13 @@
 @section('content')
     <!-- breadcrumb area start -->
     <section class="breadcrumb-area pt-140 pb-140 bg_img"
-        data-background="{{ asset('assets/templates/frontend/images/bg/breadcrumb-bg-1.jpeg') }}" data-overlay="dark"
+        data-background="{{ asset('assets/templates/frontend2/images/bg/breadcrumb-bg-1.jpeg') }}" data-overlay="dark"
         data-opacity="5" style="height: auto;">
         <div class="shape shape__1">
-            <img src="{{ asset('assets/templates/frontend/images/shape/breadcrumb-shape-1.png') }}" alt="">
+            <img src="{{ asset('assets/templates/frontend2/images/shape/breadcrumb-shape-1.png') }}" alt="">
         </div>
         <div class="shape shape__2">
-            <img src="{{ asset('assets/templates/frontend/images/shape/breadcrumb-shape-2.png') }}" alt="">
+            <img src="{{ asset('assets/templates/frontend2/images/shape/breadcrumb-shape-2.png') }}" alt="">
         </div>
         <div class="container">
             <div class="row">
@@ -152,7 +152,7 @@
                                 <div class="col-xl-2 col-md-2 my-auto">
                                     <div class="blog-filter text-left text-md-center">
                                         <a href="javascript:void(0)">
-                                            <img src="{{ asset('assets/templates/frontend/images/icons/filter.png') }}"
+                                            <img src="{{ asset('assets/templates/frontend2/images/icons/filter.png') }}"
                                                 alt="">
                                         </a>
                                     </div>

@@ -8,11 +8,11 @@
         <!-- hero area start -->
         <section class="hero__area hero__area--2 position-relative custom-padding">
             <span class="shape shape__1 position-absolute">
-                <img src="{{ asset('assets/templates/frontend/images/shape/hero-shape-2-1.png') }}" class="lazy"
+                <img src="{{ asset('assets/templates/frontend2/images/shape/hero-shape-2-1.png') }}" class="lazy"
                     alt="hero">
             </span>
             <span class="shape shape__2 position-absolute">
-                <img src="{{ asset('assets/templates/frontend/images/shape/hero-shape-2-2.png') }}" class="lazy"
+                <img src="{{ asset('assets/templates/frontend2/images/shape/hero-shape-2-2.png') }}" class="lazy"
                     alt="hero">
             </span>
             <div class="container-fluid custom-width">
@@ -53,11 +53,11 @@
         <!-- about area start -->
         <section class="about__area about__area--2 grey-bg position-relative pt-120 pb-130">
             <span class="shape shape__1 position-absolute">
-                <img class="lazy" data-src="{{ asset('assets/templates/frontend/images/shape/about-shape-2-1.png') }}"
+                <img class="lazy" data-src="{{ asset('assets/templates/frontend2/images/shape/about-shape-2-1.png') }}"
                     alt="Background Image">
             </span>
             <span class="shape shape__2 position-absolute">
-                <img class="lazy" data-src="{{ asset('assets/templates/frontend/images/shape/about-shape-2-2.png') }}"
+                <img class="lazy" data-src="{{ asset('assets/templates/frontend2/images/shape/about-shape-2-2.png') }}"
                     alt="Background Image">
             </span>
             <div class="container">
@@ -93,11 +93,13 @@
         <!-- top grade area start -->
         <section class="topgrade__area topgrade__area--2 pt-115 pb-115 position-relative" id="top-grade">
             <span class="shape shape__1 position-absolute">
-                <img class="lazy" data-src="{{ asset('assets/templates/frontend/images/shape/top-grade-shape-2-1.png') }}"
+                <img class="lazy"
+                    data-src="{{ asset('assets/templates/frontend2/images/shape/top-grade-shape-2-1.png') }}"
                     alt="Background Image">
             </span>
             <span class="shape shape__2 position-absolute">
-                <img class="lazy" data-src="{{ asset('assets/templates/frontend/images/shape/top-grade-shape-2-2.png') }}"
+                <img class="lazy"
+                    data-src="{{ asset('assets/templates/frontend2/images/shape/top-grade-shape-2-2.png') }}"
                     alt="Background Image">
             </span>
             <div class="container">
@@ -137,7 +139,7 @@
     @if (settings()->get("$k.visible"))
         <section class="about__area about__area--3 grey-bg position-relative pt-120 pb-120">
             <span class="shape shape__2 position-absolute">
-                <img class="lazy" data-src="{{ asset('assets/templates/frontend/images/shape/about-shape-2-2.png') }}"
+                <img class="lazy" data-src="{{ asset('assets/templates/frontend2/images/shape/about-shape-2-2.png') }}"
                     alt="Background Image">
             </span>
             <div class="container-fluid custom-width custom-width__2">
@@ -264,11 +266,11 @@
         <!-- faq area start -->
         <section class="topgrade__area topgrade__area--2 pt-115 pb-115 position-relative">
             <span class="shape shape__1 position-absolute">
-                <img data-src="{{ asset('assets/templates/frontend/images/shape/top-grade-shape-2-1.png') }}"
+                <img data-src="{{ asset('assets/templates/frontend2/images/shape/top-grade-shape-2-1.png') }}"
                     alt="bg" class="lazy">
             </span>
             <span class="shape shape__2 position-absolute">
-                <img data-src="{{ asset('assets/templates/frontend/images/shape/top-grade-shape-2-2.png') }}"
+                <img data-src="{{ asset('assets/templates/frontend2/images/shape/top-grade-shape-2-2.png') }}"
                     alt="bg" class="lazy">
             </span>
             <div class="container">
@@ -319,11 +321,11 @@
         {{-- Artikel --}}
         <div class="blog__area blog__area--2 position-relative  grey-bg pt-115 pb-120">
             <span class="shape shape__1">
-                <img data-src="{{ asset('assets/templates/frontend/images/shape/blog-shape-2-1.png') }}"
+                <img data-src="{{ asset('assets/templates/frontend2/images/shape/blog-shape-2-1.png') }}"
                     class="lazy"alt="bg">
             </span>
             <span class="shape shape__2">
-                <img data-src="{{ asset('assets/templates/frontend/images/shape/blog-shape-2-2.png') }}"
+                <img data-src="{{ asset('assets/templates/frontend2/images/shape/blog-shape-2-2.png') }}"
                     class="lazy"alt="bg">
             </span>
             <div class="container">

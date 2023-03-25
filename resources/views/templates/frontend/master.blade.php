@@ -43,7 +43,7 @@ $compact = array_merge($compact, compact('page_attr_title', 'search_master_key',
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('favicon/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#fff">
-    <meta name="theme-color" content="#548235">
+    <meta name="theme-color" content="#26B683">
     <meta name="msapplication-TileImage" content="{{ asset('favicon/icon-144x144.png') }}">
 
     <!-- META DATA -->
@@ -78,17 +78,17 @@ $compact = array_merge($compact, compact('page_attr_title', 'search_master_key',
     <meta itemprop="description" content="{{ $page_attr->description }}">
     <meta itemprop="image" content="{{ $page_attr->image }}">
 
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/font-awesome.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('assets/templates/admin/plugins/fontawesome-free-5.15.4-web/css/fontawesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/lightcase.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/meanmenu.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/jquery-ui.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/templates/frontend/css/mainv2.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/lightcase.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/meanmenu.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/templates/frontend2/css/mainv2.css') }}">
 
     @foreach (json_decode(settings()->get(set_front('meta_list'), '{}')) as $meta)
         <!-- custom {{ $meta->name }} meta-->
@@ -215,24 +215,24 @@ $compact = array_merge($compact, compact('page_attr_title', 'search_master_key',
     </div>
 
     <!--========= JS Here =========-->
-    <script src="{{ asset('assets/templates/frontend/js/jquery-2.2.4.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/jquery.meanmenu.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/lightcase.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/tilt.jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/scrollwatch.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/sticky-header.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/waypoint.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/jquery-ui-slider-range.js') }}"></script>
-    <script src="{{ asset('assets/templates/frontend/js/mainv3.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/jquery.meanmenu.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/lightcase.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/tilt.jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/scrollwatch.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/sticky-header.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/waypoint.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/jquery-ui-slider-range.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/mainv3.js') }}"></script>
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfpGBFn5yRPvJrvAKoGIdj1O1aO9QisgQ"></script> --}}
-    <script src="{{ asset('assets/templates/frontend/js/jquery.lazy-master/jquery.lazy.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/frontend2/js/jquery.lazy-master/jquery.lazy.min.js') }}"></script>
     <link rel="stylesheet"
         href="{{ asset('assets/templates/admin/plugins/fontawesome-free-5.15.4-web/css/all.min.css') }}">
     @yield('javascript')
