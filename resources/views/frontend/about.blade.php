@@ -1,4 +1,4 @@
-@extends('templates.frontend.master')
+@extends('templates.frontend2.master')
 @section('content')
     <!-- breadcrumb area start -->
     <section class="breadcrumb-area pt-140 pb-140 bg_img"

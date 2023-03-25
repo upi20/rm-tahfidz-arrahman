@@ -1,4 +1,4 @@
-@extends('templates.frontend.master')
+@extends('templates.frontend2.master')
 @section('content')
     <section data-anim="fade" class="breadcrumbs ">
         <div class="container">

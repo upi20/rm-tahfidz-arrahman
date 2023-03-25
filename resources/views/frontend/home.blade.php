@@ -1,4 +1,4 @@
-@extends('templates.frontend.master')
+@extends('templates.frontend2.master')
 @section('content')
     @php
         $p = 'setting.home';

@@ -198,13 +198,13 @@ $compact = array_merge($compact, compact('page_attr_title', 'search_master_key',
         <!-- preloader end -->
     @endif
 
-    @include('templates.frontend.body.header', $compact)
+    @include('templates.frontend2.body.header', $compact)
 
     <main>
         @yield('content')
     </main>
 
-    @include('templates.frontend.body.footer', $compact)
+    @include('templates.frontend2.body.footer', $compact)
 
     <div class="bottom-left-container">
         <a class="button bg-success p-20 text-white fw-bold" id="whatsapp-container" style="text-decoration: none"
