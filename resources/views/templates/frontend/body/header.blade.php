@@ -27,7 +27,7 @@
                         <span></span>
                     </div>
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{{ url('') }}">
                             <img class="lazy" alt="logo" style="max-height: 65px"
                                 data-src="{{ asset(settings()->get(set_front('app.foto_dark_landscape_mode'))) }}">
                         </a>
