@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Artikel\Artikel;
 use App\Models\Contact\Message as ContactMessage;
-use App\Models\Produk\Produk;
+use App\Models\Pendaftaran;
 use App\Models\Tracker;
 use Illuminate\Http\Request;
 
@@ -15,13 +15,13 @@ class DashboardController extends Controller
     {
         $total_artikel = Artikel::count();
         $total_pesan = ContactMessage::count();
-        $total_produk = Produk::count();
+        $total_pendaftar = Pendaftaran::count();
         $page_attr = ['title' => 'Dashboard'];
 
         $data = compact(
             'total_artikel',
             'total_pesan',
-            'total_produk',
+            'total_pendaftar',
             'page_attr',
         );
         $data['compact'] = $data;
