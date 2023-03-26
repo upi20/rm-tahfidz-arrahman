@@ -21,8 +21,8 @@ class HomePengurusTableSeeder extends Seeder
         \DB::table('home_pengurus')->insert(array (
             0 => 
             array (
-                'id' => 1,
-                'urutan' => 1,
+                'id' => '1',
+                'urutan' => '1',
                 'nama' => 'Hamad Bin Jasim',
                 'sebagai' => 'Pendiri',
                 'foto' => '20230326174550.jpg',
@@ -37,8 +37,8 @@ class HomePengurusTableSeeder extends Seeder
             ),
             1 => 
             array (
-                'id' => 2,
-                'urutan' => 2,
+                'id' => '2',
+                'urutan' => '2',
                 'nama' => 'Sayyida Al-Hijaazi',
                 'sebagai' => 'Hafiz Quran Scholor',
                 'foto' => '20230326174557.jpg',
@@ -53,8 +53,8 @@ class HomePengurusTableSeeder extends Seeder
             ),
             2 => 
             array (
-                'id' => 3,
-                'urutan' => 3,
+                'id' => '3',
+                'urutan' => '3',
                 'nama' => 'Sayyida Al-Hijaazi',
                 'sebagai' => 'Hafiz Quran Scholor',
                 'foto' => '20230326175839.png',
@@ -69,8 +69,8 @@ class HomePengurusTableSeeder extends Seeder
             ),
             3 => 
             array (
-                'id' => 4,
-                'urutan' => 4,
+                'id' => '4',
+                'urutan' => '4',
                 'nama' => 'Dreams come true',
                 'sebagai' => 'Hafiz Quran Scholor',
                 'foto' => '20230326174648.jpg',
@@ -85,8 +85,8 @@ class HomePengurusTableSeeder extends Seeder
             ),
             4 => 
             array (
-                'id' => 5,
-                'urutan' => 5,
+                'id' => '5',
+                'urutan' => '5',
                 'nama' => 'Ayesha Binte Alif',
                 'sebagai' => 'Hafiz Quran Scholor',
                 'foto' => '20230326174716.jpg',
