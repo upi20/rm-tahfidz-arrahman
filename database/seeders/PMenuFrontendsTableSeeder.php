@@ -129,12 +129,12 @@ class PMenuFrontendsTableSeeder extends Seeder
                 'parent_id' => NULL,
                 'title' => 'Pendaftaran',
                 'icon' => NULL,
-                'route' => '#',
+                'route' => 'pendaftaran',
                 'sequence' => 5,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-03-26 08:02:37',
-                'updated_at' => '2023-03-26 08:02:41',
+                'updated_at' => '2023-03-26 22:37:02',
             ),
         ));
         

@@ -45,9 +45,9 @@ class BannersTableSeeder extends Seeder
                 'nama' => 'Iklan 3',
                 'foto' => '20230324234525.jpg',
                 'status' => 1,
-                'ditampilkan' => 23,
+                'ditampilkan' => 24,
                 'created_at' => '2023-03-24 23:45:25',
-                'updated_at' => '2023-03-26 20:56:56',
+                'updated_at' => '2023-03-26 23:24:06',
             ),
             3 => 
             array (
@@ -55,9 +55,9 @@ class BannersTableSeeder extends Seeder
                 'nama' => 'Iklan 4',
                 'foto' => '20230324234534.jpg',
                 'status' => 1,
-                'ditampilkan' => 19,
+                'ditampilkan' => 20,
                 'created_at' => '2023-03-24 23:45:34',
-                'updated_at' => '2023-03-26 21:04:18',
+                'updated_at' => '2023-03-26 23:23:52',
             ),
             4 => 
             array (

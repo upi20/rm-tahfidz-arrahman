@@ -1,43 +1,67 @@
 @extends('templates.admin.master')
 
 @section('content')
+    @php
+        $can_update = auth_can(h_prefix('update'));
+        $can_setting = auth_can(h_prefix('setting'));
+        $can_delete = auth_can(h_prefix('delete'));
+    @endphp
     <!-- Row -->
     <div class="card">
         <div class="card-header d-md-flex flex-row justify-content-between">
-            <h3 class="card-title">Status Pendaftaran</h3>
-            <button type="button" class="btn btn-rounded btn-success btn-sm" data-bs-effect="effect-scale"
-                data-bs-toggle="modal" href="#modal-default" onclick="add()" data-target="#modal-default">
-                <i class="fas fa-plus"></i> Tambah
-            </button>
+            <h3 class="card-title">Data {{ $page_attr['title'] }}</h3>
         </div>
         <div class="card-body">
-            <h5 class="h5">Filter Data</h5>
-            <form action="javascript:void(0)" class="form-inline ml-md-3 mb-md-3" id="FilterForm">
-                <div class="form-group me-md-3">
-                    <label for="filter_status">Status Pendaftaran</label>
-                    <select class="form-control" id="filter_status" name="filter_status" style="max-width: 200px">
-                        <option value="">All Pendaftaran</option>
-                        <option value="0">Tidak Aktif</option>
-                        <option value="1">Aktif</option>
-                        <option value="2">Ditutup</option>
-                    </select>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default active mb-2">
+                    <div class="panel-heading " role="tab" id="headingOne1">
+                        <h4 class="panel-title">
+                            <a role="button" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapse1"
+                                aria-expanded="true" aria-controls="collapse1">
+                                Filter Data
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
+                        <div class="panel-body">
+                            <form action="javascript:void(0)" class="ml-md-3 mb-md-3" id="FilterForm">
+                                <div class="form-group float-start me-2">
+                                    <label for="filter_status">Status</label>
+                                    <br>
+                                    <select class="form-control" id="filter_status" name="filter_status"
+                                        style="width: 300px">
+                                        <option value="">Semua</option>
+                                    </select>
+                                </div>
+                                <div class="form-group float-start me-2">
+                                    <label for="filter_jenis_kelamin">Jenis Kelamin</label>
+                                    <select class="form-control" id="filter_jenis_kelamin" name="filter_jenis_kelamin"
+                                        style="max-width: 200px">
+                                        <option value="">Semua</option>
+                                        <option value="Laki-Laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <div style="clear: both"></div>
+                            <button type="submit" form="FilterForm" class="btn btn-rounded btn-md btn-info"
+                                data-toggle="tooltip" title="Refresh Filter Table">
+                                <i class="bi bi-arrow-repeat"></i> Terapkan filter
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-rounded btn-md btn-info" title="Refresh Filter Table">
-                    <i class="fas fa-sync"></i> Refresh
-                </button>
-            </form>
+            </div>
+
             <table class="table table-striped" id="tbl_main">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>No Urut</th>
                         <th>Nama</th>
-                        <th>Foto</th>
-                        <th>Dari</th>
-                        <th>Sampai</th>
-                        <th>Route</th>
-                        <th>Detail</th>
+                        <th>Alamat</th>
+                        <th>Kontak</th>
                         <th>Status</th>
+                        <th>Tanggal</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -45,107 +69,49 @@
             </table>
         </div>
     </div>
+
     <!-- End Row -->
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="modal-default-title"></h6><button aria-label="Close" class="btn-close"
-                        data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h6 class="modal-title" id="modal-default-title">Set Status Pendaftaran</h6><button aria-label="Tutup"
+                        class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <form action="javascript:void(0)" id="MainForm" name="MainForm" method="POST"
                         enctype="multipart/form-data">
                         <input type="hidden" name="id" id="id">
+
                         <div class="form-group">
-                            <label class="form-label" for="nama">Nama <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="nama" name="nama"
-                                placeholder="Enter Nama" required="" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="foto">Foto <span class="text-danger">*</span></label>
-                            <input type="file" class="form-control" id="foto" name="foto" required="" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="no_urut">Nomor Urut <span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="no_urut" name="no_urut" placeholder="Urutan"
-                                required="" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="dari">Dari Tanggal<span class="text-danger">*</span></label>
-                            <input type="date" class="form-control" id="dari" name="dari"
-                                placeholder="Dari Tanggal" required="" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="sampai">Sampai Tanggal<span
-                                    class="text-danger">*</span></label>
-                            <input type="date" class="form-control" id="sampai" name="sampai"
-                                placeholder="Sampai Tanggal" required="" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="route">Route</label>
-                            <input type="text" class="form-control" id="route" name="route"
-                                placeholder="Route Pendaftaran" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="deskripsi">Deskripsi</label>
-                            <textarea type="text" class="form-control" rows="3" id="deskripsi" name="deskripsi"
-                                placeholder="Enter Deskripsi"> </textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="pengumuman">Pengumuman (HTML)</label>
-                            <textarea type="text" class="form-control" rows="3" id="pengumuman" name="pengumuman"
-                                placeholder="Enter Pengumuman"> </textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="status">Status</label>
-                            <select class="form-control" style="width: 100%;" required="" id="status"
-                                name="status">
-                                <option value="1">Aktif</option>
-                                <option value="0">Tidak Aktif</option>
-                                <option value="2">Ditutup</option>
+                            <label class="form-label" for="status">Status
+                                <span class="text-danger">*</span></label>
+                            <select class="form-control" style="width: 100%;" required="" id="status" name="status">
                             </select>
                         </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" id="btn-save" form="MainForm">
-                        <li class="fas fa-save mr-1"></li> Save changes
+                        <li class="fas fa-save mr-1"></li> Simpan Perubahan
                     </button>
                     <button class="btn btn-light" data-bs-dismiss="modal">
                         <i class="fas fa-times"></i>
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modal-icon">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content modal-content-demo">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modal-icon-title">View Foto</h6><button aria-label="Close"
-                        class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <img src="" class="img-fluid" id="icon-view-image" alt="Icon Pendaftaran">
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-light" data-bs-dismiss="modal">
-                        <i class="fas fa-times"></i>
-                        Close
+                        Tutup
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
+
     <div class="modal fade" id="modal-detail">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title" id="modal-detail-title">Detail</h6><button aria-label="Close"
-                        class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h6 class="modal-title" id="modal-detail-title">Detail</h6><button aria-label="Tutup" class="btn-close"
+                        data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body" id="modal-detail-body">
 
@@ -153,7 +119,7 @@
                 <div class="modal-footer">
                     <button class="btn btn-light" data-bs-dismiss="modal">
                         <i class="fas fa-times"></i>
-                        Close
+                        Tutup
                     </button>
                 </div>
             </div>
@@ -161,21 +127,61 @@
     </div>
 @endsection
 
+@section('stylesheet')
+    <link rel="stylesheet"
+        href="{{ asset('assets/templates/admin/plugins/fontawesome-free-5.15.4-web/css/all.min.css') }}">
+@endsection
+
 @section('javascript')
-    <!-- DATA TABLE JS-->
     <script src="{{ asset('assets/templates/admin/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/templates/admin/plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
     <script src="{{ asset('assets/templates/admin/plugins/datatable/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('assets/templates/admin/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('assets/templates/admin/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
-
-
-    {{-- sweetalert --}}
     <script src="{{ asset('assets/templates/admin/plugins/sweet-alert/sweetalert2.all.js') }}"></script>
+    <script src="{{ asset('assets/templates/admin/plugins/loading/loadingoverlay.min.js') }}"></script>
+    <script src="{{ asset('assets/templates/admin/plugins/select2/js/select2.full.min.js') }}"></script>
 
     <script>
         const table_html = $('#tbl_main');
+        const can_delete = {{ $can_delete ? 'true' : 'false' }};
+        const can_update = {{ $can_update ? 'true' : 'false' }};
         $(document).ready(function() {
+            $('#filter_status').select2({
+                ajax: {
+                    url: "{{ route(h_prefix('select2')) }}",
+                    type: "GET",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: function(params) {
+                        var query = {
+                            search: params.term,
+                            all: 1,
+                        }
+                        return query;
+                    }
+                }
+            });
+
+            $('#status').select2({
+                ajax: {
+                    url: "{{ route(h_prefix('select2')) }}",
+                    type: "GET",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: function(params) {
+                        var query = {
+                            search: params.term,
+                            new: 1,
+                        }
+                        return query;
+                    },
+                },
+                dropdownParent: $('#modal-default')
+            });
+
             // datatable ====================================================================================
             $.ajaxSetup({
                 headers: {
@@ -186,15 +192,16 @@
                 searchDelay: 500,
                 processing: true,
                 serverSide: true,
-                // responsive: true,
+                responsive: true,
                 scrollX: true,
                 aAutoWidth: false,
                 bAutoWidth: false,
                 type: 'GET',
                 ajax: {
-                    url: "{{ route('admin.pendaftaran') }}",
+                    url: "{{ route(h_prefix()) }}",
                     data: function(d) {
-                        d['filter[status]'] = $('#filter_status').val();
+                        d['filter[status]'] = String($('#filter_status').val()).toUpperCase();
+                        d['filter[jenis_kelamin]'] = $('#filter_jenis_kelamin').val();
                     }
                 },
                 columns: [{
@@ -203,83 +210,72 @@
                         orderable: false,
                     },
                     {
-                        data: 'no_urut',
-                        name: 'no_urut'
-                    },
-                    {
                         data: 'nama',
-                        name: 'nama'
-                    },
-                    {
-                        data: 'foto',
-                        name: 'foto',
+                        name: 'nama',
                         render(data, type, full, meta) {
-                            return data ? `
-                            <a class="btn btn-primary btn-sm" data-bs-effect="effect-scale" data-bs-toggle="modal"
-                                        href="#modal-icon" onclick="viewIcon('${data}')"
-                                        data-target="#modal-icon"><i class="fas fa-eye" aria-hidden="true"></i> </a>
-                            ` : '';
+                            return `${data}<br><small>${full.tanggal_lahir_str} | ${full.jenis_kelamin}</small>`;
                         },
                     },
                     {
-                        data: 'dari',
-                        name: 'dari'
-                    },
-                    {
-                        data: 'sampai',
-                        name: 'sampai'
-                    },
-                    {
-                        data: 'route',
-                        name: 'route'
-                    },
-                    {
-                        data: 'id',
-                        name: 'id',
+                        data: 'alamat',
+                        name: 'alamat',
                         render(data, type, full, meta) {
-                            return `
-                                <button type="button" class="btn btn-rounded btn-info btn-sm" title="Hapus Data" onClick="detail('${data}')">
-                                <i class="fas fa-eye" aria-hidden="true"></i>
-                                </button>
-                                `;
-                        },
-                    },
-                    {
-                        data: 'status_str',
-                        name: 'status',
-                        render(data, type, full, meta) {
-                            const class_el = full.status == 1 ? 'badge bg-success' :
-                                (full.status == 2 ? 'badge bg-warning' : 'badge bg-danger');
-                            return `<span class="${class_el} p-2">${full.status_str}</span>`;
+                            return `<small>${data}</small>`;
                         },
                     },
                     {
                         data: 'id',
                         name: 'id',
                         render(data, type, full, meta) {
-                            return ` <button type="button" class="btn btn-rounded btn-primary btn-sm" title="Ubah Data"
-                                data-id="${full.id}"
-                                data-no_urut="${full.no_urut}"
-                                data-nama="${full.nama}"
-                                data-dari="${full.dari}"
-                                data-sampai="${full.sampai}"
-                                data-route="${full.route}"
-                                data-deskripsi="${full.deskripsi}"
-                                data-pengumuman="${full.pengumuman}"
-                                data-status="${full.status}"
-                                onClick="editFunc(this)">
-                                <i class="fas fa-edit"></i> Ubah
-                                </button>
-                                <button type="button" class="btn btn-rounded btn-danger btn-sm" title="Hapus Data" onClick="deleteFunc('${data}')">
-                                <i class="fas fa-trash"></i> Hapus
-                                </button>
-                                `;
+                            const no_telepon = full.no_telepon ?
+                                `<a target="_blank" href="tel:${full.no_telepon}"><i class="fas fa-phone me-1"></i> ${full.no_telepon}</a>` :
+                                '';
+
+                            const no_whatsapp = full.no_whatsapp ?
+                                `<a target="_blank" href="https://api.whatsapp.com/send?phone=${full.no_whatsapp}"><i class="fab fa-whatsapp me-1"></i> ${full.no_whatsapp}</a>` :
+                                '';
+
+                            let kontak = no_telepon;
+                            kontak += ((kontak ? '<br>' : '') + no_whatsapp);
+
+                            return `<small>${kontak}</small>`;
+                        },
+                        orderable: false
+                    },
+                    {
+                        data: 'status',
+                        name: 'status'
+                    },
+                    {
+                        data: 'created',
+                        name: 'created_at',
+                        render(data, type, full, meta) {
+                            const split = String(data).split(' ');
+                            if (split.length == 2) {
+                                return `${split[0]}<br><small>${split[1]}</small>`;
+                            }
+                            return `<small>${data}</small>`;
+                        },
+                    },
+                    {
+                        data: 'id',
+                        name: 'id',
+                        render(data, type, full, meta) {
+                            const btn_update = can_update ? `<button type="button" class="btn btn-rounded btn-primary btn-sm me-1" data-toggle="tooltip" title="Set Status" onClick="statusFunc('${data}', '${full.status??''}')">
+                                <i class="fas fa-edit"></i></button>` : '';
+
+                            const btn_detail = `<button type="button" class="btn btn-rounded btn-info btn-sm me-1" data-toggle="tooltip" title="Detail Data" onClick="detail('${data}')">
+                                <i class="fas fa-eye" aria-hidden="true"></i></button>`;
+
+                            const btn_delete = can_delete ? `<button type="button" class="btn btn-rounded btn-danger btn-sm me-1" data-toggle="tooltip" title="Hapus Data" onClick="deleteFunc('${data}')">
+                                <i class="fas fa-trash"></i></button>` : '';
+                            return btn_detail + btn_update + btn_delete;
                         },
                         orderable: false
                     },
                 ],
                 order: [
-                    [4, 'asc']
+                    [5, 'desc']
                 ],
                 language: {
                     url: datatable_indonesia_language_url
@@ -302,18 +298,17 @@
                 oTable.fnDraw(false);
             });
 
-            // insertForm ===================================================================================
+
+            // Submit ===================================================================================
             $('#MainForm').submit(function(e) {
                 e.preventDefault();
                 resetErrorAfterInput();
                 var formData = new FormData(this);
-                setBtnLoading('#btn-save', 'Save Changes');
-                const route = ($('#id').val() == '') ?
-                    "{{ route('admin.pendaftaran.insert') }}" :
-                    "{{ route('admin.pendaftaran.update') }}";
+                setBtnLoading('#btn-save', 'Simpan Perubahan');
+                const id = $('#id').val();
                 $.ajax({
                     type: "POST",
-                    url: route,
+                    url: `{{ url(h_prefix_uri('set_status')) }}/${id}`,
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -328,11 +323,10 @@
                         Swal.fire({
                             position: 'center',
                             icon: 'success',
-                            title: 'Data saved successfully',
+                            title: 'Data berhasil disimpan',
                             showConfirmButton: false,
                             timer: 1500
                         })
-
                     },
                     error: function(data) {
                         const res = data.responseJSON ?? {};
@@ -351,53 +345,24 @@
                     },
                     complete: function() {
                         setBtnLoading('#btn-save',
-                            '<li class="fas fa-save mr-1"></li> Save changes',
+                            '<li class="fas fa-save mr-1"></li> Simpan Perubahan',
                             false);
                     }
                 });
             });
         });
 
-        function add() {
-            $('#MainForm').trigger("reset");
-            $('#modal-default-title').html("Tambah Pendaftaran");
-            $('#modal-default').modal('show');
-            $('#id').val('');
-            $('#foto').attr('required', true);
-            resetErrorAfterInput();
-        }
-
-
-        function editFunc(datas) {
-            const data = datas.dataset;
-            $('#modal-default-title').html("Ubah Pendaftaran");
-            $('#modal-default').modal('show');
-            $('#MainForm').trigger("reset");
-            $('#foto').removeAttr('required');
-
-            $('#id').val(data.id);
-            $('#no_urut').val(data.no_urut);
-            $('#nama').val(data.nama);
-            $('#foto').val('');
-            $('#dari').val(data.dari);
-            $('#sampai').val(data.sampai);
-            $('#route').val(data.route);
-            $('#deskripsi').val(data.deskripsi);
-            $('#pengumuman').val(data.pengumuman);
-            $('#status').val(data.status);
-        }
-
         function deleteFunc(id) {
             swal.fire({
-                title: 'Are you sure?',
-                text: "Are you sure you want to proceed ?",
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin akan menghapus data ini ?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Yes'
             }).then(function(result) {
                 if (result.value) {
                     $.ajax({
-                        url: `{{ url('admin/pendaftaran') }}/${id}`,
+                        url: `{{ url(h_prefix_uri()) }}/${id}`,
                         type: 'DELETE',
                         dataType: 'json',
                         headers: {
@@ -416,7 +381,7 @@
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
-                                title: 'Pendaftaran  deleted successfully',
+                                title: 'Berhasil Menghapus Data',
                                 showConfirmButton: false,
                                 timer: 1500
                             })
@@ -435,27 +400,47 @@
             });
         }
 
-        function viewIcon(image) {
-            $('#icon-view-image').attr('src', `{{ asset($image_folder) }}/${image}`)
+        function statusFunc(id, status) {
+            $('#MainForm').trigger("reset");
+            $('#modal-default').modal('show');
+            $('#id').val(id);
+            $('#status').append((new Option(status, status, true, true))).trigger('change');
         }
 
         function detail(id) {
+            $.LoadingOverlay("show");
             $.ajax({
                 type: "GET",
-                url: `{{ url('admin/pendaftaran/get_one') }}/${id}`,
+                url: `{{ route(h_prefix('find')) }}`,
+                data: {
+                    id
+                },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: (data) => {
+                    $.LoadingOverlay("hide");
                     $("#modal-detail").modal('show');
                     $("#modal-detail-body").html(`
-                    <h3>Deskripsi</h3>
-                    <p>${data.deskripsi}</p>
-                    <h3>Pengumuman</h3>
-                    ${data.pengumuman}
+                    <h4>Nama</h4>
+                    <p>${data.nama}</p>
+                    <h4>Tanggal Lahir</h4>
+                    <p>${data.tanggal_lahir}</p>
+                    <h4>Jenis Kelamin</h4>
+                    <p>${data.jenis_kelamin}</p>
+                    <h4>Alamat</h4>
+                    <p>${data.alamat}</p>
+                    <h4>Status</h4>
+                    <p>${data.status??''}</p>
+                    <h4>Tanggal Kirim</h4>
+                    <p>${data.tanggal??''}</p>
+                    <h4>Tanggal Diubah</h4>
+                    <p>${data.updated??''}</p>
+                    
                     `);
                 },
                 error: function(data) {
+                    $.LoadingOverlay("hide");
                     const res = data.responseJSON ?? {};
                     Swal.fire({
                         position: 'top-end',

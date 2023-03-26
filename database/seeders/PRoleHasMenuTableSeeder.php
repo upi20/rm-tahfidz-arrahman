@@ -557,29 +557,13 @@ class PRoleHasMenuTableSeeder extends Seeder
             ),
             67 => 
             array (
-                'id' => 168,
-                'role_id' => 1,
-                'menu_id' => 392,
-                'created_at' => '2023-03-26 13:01:31',
-                'updated_at' => '2023-03-26 13:01:31',
-            ),
-            68 => 
-            array (
-                'id' => 169,
-                'role_id' => 9,
-                'menu_id' => 392,
-                'created_at' => '2023-03-26 13:01:31',
-                'updated_at' => '2023-03-26 13:01:31',
-            ),
-            69 => 
-            array (
                 'id' => 170,
                 'role_id' => 1,
                 'menu_id' => 420,
                 'created_at' => '2023-03-26 13:12:44',
                 'updated_at' => '2023-03-26 13:12:44',
             ),
-            70 => 
+            68 => 
             array (
                 'id' => 171,
                 'role_id' => 9,
@@ -587,7 +571,7 @@ class PRoleHasMenuTableSeeder extends Seeder
                 'created_at' => '2023-03-26 13:12:44',
                 'updated_at' => '2023-03-26 13:12:44',
             ),
-            71 => 
+            69 => 
             array (
                 'id' => 172,
                 'role_id' => 1,
@@ -595,7 +579,7 @@ class PRoleHasMenuTableSeeder extends Seeder
                 'created_at' => '2023-03-26 14:11:28',
                 'updated_at' => '2023-03-26 14:11:28',
             ),
-            72 => 
+            70 => 
             array (
                 'id' => 173,
                 'role_id' => 9,
@@ -603,7 +587,7 @@ class PRoleHasMenuTableSeeder extends Seeder
                 'created_at' => '2023-03-26 14:11:28',
                 'updated_at' => '2023-03-26 14:11:28',
             ),
-            73 => 
+            71 => 
             array (
                 'id' => 174,
                 'role_id' => 1,
@@ -611,7 +595,7 @@ class PRoleHasMenuTableSeeder extends Seeder
                 'created_at' => '2023-03-26 15:04:17',
                 'updated_at' => '2023-03-26 15:04:17',
             ),
-            74 => 
+            72 => 
             array (
                 'id' => 175,
                 'role_id' => 9,
@@ -619,7 +603,7 @@ class PRoleHasMenuTableSeeder extends Seeder
                 'created_at' => '2023-03-26 15:04:17',
                 'updated_at' => '2023-03-26 15:04:17',
             ),
-            75 => 
+            73 => 
             array (
                 'id' => 176,
                 'role_id' => 1,
@@ -627,13 +611,45 @@ class PRoleHasMenuTableSeeder extends Seeder
                 'created_at' => '2023-03-26 18:32:49',
                 'updated_at' => '2023-03-26 18:32:49',
             ),
-            76 => 
+            74 => 
             array (
                 'id' => 177,
                 'role_id' => 9,
                 'menu_id' => 423,
                 'created_at' => '2023-03-26 18:32:49',
                 'updated_at' => '2023-03-26 18:32:49',
+            ),
+            75 => 
+            array (
+                'id' => 184,
+                'role_id' => 1,
+                'menu_id' => 392,
+                'created_at' => '2023-03-26 22:35:52',
+                'updated_at' => '2023-03-26 22:35:52',
+            ),
+            76 => 
+            array (
+                'id' => 185,
+                'role_id' => 9,
+                'menu_id' => 392,
+                'created_at' => '2023-03-26 22:35:52',
+                'updated_at' => '2023-03-26 22:35:52',
+            ),
+            77 => 
+            array (
+                'id' => 186,
+                'role_id' => 1,
+                'menu_id' => 424,
+                'created_at' => '2023-03-26 23:10:22',
+                'updated_at' => '2023-03-26 23:10:22',
+            ),
+            78 => 
+            array (
+                'id' => 187,
+                'role_id' => 9,
+                'menu_id' => 424,
+                'created_at' => '2023-03-26 23:10:22',
+                'updated_at' => '2023-03-26 23:10:22',
             ),
         ));
         

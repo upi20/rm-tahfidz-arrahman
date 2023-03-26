@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('alamat')->nullable()->default(null);
             $table->string('no_telepon')->nullable()->default(null);
             $table->string('no_whatsapp')->nullable()->default(null);
+            $table->string('status')->nullable()->default(null);
             $table->timestamps();
         });
     }

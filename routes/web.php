@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\GaleriController;
 use App\Http\Controllers\Frontend\ArtikelController;
 use App\Http\Controllers\Frontend\KatalogController;
 use App\Http\Controllers\Frontend\MarketplaceController;
+use App\Http\Controllers\Frontend\PendaftaranController;
 use App\Http\Controllers\Frontend\ProdukController;
 
 // ====================================================================================================================
@@ -76,7 +77,16 @@ $name = 'kontak';
 Route::controller(KontakController::class)->prefix($name)->group(function () use ($name) {
     Route::get('/', 'index')->name($name);
     Route::post('/send', 'insert')->name("$name.send");
-    Route::get('/faq', 'faq')->name("$name.faq");
+});
+// ====================================================================================================================
+
+
+
+// Pendaftaran =============================================================================================================
+$name = 'pendaftaran';
+Route::controller(PendaftaranController::class)->prefix($name)->group(function () use ($name) {
+    Route::get('/', 'index')->name($name);
+    Route::post('/send', 'insert')->name("$name.send");
 });
 // ====================================================================================================================
 

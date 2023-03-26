@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\Artikel\ArtikelController;
 use App\Http\Controllers\Admin\Artikel\KategoriController;
 use App\Http\Controllers\Admin\Artikel\TagController;
 use App\Http\Controllers\Admin\BannerController;
+
 // Contact ============================================================================================================
 use App\Http\Controllers\Admin\Contact\FAQController;
 use App\Http\Controllers\Admin\Contact\ListContactController;
@@ -31,6 +32,7 @@ use App\Http\Controllers\Admin\Menu\FrontendController as MenuFrontendController
 
 // Pendaftaran ========================================================================================================
 use App\Http\Controllers\Admin\Pendaftaran\GFormController;
+use App\Http\Controllers\Admin\PendaftaranController;
 
 // Setting ============================================================================================================
 use App\Http\Controllers\Admin\Setting\AdminController;
@@ -38,6 +40,7 @@ use App\Http\Controllers\Admin\Setting\FrontController;
 use App\Http\Controllers\Admin\Setting\HomeController;
 use App\Http\Controllers\Admin\Setting\HomeSliderController;
 use App\Http\Controllers\Admin\Setting\VisiMisiController;
+use App\Http\Controllers\Admin\Setting\AboutController;
 
 // Utility ============================================================================================================
 use App\Http\Controllers\Admin\Utility\HariBesarNasionalController;
@@ -48,12 +51,11 @@ use App\Http\Controllers\Admin\Utility\NotifDepanAtasController;
 use App\Http\Controllers\Admin\Produk\KategoriController as ProdukKategoriController;
 use App\Http\Controllers\Admin\Produk\ProdukController;
 
-// HOme ===============================================================================================================
+// Home ===============================================================================================================
 use App\Http\Controllers\Admin\Home\KataKataController;
 use App\Http\Controllers\Admin\Home\PengurusController;
 use App\Http\Controllers\Admin\Home\ProgramPembelajaranController;
 use App\Http\Controllers\Admin\Produk\MarketplaceController;
-use App\Http\Controllers\Admin\Setting\AboutController;
 
 // ====================================================================================================================
 
@@ -205,6 +207,18 @@ Route::group(['prefix' => $prefix], function () use ($name, $prefix) {
         Route::get('/find', 'find')->name("$name.find")->middleware("permission:$name.update");
         Route::post('/', 'insert')->name("$name.insert")->middleware("permission:$name.insert");
         Route::post('/update', 'update')->name("$name.update")->middleware("permission:$name.update");
+        Route::delete('/{model}', 'delete')->name("$name.delete")->middleware("permission:$name.delete");
+    });
+
+    $prefix = 'santri';
+    Route::controller(PendaftaranController::class)->prefix($prefix)->group(function () use ($name, $prefix) {
+        $name = "$name.$prefix"; // admin.pendaftaran.santri
+        Route::get('/', 'index')->name($name)->middleware("permission:$name");
+        Route::post('/setting', 'setting')->name("$name.setting")->middleware("permission:$name.setting");
+        Route::get('/select2', 'select2')->name("$name.select2")->middleware("permission:$name");
+
+        Route::get('/find', 'find')->name("$name.find")->middleware("permission:$name.update");
+        Route::post('/set_status/{model}', 'set_status')->name("$name.set_status")->middleware("permission:$name.update");
         Route::delete('/{model}', 'delete')->name("$name.delete")->middleware("permission:$name.delete");
     });
 });
