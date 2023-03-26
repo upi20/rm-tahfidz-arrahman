@@ -81,208 +81,93 @@
         <!-- Feature Section End Here -->
     @endif
 
-    <!-- Team section start here -->
-    <div class="team-section padding-tb shape-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="header-title">
-                        <h5>Pengurus</h5>
-                        <h2>Para pengajar di Rumah Tahfidzh Quran Ar-Rahman</h2>
+    @php $k = "$p.pengurus"; @endphp
+    @if (settings()->get("$k.visible"))
+        <!-- Team section start here -->
+        <div class="team-section padding-tb shape-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header-title">
+                            <h5>{!! settings()->get("$k.title") !!}</h5>
+                            <h2>{!! settings()->get("$k.sub_title") !!}</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                            <div class="card mb-4 text-center border-none team-item-1 pattern-2">
-                                <div class="lab-inner">
-                                    <div class="lab-thumb">
-                                        <img data-src="{{ asset('assets/templates/frontend/images/team/01.jpg') }}"
-                                            class="card-img-top lazy" alt="product">
-                                    </div>
-                                    <div class="lab-content">
-                                        <a href="#">
-                                            <h6 class="card-title mb-0">Hamad Bin Jasim</h6>
-                                        </a>
-                                        <p class="card-text mb-3">Hafiz Quran Scholor</p>
-                                        <div class="social-share">
-                                            <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
-                                            <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
-                                            <a href="#" class="m-1 instagram"><i class="icofont-instagram"></i></a>
-                                            <a href="#" class="m-1 vimeo"><i class="icofont-vimeo"></i></a>
-                                            <a href="#" class="m-1 linkedin"><i class="icofont-linkedin"></i></a>
+                    <div class="col-12">
+                        <div class="row justify-content-center">
+                            @foreach ($penguruses as $pengurus)
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="card mb-4 text-center border-none team-item-1 pattern-2">
+                                        <div class="lab-inner">
+                                            <div class="lab-thumb">
+                                                <img data-src="{{ $pengurus->fotoUrl() }}" class="card-img-top lazy"
+                                                    alt="{{ $pengurus->nama }}"
+                                                    style="margin: auto;
+                                                    position: relative;
+                                                    margin: auto;
+                                                    width: 140px;
+                                                    height: 140px;
+                                                    max-height: 140px;
+                                                    border-radius: 140px;
+                                                    object-fit: cover;
+                                                    object-position: center;
+                                                    -webkit-border-radius: 140px;
+                                                    -moz-border-radius: 140px;">
+                                            </div>
+                                            <div class="lab-content">
+                                                <h6 class="card-title mb-0">{{ $pengurus->nama }}</h6>
+                                                <p class="card-text mb-3">{{ $pengurus->sebagai }}</p>
+                                                @if (
+                                                    $pengurus->no_telepon ||
+                                                        $pengurus->no_whatsapp ||
+                                                        $pengurus->facebook ||
+                                                        $pengurus->instagram ||
+                                                        $pengurus->twitter)
+                                                    <div class="social-share">
+                                                        @if ($pengurus->no_telepon)
+                                                            <a href="tel:{{ $pengurus->no_telepon }}" target="_blank"
+                                                                class="m-1 twitter">
+                                                                <i class="fas fa-phone me-1"></i>
+                                                            </a>
+                                                        @endif
+                                                        @if ($pengurus->no_whatsapp)
+                                                            <a href="https://api.whatsapp.com/send?phone={{ $pengurus->no_whatsapp }}"
+                                                                target="_blank" class="m-1 twitter">
+                                                                <i class="fab fa-whatsapp"></i>
+                                                            </a>
+                                                        @endif
+                                                        @if ($pengurus->facebook)
+                                                            <a href="{{ $pengurus->facebook }}" target="_blank"
+                                                                class="m-1 twitter">
+                                                                <i class="fab fa-facebook-square"></i>
+                                                            </a>
+                                                        @endif
+                                                        @if ($pengurus->instagram)
+                                                            <a href="{{ $pengurus->instagram }}" target="_blank"
+                                                                class="m-1 twitter">
+                                                                <i class="fab fa-instagram"></i>
+                                                            </a>
+                                                        @endif
+                                                        @if ($pengurus->twitter)
+                                                            <a href="{{ $pengurus->twitter }}" target="_blank"
+                                                                class="m-1 twitter">
+                                                                <i class="fab fa-twitter"></i>
+                                                            </a>
+                                                        @endif
+                                                    </div>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                            <div class="card mb-4 text-center border-none team-item-1 pattern-2">
-                                <div class="lab-inner">
-                                    <div class="lab-thumb">
-                                        <img data-src="{{ asset('assets/templates/frontend/images/team/02.jpg') }}"
-                                            class="card-img-top lazy" alt="product">
-                                    </div>
-                                    <div class="lab-content">
-                                        <a href="#">
-                                            <h6 class="card-title mb-0">Sayyida Al-Hijaazi</h6>
-                                        </a>
-                                        <p class="card-text mb-3">Hafiz Quran Scholor</p>
-                                        <div class="social-share">
-                                            <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
-                                            <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
-                                            <a href="#" class="m-1 instagram"><i class="icofont-instagram"></i></a>
-                                            <a href="#" class="m-1 vimeo"><i class="icofont-vimeo"></i></a>
-                                            <a href="#" class="m-1 linkedin"><i class="icofont-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                            <div class="card mb-4 text-center border-none team-item-1 pattern-2">
-                                <div class="lab-inner">
-                                    <div class="lab-thumb">
-                                        <img data-src="{{ asset('assets/templates/frontend/images/team/03.jpg') }}"
-                                            class="card-img-top lazy" alt="product">
-                                    </div>
-                                    <div class="lab-content">
-                                        <a href="#">
-                                            <h6 class="card-title mb-0">Ashraf Al-Maktum</h6>
-                                        </a>
-                                        <p class="card-text mb-3">Hafiz Quran Scholor</p>
-                                        <div class="social-share">
-                                            <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
-                                            <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
-                                            <a href="#" class="m-1 instagram"><i class="icofont-instagram"></i></a>
-                                            <a href="#" class="m-1 vimeo"><i class="icofont-vimeo"></i></a>
-                                            <a href="#" class="m-1 linkedin"><i class="icofont-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                            <div class="card mb-4 text-center border-none team-item-1 pattern-2">
-                                <div class="lab-inner">
-                                    <div class="lab-thumb">
-                                        <img data-src="{{ asset('assets/templates/frontend/images/team/04.jpg') }}"
-                                            class="card-img-top lazy" alt="product">
-                                    </div>
-                                    <div class="lab-content">
-                                        <a href="#">
-                                            <h6 class="card-title mb-0">Ayesha Binte Alif</h6>
-                                        </a>
-                                        <p class="card-text mb-3">Hafiz Quran Scholor</p>
-                                        <div class="social-share">
-                                            <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
-                                            <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
-                                            <a href="#" class="m-1 instagram"><i class="icofont-instagram"></i></a>
-                                            <a href="#" class="m-1 vimeo"><i class="icofont-vimeo"></i></a>
-                                            <a href="#" class="m-1 linkedin"><i class="icofont-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                            <div class="card mb-4 text-center border-none team-item-1 pattern-2">
-                                <div class="lab-inner">
-                                    <div class="lab-thumb">
-                                        <img data-src="{{ asset('assets/templates/frontend/images/team/05.jpg') }}"
-                                            class="card-img-top lazy" alt="product">
-                                    </div>
-                                    <div class="lab-content">
-                                        <a href="#">
-                                            <h6 class="card-title mb-0">Hamad Bin Jasim</h6>
-                                        </a>
-                                        <p class="card-text mb-3">Hafiz Quran Scholor</p>
-                                        <div class="social-share">
-                                            <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
-                                            <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
-                                            <a href="#" class="m-1 instagram"><i class="icofont-instagram"></i></a>
-                                            <a href="#" class="m-1 vimeo"><i class="icofont-vimeo"></i></a>
-                                            <a href="#" class="m-1 linkedin"><i class="icofont-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                            <div class="card mb-4 text-center border-none team-item-1 pattern-2">
-                                <div class="lab-inner">
-                                    <div class="lab-thumb">
-                                        <img data-src="{{ asset('assets/templates/frontend/images/team/06.jpg') }}"
-                                            class="card-img-top lazy" alt="product">
-                                    </div>
-                                    <div class="lab-content">
-                                        <a href="#">
-                                            <h6 class="card-title mb-0">Sayyida Al-Hijaazi</h6>
-                                        </a>
-                                        <p class="card-text mb-3">Hafiz Quran Scholor</p>
-                                        <div class="social-share">
-                                            <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
-                                            <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
-                                            <a href="#" class="m-1 instagram"><i class="icofont-instagram"></i></a>
-                                            <a href="#" class="m-1 vimeo"><i class="icofont-vimeo"></i></a>
-                                            <a href="#" class="m-1 linkedin"><i class="icofont-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                            <div class="card mb-4 text-center border-none team-item-1 pattern-2">
-                                <div class="lab-inner">
-                                    <div class="lab-thumb">
-                                        <img data-src="{{ asset('assets/templates/frontend/images/team/07.jpg') }}"
-                                            class="card-img-top lazy" alt="product">
-                                    </div>
-                                    <div class="lab-content">
-                                        <a href="#">
-                                            <h6 class="card-title mb-0">Ashraf Al-Maktum</h6>
-                                        </a>
-                                        <p class="card-text mb-3">Hafiz Quran Scholor</p>
-                                        <div class="social-share">
-                                            <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
-                                            <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
-                                            <a href="#" class="m-1 instagram"><i class="icofont-instagram"></i></a>
-                                            <a href="#" class="m-1 vimeo"><i class="icofont-vimeo"></i></a>
-                                            <a href="#" class="m-1 linkedin"><i class="icofont-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                            <div class="card mb-4 text-center border-none team-item-1 pattern-2">
-                                <div class="lab-inner">
-                                    <div class="lab-thumb">
-                                        <img data-src="{{ asset('assets/templates/frontend/images/team/08.jpg') }}"
-                                            class="card-img-top lazy" alt="product">
-                                    </div>
-                                    <div class="lab-content">
-                                        <a href="#">
-                                            <h6 class="card-title mb-0">Ayesha Binte Alif</h6>
-                                        </a>
-                                        <p class="card-text mb-3">Hafiz Quran Scholor</p>
-                                        <div class="social-share">
-                                            <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
-                                            <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
-                                            <a href="#" class="m-1 instagram"><i class="icofont-instagram"></i></a>
-                                            <a href="#" class="m-1 vimeo"><i class="icofont-vimeo"></i></a>
-                                            <a href="#" class="m-1 linkedin"><i class="icofont-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Team section end here -->
+        <!-- Team section end here -->
+    @endif
 
     @php $k = "$p.galeri"; @endphp
     @if (settings()->get("$k.visible"))

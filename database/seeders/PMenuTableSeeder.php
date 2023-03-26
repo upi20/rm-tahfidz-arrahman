@@ -39,11 +39,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Manajemen Pengguna',
                 'icon' => 'fas fa-users',
                 'route' => 'admin.user',
-                'sequence' => 32,
+                'sequence' => 33,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             2 => 
             array (
@@ -108,7 +108,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 11:51:23',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             7 => 
             array (
@@ -117,11 +117,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Menu Management',
                 'icon' => 'fas fa-stream',
                 'route' => NULL,
-                'sequence' => 33,
+                'sequence' => 34,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             8 => 
             array (
@@ -134,7 +134,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 13:00:22',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             9 => 
             array (
@@ -147,7 +147,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 13:00:22',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             10 => 
             array (
@@ -156,11 +156,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'User Access',
                 'icon' => 'fas fa-user-check',
                 'route' => NULL,
-                'sequence' => 36,
+                'sequence' => 37,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             11 => 
             array (
@@ -169,11 +169,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Permission',
                 'icon' => NULL,
                 'route' => 'admin.user_access.permission',
-                'sequence' => 37,
+                'sequence' => 38,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             12 => 
             array (
@@ -182,11 +182,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Role',
                 'icon' => NULL,
                 'route' => 'admin.user_access.role',
-                'sequence' => 38,
+                'sequence' => 39,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             13 => 
             array (
@@ -195,11 +195,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Ganti Password',
                 'icon' => 'fas fa-key',
                 'route' => 'admin.password',
-                'sequence' => 39,
+                'sequence' => 40,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:50:28',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             14 => 
             array (
@@ -208,11 +208,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Logout',
                 'icon' => 'fas fa-sign-out-alt',
                 'route' => 'logout',
-                'sequence' => 40,
+                'sequence' => 41,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-05 23:54:09',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             15 => 
             array (
@@ -225,7 +225,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-08 16:14:54',
-                'updated_at' => '2023-03-26 13:01:31',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             16 => 
             array (
@@ -234,11 +234,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Peralatan',
                 'icon' => 'fas fa-tools',
                 'route' => NULL,
-                'sequence' => 28,
+                'sequence' => 29,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-08 22:41:26',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             17 => 
             array (
@@ -247,11 +247,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Notifikasi Depan',
                 'icon' => NULL,
                 'route' => 'admin.utility.notif_depan_atas',
-                'sequence' => 30,
+                'sequence' => 31,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-08 22:41:53',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             18 => 
             array (
@@ -260,11 +260,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Pengaturan',
                 'icon' => 'fas fa-wrench',
                 'route' => NULL,
-                'sequence' => 25,
+                'sequence' => 26,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-14 21:10:57',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             19 => 
             array (
@@ -273,11 +273,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Informasi Admin',
                 'icon' => NULL,
                 'route' => 'admin.setting.admin',
-                'sequence' => 26,
+                'sequence' => 27,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-14 21:11:42',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             20 => 
             array (
@@ -286,11 +286,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Informasi Depan',
                 'icon' => NULL,
                 'route' => 'admin.setting.front',
-                'sequence' => 27,
+                'sequence' => 28,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-14 21:52:45',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             21 => 
             array (
@@ -303,7 +303,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-16 14:55:41',
-                'updated_at' => '2023-03-26 12:53:11',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             22 => 
             array (
@@ -312,11 +312,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Hari Besar Nasional',
                 'icon' => NULL,
                 'route' => 'admin.utility.hari_besar_nasional',
-                'sequence' => 31,
+                'sequence' => 32,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-17 21:19:05',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             23 => 
             array (
@@ -325,11 +325,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Notifikasi Admin',
                 'icon' => NULL,
                 'route' => 'admin.utility.notif_admin_atas',
-                'sequence' => 29,
+                'sequence' => 30,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-18 16:42:00',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             24 => 
             array (
@@ -351,11 +351,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Admin',
                 'icon' => NULL,
                 'route' => 'admin.menu.admin',
-                'sequence' => 34,
+                'sequence' => 35,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-20 14:12:45',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             26 => 
             array (
@@ -364,11 +364,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Depan',
                 'icon' => NULL,
                 'route' => 'admin.menu.frontend',
-                'sequence' => 35,
+                'sequence' => 36,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-20 14:16:07',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             27 => 
             array (
@@ -381,7 +381,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-21 08:38:20',
-                'updated_at' => '2023-03-26 13:00:48',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             28 => 
             array (
@@ -394,7 +394,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-21 08:39:18',
-                'updated_at' => '2023-03-26 12:53:11',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             29 => 
             array (
@@ -407,7 +407,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2022-08-21 08:40:08',
-                'updated_at' => '2023-03-26 13:00:48',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             30 => 
             array (
@@ -429,11 +429,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Menu Lainnya',
                 'icon' => NULL,
                 'route' => NULL,
-                'sequence' => 24,
+                'sequence' => 25,
                 'active' => 1,
                 'type' => 0,
                 'created_at' => '2022-09-15 21:18:04',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             32 => 
             array (
@@ -442,11 +442,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Slider',
                 'icon' => NULL,
                 'route' => 'admin.setting.home_slider',
-                'sequence' => 41,
+                'sequence' => 42,
                 'active' => 0,
                 'type' => 1,
                 'created_at' => '2023-01-18 00:11:36',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             33 => 
             array (
@@ -459,7 +459,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-01-18 00:18:02',
-                'updated_at' => '2023-03-26 12:53:11',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             34 => 
             array (
@@ -468,11 +468,11 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Visi Dan Misi',
                 'icon' => NULL,
                 'route' => 'admin.setting.visi_misi',
-                'sequence' => 42,
+                'sequence' => 43,
                 'active' => 0,
                 'type' => 1,
                 'created_at' => '2023-01-18 01:51:32',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
             ),
             35 => 
             array (
@@ -485,7 +485,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 0,
                 'type' => 1,
                 'created_at' => '2023-01-27 22:16:23',
-                'updated_at' => '2023-03-26 12:52:06',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             36 => 
             array (
@@ -498,7 +498,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-01-27 22:17:21',
-                'updated_at' => '2023-03-15 14:11:29',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             37 => 
             array (
@@ -511,7 +511,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-01-27 22:17:43',
-                'updated_at' => '2023-03-15 14:11:29',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             38 => 
             array (
@@ -524,7 +524,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-03-10 13:04:51',
-                'updated_at' => '2023-03-26 11:51:17',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             39 => 
             array (
@@ -537,7 +537,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-03-15 14:10:53',
-                'updated_at' => '2023-03-15 20:01:06',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             40 => 
             array (
@@ -550,7 +550,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-03-24 21:39:21',
-                'updated_at' => '2023-03-26 13:12:44',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             41 => 
             array (
@@ -563,7 +563,7 @@ class PMenuTableSeeder extends Seeder
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-03-24 23:53:51',
-                'updated_at' => '2023-03-26 11:51:17',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
             42 => 
             array (
@@ -572,11 +572,24 @@ class PMenuTableSeeder extends Seeder
                 'title' => 'Tentang',
                 'icon' => 'fab fa-slack-hash',
                 'route' => 'admin.setting.about',
-                'sequence' => 23,
+                'sequence' => 24,
                 'active' => 1,
                 'type' => 1,
                 'created_at' => '2023-03-26 15:04:17',
-                'updated_at' => '2023-03-26 15:04:25',
+                'updated_at' => '2023-03-26 18:32:57',
+            ),
+            43 => 
+            array (
+                'id' => 423,
+                'parent_id' => NULL,
+                'title' => 'Pengurus',
+                'icon' => 'fas fa-users',
+                'route' => 'admin.home.pengurus',
+                'sequence' => 23,
+                'active' => 1,
+                'type' => 1,
+                'created_at' => '2023-03-26 18:32:49',
+                'updated_at' => '2023-03-26 18:33:09',
             ),
         ));
         

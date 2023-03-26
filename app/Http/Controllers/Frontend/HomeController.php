@@ -7,6 +7,7 @@ use App\Models\Artikel\Artikel;
 use App\Models\Contact\FAQ;
 use App\Models\Galeri;
 use App\Models\Home\KataKata;
+use App\Models\Home\Pengurus;
 use App\Models\Home\ProgramPembelajaran;
 use App\Models\Produk\Produk;
 use App\Models\Tracker;
@@ -33,11 +34,16 @@ class HomeController extends Controller
             $articles = [];
         }
 
-        // galeri
         if ($this->checkVisible('galeri')) {
             $galeries = Galeri::getHomeViewData();
         } else {
             $galeries = [];
+        }
+
+        if ($this->checkVisible('pengurus')) {
+            $penguruses = Pengurus::getHomeViewData();
+        } else {
+            $penguruses = [];
         }
 
         $faqs = FAQ::getFeViewData();
@@ -49,6 +55,7 @@ class HomeController extends Controller
             'page_attr',
             'kata_katas',
             'program_pembelajarans',
+            'penguruses',
         );
         $data['compact'] = $data;
         return view('frontend.home', $data);

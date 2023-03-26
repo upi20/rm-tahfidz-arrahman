@@ -47,5 +47,6 @@ class DatabaseSeeder extends Seeder
         $this->call(BannersTableSeeder::class);
         $this->call(PendaftaransTableSeeder::class);
         $this->call(HomeKataKatasTableSeeder::class);
+        $this->call(HomePengurusTableSeeder::class);
     }
 }

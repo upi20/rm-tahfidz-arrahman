@@ -50,6 +50,7 @@ use App\Http\Controllers\Admin\Produk\ProdukController;
 
 // HOme ===============================================================================================================
 use App\Http\Controllers\Admin\Home\KataKataController;
+use App\Http\Controllers\Admin\Home\PengurusController;
 use App\Http\Controllers\Admin\Home\ProgramPembelajaranController;
 use App\Http\Controllers\Admin\Produk\MarketplaceController;
 use App\Http\Controllers\Admin\Setting\AboutController;
@@ -162,6 +163,17 @@ Route::group(['prefix' => $prefix], function () use ($name, $prefix) {
     $prefix = 'program_pembelajaran';
     Route::controller(ProgramPembelajaranController::class)->prefix($prefix)->group(function () use ($name, $prefix) {
         $name = "$name.$prefix"; // admin.home.program_pembelajaran
+        Route::get('/', 'index')->name($name)->middleware("permission:$name");
+        Route::get('/find', 'find')->name("$name.find")->middleware("permission:$name.update");
+        Route::post('/', 'insert')->name("$name.insert")->middleware("permission:$name.insert");
+        Route::post('/update', 'update')->name("$name.update")->middleware("permission:$name.update");
+        Route::post('/setting', 'setting')->name("$name.setting")->middleware("permission:$name.setting");
+        Route::delete('/{model}', 'delete')->name("$name.delete")->middleware("permission:$name.delete");
+    });
+
+    $prefix = 'pengurus';
+    Route::controller(PengurusController::class)->prefix($prefix)->group(function () use ($name, $prefix) {
+        $name = "$name.$prefix"; // admin.home.pengurus
         Route::get('/', 'index')->name($name)->middleware("permission:$name");
         Route::get('/find', 'find')->name("$name.find")->middleware("permission:$name.update");
         Route::post('/', 'insert')->name("$name.insert")->middleware("permission:$name.insert");

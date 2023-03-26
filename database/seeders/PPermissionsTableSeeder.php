@@ -1099,6 +1099,46 @@ class PPermissionsTableSeeder extends Seeder
                 'created_at' => '2023-03-25 00:19:39',
                 'updated_at' => '2023-03-25 00:19:39',
             ),
+            135 => 
+            array (
+                'id' => 137,
+                'name' => 'admin.home.pengurus',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-26 18:35:11',
+                'updated_at' => '2023-03-26 18:35:11',
+            ),
+            136 => 
+            array (
+                'id' => 138,
+                'name' => 'admin.home.pengurus.insert',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-26 18:35:15',
+                'updated_at' => '2023-03-26 18:35:15',
+            ),
+            137 => 
+            array (
+                'id' => 139,
+                'name' => 'admin.home.pengurus.update',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-26 18:35:20',
+                'updated_at' => '2023-03-26 18:35:20',
+            ),
+            138 => 
+            array (
+                'id' => 140,
+                'name' => 'admin.home.pengurus.delete',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-26 18:35:24',
+                'updated_at' => '2023-03-26 18:35:24',
+            ),
+            139 => 
+            array (
+                'id' => 141,
+                'name' => 'admin.home.pengurus.setting',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-26 18:35:29',
+                'updated_at' => '2023-03-26 18:35:29',
+            ),
         ));
         
         
