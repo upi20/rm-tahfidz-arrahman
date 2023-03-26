@@ -11,9 +11,9 @@ class AboutController extends Controller
     public function index()
     {
         $page_attr = [
-            'title' => 'About Us',
+            'title' => 'Tentang',
             'breadcrumbs' => [
-                ['name' => 'Setting Halaman'],
+                ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
             ]
         ];
 
