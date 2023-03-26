@@ -9,16 +9,16 @@
 [x] Artikel
 
 ### Tentang
+[x] Admin
+[x] Frontend
 
 ### Galeri
-
-1. Daftar Galeri Kegiatan
-2. Detail Galeri
+[x] Daftar Galeri Kegiatan
+[x] Detail Galeri
 
 ### Artikel
-
-1. Daftar Artikel
-2. Detail Artikel
+[x] Daftar Artikel
+[x] Detail Artikel
 
 ### Pendaftaran
 Rancangan database
@@ -30,5 +30,12 @@ Rancangan database
   - Whatsapp
 
 ### Kontak
+[] Admin 
+  [] Message tambah hapus
+[] Frontend
+
 ### Gform
+[] Admin (Hilangkan user)
+[] Frontend
+
 

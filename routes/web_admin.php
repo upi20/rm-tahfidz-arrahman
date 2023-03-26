@@ -417,6 +417,7 @@ Route::group(['prefix' => $prefix], function () use ($name, $prefix) {
         $name = "$name.$prefix"; // admin.kontak.message
         Route::get('/', 'index')->name($name)->middleware("permission:$name");
         Route::post('/setting', 'setting')->name("$name.setting")->middleware("permission:$name.setting");
+        Route::delete('/{model}', 'delete')->name("$name.delete")->middleware("permission:$name.delete");
     });
 });
 

@@ -3,6 +3,7 @@
 @section('content')
     @php
         $can_setting = auth_can(h_prefix('setting'));
+        $can_delete = auth_can(h_prefix('delete'));
     @endphp
     <!-- Row -->
     <div class="card">
@@ -96,10 +97,12 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Email</th>
+                        <th>Dari</th>
                         <th>Pesan</th>
                         <th>Tanggal</th>
+                        @if ($can_delete)
+                            <th>Hapus</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody> </tbody>
@@ -128,6 +131,7 @@
 
     <script>
         const table_html = $('#tbl_main');
+        const can_delete = {{ $can_delete ? 'true' : 'false' }};
         $(document).ready(function() {
             // datatable ====================================================================================
             $.ajaxSetup({
@@ -159,22 +163,41 @@
                     {
                         data: 'nama',
                         name: 'nama',
-                    },
-                    {
-                        data: 'email',
-                        name: 'email'
+                        render(data, type, full, meta) {
+                            return `${data}<br><small>${full.email}</small>`;
+                        },
                     },
                     {
                         data: 'message',
-                        name: 'message'
+                        name: 'message',
+                        render(data, type, full, meta) {
+                            return `<small>${data}</small>`;
+                        },
                     },
                     {
-                        data: 'created_str',
-                        name: 'created_at'
+                        data: 'created',
+                        name: 'created_at',
+                        render(data, type, full, meta) {
+                            const split = String(data).split(' ');
+                            if (split.length == 2) {
+                                return `${split[0]}<br><small>${split[1]}</small>`;
+                            }
+                            return `<small>${data}</small>`;
+                        },
                     },
+                    ...(can_delete ? [{
+                        data: 'id',
+                        name: 'id',
+                        render(data, type, full, meta) {
+                            const btn_delete = can_delete ? `<button type="button" class="btn btn-rounded btn-danger btn-sm me-1" data-toggle="tooltip" title="Hapus Data" onClick="deleteFunc('${data}')">
+                                <i class="fas fa-trash"></i></button>` : '';
+                            return btn_delete;
+                        },
+                        orderable: false
+                    }] : []),
                 ],
                 order: [
-                    [4, 'desc']
+                    [3, 'desc']
                 ],
                 language: {
                     url: datatable_indonesia_language_url
@@ -241,5 +264,53 @@
                 });
             @endif
         });
+
+        function deleteFunc(id) {
+            swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin akan menghapus data ini ?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes'
+            }).then(function(result) {
+                if (result.value) {
+                    $.ajax({
+                        url: `{{ url(h_prefix_uri()) }}/${id}`,
+                        type: 'DELETE',
+                        dataType: 'json',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        beforeSend: function() {
+                            swal.fire({
+                                title: 'Please Wait..!',
+                                text: 'Is working..',
+                                onOpen: function() {
+                                    Swal.showLoading()
+                                }
+                            })
+                        },
+                        success: function(data) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Berhasil Menghapus Data',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            var oTable = table_html.dataTable();
+                            oTable.fnDraw(false);
+                        },
+                        complete: function() {
+                            swal.hideLoading();
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            swal.hideLoading();
+                            swal.fire("!Opps ", "Something went wrong, try again later", "error");
+                        }
+                    });
+                }
+            });
+        }
     </script>
 @endsection

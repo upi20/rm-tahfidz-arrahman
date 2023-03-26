@@ -41,7 +41,7 @@ class Message extends Model
         $c_created_str = 'created_str';
         $c_updated = 'updated';
         $c_updated_str = 'updated_str';
-        $query = array_merge($query, $date_format_fun('created_at', '%d-%b-%Y', $c_created));
+        $query = array_merge($query, $date_format_fun('created_at', '%d-%b-%Y %H:%i:%s', $c_created));
         $query = array_merge($query, $date_format_fun('created_at', '%W, %d %M %Y %H:%i:%s', $c_created_str));
         $query = array_merge($query, $date_format_fun('updated_at', '%d-%b-%Y', $c_updated));
         $query = array_merge($query, $date_format_fun('updated_at', '%W, %d %M %Y %H:%i:%s', $c_updated_str));

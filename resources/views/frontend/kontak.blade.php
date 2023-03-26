@@ -1,91 +1,70 @@
-@extends('templates.frontend2.master')
+@extends('templates.frontend.master')
 @section('content')
-    <!-- breadcrumb area start -->
-    <section class="breadcrumb-area pt-140 pb-140 bg_img"
-        data-background="{{ asset('assets/templates/frontend2/images/bg/breadcrumb-bg-1.jpeg') }}" data-overlay="dark"
-        data-opacity="5" style="height: auto;">
-        <div class="shape shape__1">
-            <img src="{{ asset('assets/templates/frontend2/images/shape/breadcrumb-shape-1.png') }}" alt="">
-        </div>
-        <div class="shape shape__2">
-            <img src="{{ asset('assets/templates/frontend2/images/shape/breadcrumb-shape-2.png') }}" alt="">
-        </div>
+    <!-- Page Header Section Start Here -->
+    <section class="page-header bg_img padding-tb">
+        <div class="overlay"></div>
         <div class="container">
-            <div class="row">
-                <div class="col-xl-12 text-center">
-                    <h2 class="page-title">{{ $routeTitle }}</h2>
-                    <div class="cafena-breadcrumb breadcrumbs">
-                        <ul class="list-unstyled d-flex align-items-center justify-content-center">
-                            <li class="cafenabcrumb-item duxinbcrumb-begin">
-                                <a href="{{ route('home') }}"><span>Home</span></a>
-                            </li>
-                            <li class="cafenabcrumb-item duxinbcrumb-end">
-                                <span>{{ $routeTitle }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="page-header-content-area">
+                <h4 class="ph-title">{{ $routeTitle }}</h4>
+                <ul class="lab-ul">
+                    <li><a href="{{ url('') }}">Utama</a></li>
+                    <li><a class="active">{{ $routeTitle }}</a></li>
+                </ul>
             </div>
         </div>
     </section>
-    <!-- breadcrumb area end -->
+    <!-- Page Header Section Ending Here -->
 
-    <!-- contact area start -->
-    <div class="contact__area position-relative pt-120 pb-120">
-        <span class="shape shape__1 position-absolute">
-            <img src="{{ asset('assets/templates/frontend2/images/shape/hero-shape-2-1.png') }}" alt="">
-        </span>
-        <span class="shape shape__2 position-absolute">
-            <img src="{{ asset('assets/templates/frontend2/images/shape/hero-shape-2-2.png') }}" alt="">
-        </span>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="contact__wrapper">
-                        <div class="row mt-none-30">
-                            @foreach ($contacts as $v)
-                                <div class="col-lg-4 col-md-6 mt-30">
-                                    <div class="contact-info d-flex align-items-center justify-content-center">
-                                        <div class="icon d-flex align-items-center justify-content-center">
-                                            <i class="{{ $v->icon }}" style="font-size: 2em"></i>
-                                        </div>
-                                        <div class="content">
-                                            <h3 class="title">{{ $v->nama }}</h3>
-                                            <a href="{!! $v->url !!}">{!! $v->keterangan !!}</a>
+    <!-- Contact Us Section Start Here -->
+    <div class="contact-section">
+        <div class="contact-top padding-tb aside-bg padding-b">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <article class="contact-form-wrapper">
+                            <div class="contact-form">
+                                <h4>{{ settings()->get('setting.contact.message.title') }}</h4>
+                                <p class="mb-5">
+                                    {{ settings()->get('setting.contact.message.sub_title') }}
+                                </p>
+                                <form action="#" method="POST" id="message_form" class="comment-form">
+                                    <input type="text" name="nama" id="nama" class=""
+                                        placeholder="{{ settings()->get('setting.contact.message.name_placeholder') }}"
+                                        required>
+                                    <input type="email" name="email" id="email" class=""
+                                        placeholder="{{ settings()->get('setting.contact.message.email_placeholder') }}"
+                                        required>
+                                    <textarea name="message" id="message" cols="30" rows="9"
+                                        placeholder="{{ settings()->get('setting.contact.message.message_placeholder') }}" required></textarea>
+                                    <button type="submit" class="lab-btn">
+                                        <span>{{ settings()->get('setting.contact.message.button_text') }}</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="contact-info-wrapper">
+                            <div class="contact-info-title">
+                                <h5>Kontak Kami</h5>
+                                <p>Daftar kontak kami yang bisa di hubungi:</p>
+                            </div>
+                            <div class="contact-info-content">
+
+                                @foreach ($contacts as $v)
+                                    <div class="contact-info-item">
+                                        <div class="contact-info-inner">
+                                            <div class="contact-info-thumb">
+                                                <i class="{{ $v->icon }}" style="font-size: 2em"></i>
+                                            </div>
+                                            <div class="contact-info-details">
+                                                <span class="fw-bold">{{ $v->nama }}</span>
+                                                <p> <a href="{!! $v->url !!}">{!! $v->keterangan !!}</a></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="contact__form mt-20">
-                                    <form action="#" id="message_form">
-                                        <div class="row">
-                                            <div class="col-xl-12 mt-30">
-                                                <div class="form-group">
-                                                    <input type="text" name="nama" id="nama" required
-                                                        placeholder="{{ settings()->get('setting.contact.message.name_placeholder') }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 mt-30">
-                                                <div class="form-group">
-                                                    <input type="email" name="email" id="email" required
-                                                        placeholder="{{ settings()->get('setting.contact.message.email_placeholder') }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 mt-30">
-                                                <div class="form-group">
-                                                    <textarea name="message" id="message" required
-                                                        placeholder="{{ settings()->get('setting.contact.message.message_placeholder') }}"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 mt-20 text-center">
-                                                <button type="submit" class="site-btn">send massage</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -93,7 +72,7 @@
             </div>
         </div>
     </div>
-    <!-- contact area end -->
+    <!-- Contact Us Section ENding Here -->
 @endsection
 
 @section('javascript')
@@ -106,7 +85,7 @@
                 e.preventDefault();
                 var formData = new FormData(this);
                 setBtnLoading('button[type=submit]',
-                    `Sending...`);
+                    `Mengirim...`);
                 $.ajax({
                     type: "POST",
                     url: "{{ route('kontak.send') }}",
@@ -121,11 +100,14 @@
                         Swal.fire({
                             position: 'center',
                             icon: 'success',
-                            title: 'Message send successfully',
+                            title: 'Pesan berhasil dikirim !',
                             showConfirmButton: true,
                             timer: 4500
                         })
                         $(form).trigger("reset");
+                        setBtnLoading('button[type=submit]',
+                            `{{ settings()->get('setting.contact.message.button_text') }}`,
+                            false);
                     },
                     error: function(data) {
                         Swal.fire({
@@ -135,6 +117,9 @@
                             showConfirmButton: false,
                             timer: 1500
                         })
+                        setBtnLoading('button[type=submit]',
+                            `{{ settings()->get('setting.contact.message.button_text') }}`,
+                            false);
                     },
                     complete: function() {
                         setBtnLoading('button[type=submit]',

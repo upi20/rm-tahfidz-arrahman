@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Contact;
 use App\Http\Controllers\Controller;
 use App\Models\Contact\Message;
 use Illuminate\Http\Request;
+use League\Config\Exception\ValidationException;
 
 class MessageController extends Controller
 {
@@ -51,5 +52,18 @@ class MessageController extends Controller
 
         settings()->set('setting.contact.message.button_text', $request->button_text)->save();
         return response()->json();
+    }
+
+    public function delete(Message $model): mixed
+    {
+        try {
+            $model->delete();
+            return response()->json();
+        } catch (ValidationException $error) {
+            return response()->json([
+                'message' => 'Something went wrong',
+                'error' => $error,
+            ], 500);
+        }
     }
 }
