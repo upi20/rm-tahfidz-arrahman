@@ -15,7 +15,7 @@
                                 <h2 class="mb-0 number-font">{{ $total_pendaftar }}</h2>
                                 <p class="text-white mb-0">Jumlah Pendaftaran </p>
                             </div>
-                            <div class="ms-auto"> <i class="fas fa-coffee text-white fs-30 me-2 mt-2"></i> </div>
+                            <div class="ms-auto"> <i class="fas fa-user-edit text-white fs-30 me-2 mt-2"></i> </div>
                         </div>
                     </div>
                 </div>

@@ -21,7 +21,7 @@
 [x] Detail Artikel
 
 ### Pendaftaran
-Rancangan database
+[x] Rancangan database
   - Nama Lengkap
   - Jenis Kelamin
   - Tanggal Lahir
@@ -30,12 +30,12 @@ Rancangan database
   - Whatsapp
 
 ### Kontak
-[] Admin 
-  [] Message tambah hapus
-[] Frontend
+[x] Admin 
+[x] Message tambah hapus
+[x] Frontend
 
 ### Gform
-[] Admin (Hilangkan user)
-[] Frontend
+[x] Admin (Hilangkan user)
+[x] Frontend
 
 
