@@ -85,4 +85,10 @@ class Galeri extends Model
     {
         return date_format(date_create($this->attributes['tanggal']), $format);
     }
+
+    public function fotoUrl()
+    {
+        $foto = $this->attributes['foto_id_gdrive'];
+        return "https://drive.google.com/uc?export=view&id={$foto}";
+    }
 }

@@ -18,17 +18,15 @@ class GaleriController extends Controller
             'search' => $request->search
         ];
 
-        $foto = $galeries->count() > 0 ? "https://drive.google.com/uc?export=view&id={$galeries[0]->foto_id_gdrive}" : false;
+        $foto = isset($galeries[0]) ? $galeries[0]->fotoUrl() : false;
+
         $page_attr = [
-            'loader' => false,
-            'title' => 'Galeri Kegiatan',
-            'description' => 'List Galeri Kegiatan Karmapack',
+            'title' => 'Galeri',
             'url' => route('galeri'),
-            'keywords' =>  'Galeri Kegiatan, Galeri, Kegiatan, Karmapack',
-            // 'image' => $foto,
+            'image' => $foto,
         ];
 
-        return view('frontend._.galeri.list', compact(
+        return view('frontend.galeri.list', compact(
             'galeries',
             'filters',
             'page_attr',
@@ -44,10 +42,10 @@ class GaleriController extends Controller
             'title' => $model->nama,
             'description' => $model->keterangan,
             'url' => route('galeri.detail', $model->slug),
-            'keywords' =>  'Galeri Kegiatan, Galeri, Kegiatan, Karmapack, ' . $model->nama,
-            // 'image' => "https://drive.google.com/uc?export=view&id={$model->foto_id_gdrive}",
+            'keywords' =>  'Galeri Kegiatan, Galeri, Kegiatan, ' . $model->nama,
+            'image' => $model->fotoUrl(),
         ];
 
-        return view('frontend2.galeri.detail', compact('page_attr', 'model'));
+        return view('frontend.galeri.detail', compact('page_attr', 'model'));
     }
 }

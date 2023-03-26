@@ -1,49 +1,38 @@
-@extends('templates.frontend2.master')
+@extends('templates.frontend.master')
 @section('content')
-    <section data-anim="fade" class="breadcrumbs ">
+    <!-- Page Header Section Start Here -->
+    <section class="page-header bg_img padding-tb">
+        <div class="overlay"></div>
         <div class="container">
+            <div class="page-header-content-area">
+                <h4 class="ph-title">Galeri</h4>
+                <ul class="lab-ul">
+                    <li><a href="{{ url('') }}">Utama</a></li>
+                    <li>
+                        <a href="{{ route('galeri') }}">Galeri</a>
+                    </li>
+                    <li><a class="active">Detail</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section start here -->
+    <section class="event-section padding-tb padding-b shape-4">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-auto">
-                    <div class="breadcrumbs__content">
-
-                        <div class="breadcrumbs__item ">
-                            <a href="{{ route('home') }}">Home</a>
-                        </div>
-
-                        <div class="breadcrumbs__item ">
-                            <a href="{{ route('galeri') }}">Galeri</a>
-                        </div>
-
-                        <div class="breadcrumbs__item ">
-                            <a href="javascript:void(0)">Detail</a>
-                        </div>
-
+                <div class="col-12">
+                    <div class="header-title">
+                        <h2>{{ $model->nama }}</h2>
                     </div>
+                </div>
+                <div class="col-12">
+                    <iframe id="myframe"
+                        src="https://drive.google.com/embeddedfolderview?id={{ $model->id_gdrive }}#grid"></iframe>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="page-header -type-1">
-        <div class="container">
-            <div class="page-header__content">
-                <div class="row justify-center text-center">
-                    <div class="col-auto">
-                        <div data-anim="slide-up delay-1">
-                            <h1 class="page-header__title">{{ settings()->get('setting.home.galeri_kegiatan.title') }}</h1>
-                        </div>
-                        <div data-anim="slide-up delay-2">
-                            <p class="page-header__text">{{ $model->nama }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="layout-pb-lg">
-        <iframe id="myframe" src="https://drive.google.com/embeddedfolderview?id={{ $model->id_gdrive }}#grid"></iframe>
-        <div class="container-xl">
+        <div class="container mt-4">
             <ul class="d-flex">
 
                 <li class="list-inline-item list-style-none me-4">
@@ -97,6 +86,7 @@
             </ul>
         </div>
     </section>
+    <!-- Events Section end here -->
 @endsection
 
 @section('stylesheet')

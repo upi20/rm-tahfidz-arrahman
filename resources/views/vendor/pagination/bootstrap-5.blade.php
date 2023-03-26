@@ -1,41 +1,41 @@
 @if ($paginator->hasPages())
-    <div class="cafena-pagination mt-60">
-        <ul>
+    <div class="paginations">
+        <ul class="lab-ul d-flex flex-wrap justify-content-center mb-1">
             {{-- Previous Page Link --}}
             @if (!$paginator->onFirstPage())
                 <li>
                     <a href="{{ $paginator->previousPageUrl() }}">
-                        <span><i class="fas fa-arrow-left"></i></span>
+                        <i class="icofont-rounded-double-left"></i>
                     </a>
                 </li>
             @endif
 
             @if ($paginator->currentPage() > 3)
-                <li><a href="{{ $paginator->url(1) }}"><span>1</span></a></li>
+                <li><a href="{{ $paginator->url(1) }}">1</a></li>
             @endif
 
             @if ($paginator->currentPage() > 4)
-                <li><a href="javascript:void(0)"><span>...</span></a></li>
+                <li><a href="javascript:void(0)">...</a></li>
             @endif
 
             @foreach (range(1, $paginator->lastPage()) as $i)
                 @if ($i >= $paginator->currentPage() - 2 && $i <= $paginator->currentPage() + 2)
                     @if ($i == $paginator->currentPage())
-                        <li><a href="javascript:void(0)"><span class="current">{{ $i }}</span></a></li>
+                        <li><a href="javascript:void(0)" class="bg-success">{{ $i }}</a></li>
                     @else
-                        <li><a href="{{ $paginator->url($i) }}"><span>{{ $i }}</span></a></li>
+                        <li><a href="{{ $paginator->url($i) }}">{{ $i }}</a></li>
                     @endif
                 @endif
             @endforeach
 
             @if ($paginator->currentPage() < $paginator->lastPage() - 3)
-                <li><a href="javascript:void(0)"><span>...</span></a></li>
+                <li><a href="javascript:void(0)">...</a></li>
             @endif
 
             @if ($paginator->currentPage() < $paginator->lastPage() - 2)
                 <li>
                     <a href="{{ $paginator->url($paginator->lastPage()) }}">
-                        <span>{{ $paginator->lastPage() }}</span>
+                        {{ $paginator->lastPage() }}
                     </a>
                 </li>
             @endif
@@ -44,14 +44,12 @@
             @if ($paginator->hasMorePages())
                 <li>
                     <a href="{{ $paginator->nextPageUrl() }}">
-                        <span><i class="fas fa-arrow-right"></i></span>
+                        <i class="icofont-rounded-double-right"></i>
                     </a>
                 </li>
             @endif
-
         </ul>
     </div>
-
 
     {{-- origin --}}
     @if (false)
