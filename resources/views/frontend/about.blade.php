@@ -1,48 +1,25 @@
-@extends('templates.frontend2.master')
+@extends('templates.frontend.master')
 @section('content')
-    <!-- breadcrumb area start -->
-    <section class="breadcrumb-area pt-140 pb-140 bg_img"
-        data-background="{{ asset('assets/templates/frontend2/images/bg/breadcrumb-bg-1.jpeg') }}" data-overlay="dark"
-        data-opacity="5" style="height: auto;">
-        <div class="shape shape__1">
-            <img src="{{ asset('assets/templates/frontend2/images/shape/breadcrumb-shape-1.png') }}" alt="">
-        </div>
-        <div class="shape shape__2">
-            <img src="{{ asset('assets/templates/frontend2/images/shape/breadcrumb-shape-2.png') }}" alt="">
-        </div>
+    <!-- Page Header Section Start Here -->
+    <section class="page-header bg_img padding-tb">
+        <div class="overlay"></div>
         <div class="container">
-            <div class="row">
-                <div class="col-xl-12 text-center">
-                    <h2 class="page-title">{{ settings()->get('about.judul') }}</h2>
-                    <div class="cafena-breadcrumb breadcrumbs">
-                        <ul class="list-unstyled d-flex align-items-center justify-content-center">
-                            <li class="cafenabcrumb-item duxinbcrumb-begin">
-                                <a href="{{ route('home') }}"><span>Home</span></a>
-                            </li>
-                            <li class="cafenabcrumb-item duxinbcrumb-end">
-                                <span>{{ settings()->get('about.judul') }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="page-header-content-area">
+                <h4 class="ph-title"> {!! settings()->get('about.judul') !!}</h4>
+                <ul class="lab-ul">
+                    <li><a href="{{ url('') }}">Utama</a></li>
+                    <li><a class="active"> {!! settings()->get('about.judul') !!}</a></li>
+                </ul>
             </div>
         </div>
     </section>
-    <!-- breadcrumb area end -->
+    <!-- Page Header Section Ending Here -->
 
-    <!-- contact area start -->
-    <div class="contact__area position-relative pt-120 pb-120">
-        <span class="shape shape__1 position-absolute">
-            <img src="{{ asset('assets/templates/frontend2/images/shape/hero-shape-2-1.png') }}" alt="">
-        </span>
-        <span class="shape shape__2 position-absolute">
-            <img src="{{ asset('assets/templates/frontend2/images/shape/hero-shape-2-2.png') }}" alt="">
-        </span>
+    <!-- About section start here -->
+    <section class="about-section padding-tb shape-1">
         <div class="container">
-            <div class="contact__wrapper">
-                {!! settings()->get('about.html') !!}
-            </div>
+            {!! settings()->get('about.html') !!}
         </div>
-    </div>
-    <!-- contact area end -->
+    </section>
+    <!-- About section end here -->
 @endsection

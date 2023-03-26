@@ -14,6 +14,7 @@ class AboutController extends Controller
 
         $page_attr = [
             'navigation' => 'about',
+            'title' => 'Tentang',
         ];
 
         $data = compact(

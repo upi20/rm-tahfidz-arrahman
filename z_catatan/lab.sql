@@ -222,10 +222,10 @@ INSERT INTO `home_kata_katas` (`id`, `kata_kata`, `nama`, `sebagai`,  `tampilkan
 'kutipan',
 'Ya', '2023-03-26 14:21:22', '2023-03-26 14:21:22');
 
--- (null, 
--- 'Jangan hanya bersyukur kepada Tuhan ketika semuanya berjalan dengan baik, bersyukurlah bahkan ketika segala sesuatunya terasa sulit.',
--- 'Imam Syafi’i',
--- 'pendiri mazhab Syafi\'i',
--- 'Ya','2023-03-26 14:21:22', '2023-03-26 14:21:22'),
+(null, 
+'Jangan hanya bersyukur kepada Tuhan ketika semuanya berjalan dengan baik, bersyukurlah bahkan ketika segala sesuatunya terasa sulit.',
+'Imam Syafi’i',
+'pendiri mazhab Syafi\'i',
+'Ya','2023-03-26 14:21:22', '2023-03-26 14:21:22'),
 
 
