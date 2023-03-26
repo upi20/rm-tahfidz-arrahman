@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Artikel\Artikel;
 use App\Models\Contact\FAQ;
+use App\Models\Galeri;
 use App\Models\Home\Testimonial;
 use App\Models\Home\TopGrade;
 use App\Models\Produk\Produk;
@@ -26,22 +27,26 @@ class HomeController extends Controller
         $produks = Produk::getFeHomeData();
         $top_grades = TopGrade::getFeViewData();
 
-        // artikel
         if ($this->checkVisible('artikel')) {
             $articles = Artikel::getHomeViewData();
         } else {
             $articles = [];
         }
 
+        // galeri
+        if ($this->checkVisible('galeri')) {
+            $galeries = Galeri::getHomeViewData();
+        } else {
+            $galeries = [];
+        }
+
         $faqs = FAQ::getFeViewData();
 
         $data = compact(
             'page_attr',
-            'testimonials',
             'articles',
+            'galeries',
             'faqs',
-            'produks',
-            'top_grades',
         );
         $data['compact'] = $data;
         return view('frontend.home', $data);
@@ -50,5 +55,10 @@ class HomeController extends Controller
     private function checkVisible(string $item): ?bool
     {
         return settings()->get("setting.home.$item.visible", false);
+    }
+
+    public function fronted2(Request $request)
+    {
+        return view('templates.frontend.master');
     }
 }

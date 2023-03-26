@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class Galeri extends Model
@@ -25,6 +26,7 @@ class Galeri extends Model
     protected $primaryKey = 'id';
     protected $table = 'galeri';
     const tableName = 'galeri';
+    const homeCacheKey = 'homeGaleri';
 
     public static function get(Request $request, int $paginate = 6, ?string $params = null): object
     {
@@ -60,5 +62,27 @@ class Galeri extends Model
         }
 
         return $params;
+    }
+
+    public static function getHomeViewData()
+    {
+        return Cache::rememberForever(self::homeCacheKey, function () {
+            $get = static::orderBy('tanggal', 'desc')->limit(4)->get();
+            return $get ? $get : [];
+        });
+    }
+
+    public static function clearCache()
+    {
+        $cacheKey = [
+            self::homeCacheKey
+        ];
+
+        foreach ($cacheKey as $key) Cache::pull($key);
+    }
+
+    public function dateFormat($format = 'd F Y')
+    {
+        return date_format(date_create($this->attributes['tanggal']), $format);
     }
 }

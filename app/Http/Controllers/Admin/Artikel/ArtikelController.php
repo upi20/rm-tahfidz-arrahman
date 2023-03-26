@@ -57,7 +57,7 @@ class ArtikelController extends Controller
             'navigation' => $navigation
         ];
 
-        Artikel::homeClearCache();
+        Artikel::clearCache();
 
         return view('admin.artikel.data.add', compact('page_attr'));
     }
@@ -123,7 +123,7 @@ class ArtikelController extends Controller
             $this->tag_store($request->tag, $model->id);
             DB::commit();
 
-            Artikel::homeClearCache();
+            Artikel::clearCache();
 
             return response()->json();
         } catch (ValidationException $error) {
@@ -164,7 +164,7 @@ class ArtikelController extends Controller
             $model->save();
             DB::commit();
 
-            Artikel::homeClearCache();
+            Artikel::clearCache();
 
             return response()->json();
         } catch (ValidationException $error) {
@@ -181,7 +181,7 @@ class ArtikelController extends Controller
             Summernote::delete($artikel->detail);
             $artikel->delete();
 
-            Artikel::homeClearCache();
+            Artikel::clearCache();
 
             return response()->json();
         } catch (ValidationException $error) {

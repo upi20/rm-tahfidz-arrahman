@@ -33,6 +33,7 @@ class Artikel extends Model
     const tableName = 'artikel';
     const image_folder = '/assets/artikel';
     const homeCacheKey = 'homeArtikel';
+    const footerCacheKey = 'footerArtikel';
 
     // eloquent
     public function tags()
@@ -65,17 +66,15 @@ class Artikel extends Model
     {
         $foto = $this->attributes['foto'];
         $detail = $this->attributes['detail'];
-
         $get_id_yt = check_image_youtube($detail);
-        $youtube = $get_id_yt ? true : false;
         $foto = $foto ? asset($foto) : 'https://i.ytimg.com/vi/' . $get_id_yt . '/sddefault.jpg';
 
         return $foto;
     }
 
-    public function dateFormat()
+    public function dateFormat($format = 'd F Y')
     {
-        return date_format(date_create($this->attributes['date']), 'd F Y');
+        return date_format(date_create($this->attributes['date']), $format);
     }
 
     public function tagKeyword()
@@ -203,13 +202,26 @@ class Artikel extends Model
     public static function getHomeViewData()
     {
         return Cache::rememberForever(self::homeCacheKey, function () {
-            $get = static::with('user')->orderBy('date', 'desc')->orderBy('id', 'desc')->limit(3)->get();
+            $get = static::with('categories')->orderBy('date', 'desc')->orderBy('id', 'desc')->limit(3)->get();
             return $get ? $get : [];
         });
     }
 
-    public static function homeClearCache()
+    public static function getFooterViewData()
     {
-        return Cache::pull(self::homeCacheKey);
+        return Cache::rememberForever(self::homeCacheKey, function () {
+            $get = static::orderBy('date', 'desc')->orderBy('id', 'desc')->limit(4)->get();
+            return $get ? $get : [];
+        });
+    }
+
+    public static function clearCache()
+    {
+        $cacheKey = [
+            self::footerCacheKey,
+            self::homeCacheKey
+        ];
+
+        foreach ($cacheKey as $key) Cache::pull($key);
     }
 }

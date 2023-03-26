@@ -318,3 +318,10 @@ if (!function_exists('format_rupiah')) {
         return '';
     }
 }
+
+if (!function_exists('text_cutter')) {
+    function text_cutter($text, $end = 200)
+    {
+        return (strlen($text) > $end) ? substr($text, 0, $end) . '...' : $text;
+    }
+}

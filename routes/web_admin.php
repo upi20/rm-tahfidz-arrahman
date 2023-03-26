@@ -343,16 +343,7 @@ Route::prefix($prefix)->group(function () use ($name, $prefix) {
         $method = 'hero';
         Route::post("/$method", $method)->name("$name_.$method");
 
-        $method = 'about';
-        Route::post("/$method", $method)->name("$name_.$method");
-
-        $method = 'terima_kasih';
-        Route::post("/$method", $method)->name("$name_.$method");
-
-        $method = 'katalog';
-        Route::post("/$method", $method)->name("$name_.$method");
-
-        $method = 'galeri_kegiatan';
+        $method = 'galeri';
         Route::post("/$method", $method)->name("$name_.$method");
 
         $method = 'artikel';
