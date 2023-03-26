@@ -525,5 +525,14 @@
                 }
             });
         }
+
+
+        function viewImage(image, title) {
+            $('#modal-image').modal('show');
+            $('#modal-image-title').html(title);
+            const ele = $('#modal-image-element');
+            ele.attr('src', `{{ url('') }}${image}`);
+            ele.attr('alt', title);
+        };
     </script>
 @endsection

@@ -25,7 +25,7 @@ class KataKataController extends Controller
             return KataKata::datatable($request);
         }
         $page_attr = [
-            'title' => 'KataKata Pelanggan',
+            'title' => 'Kata Kata',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
                 ['name' => 'Halaman Utama'],
