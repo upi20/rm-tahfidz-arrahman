@@ -1,15 +1,12 @@
 ## Halaman
 
 ### Utama
-
-1. Hero
-2. Kilasan Rumah Quran
-3. Program
-4. Rukun Islam
-5. Kata Kata
-6. FAQ
-7. Galeri
-8. Artikel
+[x] Hero
+[] Program
+[] Kata Kata
+[x] FAQ
+[x] Galeri
+[x] Artikel
 
 ### Tentang
 
@@ -33,4 +30,5 @@ Rancangan database
   - Whatsapp
 
 ### Kontak
+### Gform
 

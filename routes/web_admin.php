@@ -50,7 +50,7 @@ use App\Http\Controllers\Admin\Produk\ProdukController;
 
 // HOme ===============================================================================================================
 use App\Http\Controllers\Admin\Home\TestimonialController;
-use App\Http\Controllers\Admin\Home\TopGradeController;
+use App\Http\Controllers\Admin\Home\ProgramPembelajaranController;
 use App\Http\Controllers\Admin\Produk\MarketplaceController;
 use App\Http\Controllers\Admin\Setting\AboutController;
 
@@ -159,9 +159,9 @@ Route::group(['prefix' => $prefix], function () use ($name, $prefix) {
         Route::delete('/{model}', 'delete')->name("$name.delete")->middleware("permission:$name.delete");
     });
 
-    $prefix = 'top_grade';
-    Route::controller(TopGradeController::class)->prefix($prefix)->group(function () use ($name, $prefix) {
-        $name = "$name.$prefix"; // admin.home.top_grade
+    $prefix = 'program_pembelajaran';
+    Route::controller(ProgramPembelajaranController::class)->prefix($prefix)->group(function () use ($name, $prefix) {
+        $name = "$name.$prefix"; // admin.home.program_pembelajaran
         Route::get('/', 'index')->name($name)->middleware("permission:$name");
         Route::get('/find', 'find')->name("$name.find")->middleware("permission:$name.update");
         Route::post('/', 'insert')->name("$name.insert")->middleware("permission:$name.insert");

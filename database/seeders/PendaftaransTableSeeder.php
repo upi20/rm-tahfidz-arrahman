@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class HomeProgramPembelajaranTableSeeder extends Seeder
+class PendaftaransTableSeeder extends Seeder
 {
 
     /**
@@ -14,8 +14,11 @@ class HomeProgramPembelajaranTableSeeder extends Seeder
      */
     public function run()
     {
+        
 
-
-        \DB::table('home_program_pembelajaran')->delete();
+        \DB::table('pendaftarans')->delete();
+        
+        
+        
     }
 }

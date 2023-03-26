@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Home\TopGrade;
+use App\Models\Home\ProgramPembelajaran;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create(TopGrade::tableName, function (Blueprint $table) {
+        Schema::create(ProgramPembelajaran::tableName, function (Blueprint $table) {
             $table->id();
             $table->string('nama')->nullable()->default(null);
             $table->string('foto')->nullable()->default(null);
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(TopGrade::tableName);
+        Schema::dropIfExists(ProgramPembelajaran::tableName);
     }
 };

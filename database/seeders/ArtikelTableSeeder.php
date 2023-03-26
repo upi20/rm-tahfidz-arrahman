@@ -31,9 +31,9 @@ class ArtikelTableSeeder extends Seeder
                 'counter' => 7,
                 'date' => '2021-09-01',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-17 14:46:50',
                 'updated_at' => '2023-03-10 20:26:26',
+                'user_id' => 1,
             ),
             1 => 
             array (
@@ -47,9 +47,9 @@ class ArtikelTableSeeder extends Seeder
                 'counter' => 6,
                 'date' => '2021-09-30',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-17 15:12:31',
                 'updated_at' => '2023-03-10 20:26:31',
+                'user_id' => 1,
             ),
             2 => 
             array (
@@ -63,9 +63,9 @@ class ArtikelTableSeeder extends Seeder
                 'counter' => 6,
                 'date' => '2022-04-20',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-25 03:50:37',
                 'updated_at' => '2023-03-10 16:35:40',
+                'user_id' => 1,
             ),
             3 => 
             array (
@@ -79,9 +79,9 @@ class ArtikelTableSeeder extends Seeder
                 'counter' => 12,
                 'date' => '2022-04-21',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-25 04:07:23',
                 'updated_at' => '2023-03-10 16:35:43',
+                'user_id' => 1,
             ),
             4 => 
             array (
@@ -95,9 +95,9 @@ class ArtikelTableSeeder extends Seeder
                 'counter' => 54,
                 'date' => '2022-04-23',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-25 04:15:09',
                 'updated_at' => '2023-03-10 17:53:07',
+                'user_id' => 1,
             ),
             5 => 
             array (
@@ -111,9 +111,9 @@ class ArtikelTableSeeder extends Seeder
                 'counter' => 2,
                 'date' => '2022-02-20',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-25 12:36:09',
                 'updated_at' => '2023-03-10 18:37:13',
+                'user_id' => 1,
             ),
             6 => 
             array (
@@ -148,9 +148,9 @@ mso-bidi-font-family:\'Times New Roman\';font-size:12,0000pt;">&nbsp;</span></p>
                 'counter' => 3,
                 'date' => '2022-03-17',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-25 12:41:10',
                 'updated_at' => '2023-03-10 20:10:53',
+                'user_id' => 1,
             ),
             7 => 
             array (
@@ -164,9 +164,9 @@ mso-bidi-font-family:\'Times New Roman\';font-size:12,0000pt;">&nbsp;</span></p>
                 'counter' => 2,
                 'date' => '2022-02-19',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-25 12:46:55',
                 'updated_at' => '2023-03-10 20:26:36',
+                'user_id' => 1,
             ),
             8 => 
             array (
@@ -180,9 +180,9 @@ mso-bidi-font-family:\'Times New Roman\';font-size:12,0000pt;">&nbsp;</span></p>
                 'counter' => 4,
                 'date' => '2022-03-09',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-25 12:52:42',
                 'updated_at' => '2023-03-10 20:26:44',
+                'user_id' => 1,
             ),
             9 => 
             array (
@@ -235,9 +235,9 @@ sunt in culpa qui officia deserunt mollit </p>
                 'counter' => 66,
                 'date' => '2023-03-10',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2022-04-28 07:19:02',
                 'updated_at' => '2023-03-24 23:52:02',
+                'user_id' => 1,
             ),
             10 => 
             array (
@@ -251,9 +251,9 @@ sunt in culpa qui officia deserunt mollit </p>
                 'counter' => 14,
                 'date' => '2023-01-23',
                 'status' => 1,
-                'user_id' => 3,
                 'created_at' => '2023-01-23 11:25:30',
                 'updated_at' => '2023-03-20 20:01:11',
+                'user_id' => 3,
             ),
             11 => 
             array (
@@ -267,9 +267,9 @@ sunt in culpa qui officia deserunt mollit </p>
                 'counter' => 4,
                 'date' => '2023-01-27',
                 'status' => 1,
-                'user_id' => 3,
                 'created_at' => '2023-01-27 00:27:50',
                 'updated_at' => '2023-03-14 18:54:50',
+                'user_id' => 3,
             ),
             12 => 
             array (
@@ -285,12 +285,12 @@ Mau request lagu apa?
 Jangan lupa like, comment dan subscribe ya
 
 noah, peterpan, ariel noah, lagu populer, mimpi yang sempurna, bintang di surga, andaikan kau datang, tak lagi sama, separuh aku, noah karaoke, spotify indonesia, lagu populer indonesia',
-                'counter' => 13,
+                'counter' => 14,
                 'date' => '2023-03-10',
                 'status' => 1,
-                'user_id' => 1,
                 'created_at' => '2023-03-10 18:10:51',
-                'updated_at' => '2023-03-14 18:44:50',
+                'updated_at' => '2023-03-26 12:37:11',
+                'user_id' => 1,
             ),
         ));
         

@@ -13,7 +13,7 @@ use App\Models\Contact\ListContact;
 use App\Models\Contact\Message;
 use App\Models\Galeri;
 use App\Models\Home\Testimonial;
-use App\Models\Home\TopGrade;
+use App\Models\Home\ProgramPembelajaran;
 use App\Models\Menu\Admin as MenuAdmin;
 use App\Models\Menu\Frontend as MenuFrontend;
 use App\Models\Pendaftaran;
@@ -121,7 +121,7 @@ class backup extends Command
             ],
             'home' => [
                 Testimonial::tableName,
-                TopGrade::tableName,
+                ProgramPembelajaran::tableName,
             ],
             'setting' => [
                 HomeSlider::tableName,

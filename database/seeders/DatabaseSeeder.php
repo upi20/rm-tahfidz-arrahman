@@ -44,7 +44,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProdukMarketPlaceJenisTableSeeder::class);
         $this->call(ProdukFotoTableSeeder::class);
         $this->call(ProdukMarketPlaceTableSeeder::class);
-        $this->call(HomeTopGradeTableSeeder::class);
+        $this->call(HomeProgramPembelajaranTableSeeder::class);
         $this->call(BannersTableSeeder::class);
+        $this->call(PendaftaransTableSeeder::class);
     }
 }

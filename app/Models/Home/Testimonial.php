@@ -13,10 +13,8 @@ class Testimonial extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'urutan',
         'nama',
         'sebagai',
-        'foto',
         'testimoni',
         'tampilkan',
     ];
@@ -120,14 +118,7 @@ class Testimonial extends Model
             if ((is_null($search) || $search == '') && count($model_filter) > 0) return false;
 
             // tambah pencarian
-            $search_add = [
-                'urutan',
-                'nama',
-                'sebagai',
-                'foto',
-                'tampilkan',
-                'testimonial',
-            ];
+            $search_add = static::$fillable;
             $search_add = array_map(function ($v) use ($table) {
                 return "$table.$v";
             }, $search_add);

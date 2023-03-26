@@ -7,7 +7,7 @@ use App\Models\Artikel\Artikel;
 use App\Models\Contact\FAQ;
 use App\Models\Galeri;
 use App\Models\Home\Testimonial;
-use App\Models\Home\TopGrade;
+use App\Models\Home\ProgramPembelajaran;
 use App\Models\Produk\Produk;
 use App\Models\Tracker;
 use Illuminate\Http\Request;
@@ -25,7 +25,7 @@ class HomeController extends Controller
 
         $testimonials = Testimonial::getFeViewData();
         $produks = Produk::getFeHomeData();
-        $top_grades = TopGrade::getFeViewData();
+        $program_pembelajarans = ProgramPembelajaran::getFeViewData();
 
         if ($this->checkVisible('artikel')) {
             $articles = Artikel::getHomeViewData();
@@ -46,6 +46,7 @@ class HomeController extends Controller
             'page_attr',
             'articles',
             'galeries',
+            'program_pembelajarans',
             'faqs',
         );
         $data['compact'] = $data;

@@ -54,82 +54,32 @@
         <!-- Hero section end here -->
     @endif
 
-    <!-- Feature Section Start Here -->
-    <section class="feature-section bg-ash padding-tb">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="lab-item feature-item text-xs-center">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img class="lazy" alt="feature-image"
-                                    data-src="{{ asset('assets/templates/frontend/images/feature/01.png') }}">
-                            </div>
-                            <div class="lab-content">
-                                <h5>Tafsir Quran</h5>
-                                <p>
-                                    Mempelajari tentang teknik dan metode penafsiran Al-Quran serta makna ayat-ayat
-                                    Al-Quran
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="lab-item feature-item">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img class="lazy" alt="feature-image"
-                                    data-src="{{ asset('assets/templates/frontend/images/feature/02.png') }}">
-                            </div>
-                            <div class="lab-content">
-                                <h5>Belajar Fiqh</h5>
-                                <p>
-                                    Mempelajari aturan-aturan dan hukum-hukum Islam, baik yang terkait dengan ibadah
-                                    maupun yang lain.
-                                </p>
+    @php $k = "$p.program_pembelajaran"; @endphp
+    @if (settings()->get("$k.visible"))
+        <!-- Feature Section Start Here -->
+        <section class="feature-section bg-ash padding-tb">
+            <div class="container">
+                <div class="row justify-content-center">
+                    @foreach ($program_pembelajarans as $program)
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="lab-item feature-item text-xs-center">
+                                <div class="lab-inner">
+                                    <div class="lab-thumb">
+                                        <img class="lazy" alt="{{ $program->nama }}" data-src="{{ $program->fotoUrl() }}">
+                                    </div>
+                                    <div class="lab-content">
+                                        <h5>{{ $program->nama }}</h5>
+                                        <p>{{ $program->keterangan }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="lab-item feature-item">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img class="lazy" alt="feature-image"
-                                    data-src="{{ asset('assets/templates/frontend/images/feature/03.png') }}">
-                            </div>
-                            <div class="lab-content">
-                                <h5>Belajar Aqidah</h5>
-                                <p>
-                                    Mempelajari tentang kepercayaan dan keyakinan dalam agama Islam,seperti kepercayaan
-                                    kepada Allah, malaikat, kitab-kitab suci, dan sebagainya.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="lab-item feature-item">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img class="lazy" alt="feature-image"
-                                    data-src="{{ asset('assets/templates/frontend/images/feature/04.png') }}">
-                            </div>
-                            <div class="lab-content">
-                                <h5>Sejarah Islam</h5>
-                                <p>
-                                    Mempelajari tentang sejarah perkembangan agama Islam dan peristiwa-peristiwa penting
-                                    yang terkait dengan Islam.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Feature Section End Here -->
+        </section>
+        <!-- Feature Section End Here -->
+    @endif
 
     @php $k = "$p.galeri"; @endphp
     @if (settings()->get("$k.visible"))
@@ -231,28 +181,29 @@
             <div class="container">
                 <div class="qoute-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="lab-item qoute-item">
-                                <div class="lab-inner d-flex align-items-center">
-                                    <div class="lab-thumb">
-                                        <span>Quote From
-                                            Prophat</span>
-                                        <i class="icofont-quote-left"></i>
-                                    </div>
-                                    <div class="lab-content">
-                                        <blockquote class="blockquote">
-                                            <p>Hazrat Mohammod (s) Said <span>"It is Better For Any Of You
-                                                    To Carry A Load Of Firewood On His Own Back Than To
-                                                    Beg From Someone Else"</span> </p>
-                                            <footer class="blockquote-footer bg-transparent">Riyadh-Us-Saleheen,
-                                                Chapter
-                                                59, hadith 540
-                                            </footer>
-                                        </blockquote>
+                        @for ($i = 0; $i < 5; $i++)
+                            <div class="swiper-slide">
+                                <div class="lab-item qoute-item">
+                                    <div class="lab-inner d-flex align-items-center">
+                                        <div class="lab-thumb">
+                                            <span>Quote From
+                                                Prophat{{ $i }}</span>
+                                            <i class="icofont-quote-left"></i>
+                                        </div>
+                                        <div class="lab-content">
+                                            <blockquote class="blockquote">
+                                                <p>Hazrat Mohammod (s) Said <span>"It is Better For Any Of You
+                                                        To Carry A Load Of Firewood On His Own Back Than To
+                                                        Beg From Someone Else"</span> </p>
+                                                <footer class="blockquote-footer bg-transparent">
+                                                    Riyadh-Us-Saleheen, Chapter 59, hadith 540
+                                                </footer>
+                                            </blockquote>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endfor
                     </div>
                 </div>
             </div>
@@ -280,9 +231,9 @@
                                         @if ($v->type == 2)
                                             <a href="{{ $v->link }}" style="width: 100%">
                                         @endif
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapse{{ $k }}"
-                                            aria-expanded="true" aria-controls="collapse{{ $k }}">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $k }}" aria-expanded="true"
+                                            aria-controls="collapse{{ $k }}">
                                             {{ $v->nama }}
                                         </button>
                                         @if ($v->type == 2)

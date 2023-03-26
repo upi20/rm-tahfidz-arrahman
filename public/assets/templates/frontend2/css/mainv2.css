@@ -4463,8 +4463,8 @@ h6 {
   border-radius: 10px;
 }
 
-/* topgrade css */
-.topgrade__area::after {
+/* ProgramPembelajaran css */
+.ProgramPembelajaran__area::after {
   position: absolute;
   left: 0;
   content: "";
@@ -4477,45 +4477,45 @@ h6 {
   top: auto;
 }
 
-.topgrade__area .shape__1 {
+.ProgramPembelajaran__area .shape__1 {
   bottom: 30px;
   left: 0;
 }
 
-.topgrade__area .shape__2 {
+.ProgramPembelajaran__area .shape__2 {
   bottom: 60px;
   right: 0;
 }
 
-.topgrade__area--2::after {
+.ProgramPembelajaran__area--2::after {
   display: none;
 }
 
-.topgrade__area--2 .shape__1 {
+.ProgramPembelajaran__area--2 .shape__1 {
   top: 0;
 }
 
-.topgrade__area--2 .shape__2 {
+.ProgramPembelajaran__area--2 .shape__2 {
   top: 35px;
 }
 
 @media (max-width: 1199px) {
-  .topgrade__area--2 .mt-85 {
+  .ProgramPembelajaran__area--2 .mt-85 {
     margin-top: 30px;
   }
 }
 
-.topgrade__item {
+.ProgramPembelajaran__item {
   position: relative;
   z-index: 2;
 }
 
-.topgrade__item .title {
+.ProgramPembelajaran__item .title {
   color: #ffffff;
   font-size: 30px;
 }
 
-.topgrade__item .count {
+.ProgramPembelajaran__item .count {
   font-size: 14px;
   color: #ffffff;
   height: 40px;
@@ -4535,16 +4535,16 @@ h6 {
   background: #010103;
 }
 
-.topgrade__item--2 .title {
+.ProgramPembelajaran__item--2 .title {
   color: #000;
   margin-bottom: 5px;
 }
 
-.topgrade__item--2 p {
+.ProgramPembelajaran__item--2 p {
   color: #6c6c6c;
 }
 
-.topgrade__item--2 .thumb {
+.ProgramPembelajaran__item--2 .thumb {
   width: 160px;
   height: 160px;
   border-radius: 50%;
@@ -4552,12 +4552,12 @@ h6 {
   margin: 0 auto;
 }
 
-.topgrade__item--2 .thumb img {
+.ProgramPembelajaran__item--2 .thumb img {
   border-radius: 50%;
   height: 160px;
 }
 
-.topgrade__item--2 .thumb .count {
+.ProgramPembelajaran__item--2 .thumb .count {
   position: absolute;
   top: 0;
   left: 10px;

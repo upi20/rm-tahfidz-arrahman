@@ -539,6 +539,45 @@ class VisitorsTableSeeder extends Seeder
                 'hits' => 20,
                 'has_detail' => 0,
             ),
+            40 => 
+            array (
+                'id' => 41,
+                'ip' => '127.0.0.1',
+                'date' => '2023-03-25',
+                'time' => '14:07:31',
+                'platform' => 'Windows',
+                'browser' => 'Edge',
+                'browser_version' => '111.0.1661.51',
+            'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.51',
+                'hits' => 4,
+                'has_detail' => 0,
+            ),
+            41 => 
+            array (
+                'id' => 42,
+                'ip' => '127.0.0.1',
+                'date' => '2023-03-26',
+                'time' => '13:18:51',
+                'platform' => 'Windows',
+                'browser' => 'Edge',
+                'browser_version' => '111.0.1661.51',
+            'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.51',
+                'hits' => 58,
+                'has_detail' => 0,
+            ),
+            42 => 
+            array (
+                'id' => 43,
+                'ip' => '192.168.190.26',
+                'date' => '2023-03-26',
+                'time' => '08:06:50',
+                'platform' => 'Android',
+                'browser' => 'Chrome',
+                'browser_version' => '111.0.0.0',
+            'user_agent' => 'Mozilla/5.0 (Linux; Android 12; M2010J19CG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
+                'hits' => 5,
+                'has_detail' => 0,
+            ),
         ));
         
         

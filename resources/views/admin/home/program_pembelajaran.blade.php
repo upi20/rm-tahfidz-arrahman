@@ -40,27 +40,6 @@
                                         <span class="custom-switch-indicator"></span>
                                         <span class="custom-switch-description">Tampilkan Konten</span>
                                     </label>
-                                    <br>
-                                    <label class="custom-switch form-switch">
-                                        <input type="checkbox" name="number" class="custom-switch-input"
-                                            {{ $setting->number ? 'checked' : '' }}>
-                                        <span class="custom-switch-indicator"></span>
-                                        <span class="custom-switch-description">Tampilkan Nomor Urutan</span>
-                                    </label>
-
-                                    <div class="form-group">
-                                        <label class="form-label" for="title">Judul<span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="title" name="title" class="form-control"
-                                            placeholder="Judul" value="{{ $setting->title }}" required />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="form-label" for="sub_title">Sub Judul<span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="sub_title" name="sub_title" class="form-control"
-                                            placeholder="Sub Judul" value="{{ $setting->sub_title }}" required />
-                                    </div>
                                 </form>
                                 <div style="clear: both"></div>
                                 <button type="submit" form="setting_form" class="btn btn-rounded btn-md btn-info"

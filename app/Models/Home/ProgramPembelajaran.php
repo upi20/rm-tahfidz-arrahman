@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
 
-class TopGrade extends Model
+class ProgramPembelajaran extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -19,10 +19,10 @@ class TopGrade extends Model
         'urutan',
     ];
     protected $primaryKey = 'id';
-    protected $table = 'home_top_grade';
-    const tableName = 'home_top_grade';
-    const image_folder = '/assets/home/top_grade';
-    const feCacheKey = 'feTopGrade';
+    protected $table = 'home_program_pembelajaran';
+    const tableName = 'home_program_pembelajaran';
+    const image_folder = '/assets/home/program_pembelajaran';
+    const feCacheKey = 'feProgramPembelajaran';
 
     public function fotoUrl()
     {

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin\Home;
 
 use App\Http\Controllers\Controller;
-use App\Models\Home\TopGrade;
+use App\Models\Home\ProgramPembelajaran;
 use Illuminate\Http\Request;
 use League\Config\Exception\ValidationException;
 
-class TopGradeController extends Controller
+class ProgramPembelajaranController extends Controller
 {
     private $validate_model = [
         'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
@@ -16,18 +16,18 @@ class TopGradeController extends Controller
         'keterangan' => ['required', 'string'],
     ];
 
-    private $image_folder = TopGrade::image_folder;
+    private $image_folder = ProgramPembelajaran::image_folder;
 
-    private $key = 'setting.home.top_grade';
+    private $key = 'setting.home.program_pembelajaran';
 
     public function index(Request $request)
     {
         if (request()->ajax()) {
-            return TopGrade::datatable($request);
+            return ProgramPembelajaran::datatable($request);
         }
         $image_folder = $this->image_folder;
         $page_attr = [
-            'title' => 'Kelebihan Produk',
+            'title' => 'Program Pembelajaran',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
                 ['name' => 'Halaman Utama'],
@@ -39,7 +39,7 @@ class TopGradeController extends Controller
             'sub_title' => settings()->get("$this->key.sub_title"),
             'number' => settings()->get("$this->key.number")
         ];
-        return view('admin.home.top_grade', compact('page_attr', 'image_folder', 'setting'));
+        return view('admin.home.program_pembelajaran', compact('page_attr', 'image_folder', 'setting'));
     }
 
     public function insert(Request $request): mixed
@@ -47,7 +47,7 @@ class TopGradeController extends Controller
         try {
             $request->validate($this->validate_model);
 
-            $model = new TopGrade();
+            $model = new ProgramPembelajaran();
             $foto = '';
             if ($image = $request->file('foto')) {
                 $foto = date('YmdHis') . "." . $image->getClientOriginalExtension();
@@ -60,7 +60,7 @@ class TopGradeController extends Controller
             $model->keterangan = $request->keterangan;
             $model->save();
 
-            TopGrade::feClearCache();
+            ProgramPembelajaran::feClearCache();
 
             return response()->json();
         } catch (ValidationException $error) {
@@ -74,7 +74,7 @@ class TopGradeController extends Controller
     public function update(Request $request): mixed
     {
         try {
-            $model = TopGrade::findOrFail($request->id);
+            $model = ProgramPembelajaran::findOrFail($request->id);
             $request->validate(array_merge(['id' => [
                 'required', 'int',
             ]], $this->validate_model));
@@ -99,7 +99,7 @@ class TopGradeController extends Controller
             $model->keterangan = $request->keterangan;
             $model->save();
 
-            TopGrade::feClearCache();
+            ProgramPembelajaran::feClearCache();
 
             return response()->json();
         } catch (ValidationException $error) {
@@ -110,7 +110,7 @@ class TopGradeController extends Controller
         }
     }
 
-    public function delete(TopGrade $model): mixed
+    public function delete(ProgramPembelajaran $model): mixed
     {
         try {
             $model->delete();
@@ -120,7 +120,7 @@ class TopGradeController extends Controller
                 delete_file($path);
             }
 
-            TopGrade::feClearCache();
+            ProgramPembelajaran::feClearCache();
 
             return response()->json();
         } catch (ValidationException $error) {
@@ -133,15 +133,12 @@ class TopGradeController extends Controller
 
     public function find(Request $request)
     {
-        return TopGrade::findOrFail($request->id);
+        return ProgramPembelajaran::findOrFail($request->id);
     }
 
     public function setting(Request $request)
     {
         settings()->set("$this->key.visible", $request->visible != null)->save();
-        settings()->set("$this->key.number", $request->number != null)->save();
-        settings()->set("$this->key.title", $request->title)->save();
-        settings()->set("$this->key.sub_title", $request->sub_title)->save();
         return response()->json();
     }
 }
