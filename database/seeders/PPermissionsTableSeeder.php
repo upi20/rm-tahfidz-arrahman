@@ -1139,6 +1139,78 @@ class PPermissionsTableSeeder extends Seeder
                 'created_at' => '2023-03-26 18:35:29',
                 'updated_at' => '2023-03-26 18:35:29',
             ),
+            140 => 
+            array (
+                'id' => 142,
+                'name' => 'admin.pendaftaran.santri',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:29:55',
+                'updated_at' => '2023-03-27 00:29:55',
+            ),
+            141 => 
+            array (
+                'id' => 143,
+                'name' => 'admin.pendaftaran.santri.update',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:30:00',
+                'updated_at' => '2023-03-27 00:30:00',
+            ),
+            142 => 
+            array (
+                'id' => 144,
+                'name' => 'admin.pendaftaran.santri.delete',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:30:05',
+                'updated_at' => '2023-03-27 00:30:05',
+            ),
+            143 => 
+            array (
+                'id' => 145,
+                'name' => 'admin.setting.about',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:32:15',
+                'updated_at' => '2023-03-27 00:32:15',
+            ),
+            144 => 
+            array (
+                'id' => 146,
+                'name' => 'admin.setting.about.update',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:32:29',
+                'updated_at' => '2023-03-27 00:32:29',
+            ),
+            145 => 
+            array (
+                'id' => 147,
+                'name' => 'admin.home.program_pembelajaran',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:35:56',
+                'updated_at' => '2023-03-27 00:35:56',
+            ),
+            146 => 
+            array (
+                'id' => 148,
+                'name' => 'admin.home.program_pembelajaran.insert',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:36:00',
+                'updated_at' => '2023-03-27 00:36:00',
+            ),
+            147 => 
+            array (
+                'id' => 149,
+                'name' => 'admin.home.program_pembelajaran.update',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:36:05',
+                'updated_at' => '2023-03-27 00:36:05',
+            ),
+            148 => 
+            array (
+                'id' => 150,
+                'name' => 'admin.home.program_pembelajaran.delete',
+                'guard_name' => 'web',
+                'created_at' => '2023-03-27 00:36:09',
+                'updated_at' => '2023-03-27 00:36:09',
+            ),
         ));
         
         

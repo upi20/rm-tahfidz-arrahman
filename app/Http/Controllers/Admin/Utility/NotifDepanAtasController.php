@@ -32,7 +32,7 @@ class NotifDepanAtasController extends Controller
             'title' => 'Notifikasi Depan Atas',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
-                ['name' => 'Utility'],
+                ['name' => 'Peralatan'],
             ]
         ];
         return view('admin.utility.notif_depan_atas', compact('page_attr'));

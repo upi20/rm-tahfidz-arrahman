@@ -26,7 +26,7 @@ class FAQController extends Controller
             'title' => 'Frequently Asked Questions',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
-                ['name' => 'Kontak'],
+                ['name' => 'Halaman Utama'],
             ]
         ];
         $setting = (object)[

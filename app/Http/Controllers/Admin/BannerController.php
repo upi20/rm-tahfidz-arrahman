@@ -27,7 +27,7 @@ class BannerController extends Controller
             'title' => 'Banner',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
-                ['name' => 'Halaman Utama'],
+                ['name' => 'Artikel'],
             ]
         ];
 

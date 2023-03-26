@@ -119,7 +119,7 @@ class UserController extends Controller
         $page_attr = [
             'title' => 'Ganti Password',
             'breadcrumbs' => [
-                ['name' => 'Halaman Utama', 'url' => 'admin.dashboard'],
+                ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
             ],
         ];
         $user_role = Role::all();

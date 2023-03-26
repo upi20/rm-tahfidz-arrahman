@@ -17,7 +17,7 @@ class HomeController extends Controller
             'title' => 'Halaman Depan',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
-                ['name' => 'Pengaturan'],
+                ['name' => 'Halaman Utama'],
             ]
         ];
         $pre = $this->setting_prefix;

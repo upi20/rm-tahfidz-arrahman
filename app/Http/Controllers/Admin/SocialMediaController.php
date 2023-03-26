@@ -46,6 +46,7 @@ class SocialMediaController extends Controller
             'title' => 'Sosial Media',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
+                ['name' => 'Kontak'],
             ]
         ];
         return view('admin.social_media', compact('page_attr'));
