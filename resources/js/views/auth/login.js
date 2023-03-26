@@ -181,7 +181,7 @@ function setBtnLoading(element, text, status = true) {
     const el = $(element);
     if (status) {
         el.attr("disabled", "");
-        el.html(`<span class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true"> </span> ${text}`);
+        el.html(`<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"> </span> ${text}`);
     } else {
         el.removeAttr("disabled");
         el.html(text);

@@ -103,7 +103,7 @@ $page_attr_title = ($page_attr->title == '' ? '' : $page_attr->title . ' | ') . 
             <!-- GLOBAL-LOADER -->
             <div id="global-loader" style="background-color: #1a1a3c">
                 <img src="{{ asset(settings()->get(set_admin('app.foto_light_mode'))) }}" class="loader-img"
-                    alt="Loader">
+                    alt="Loader" style="max-width: 150px">
             </div>
             <!-- /GLOBAL-LOADER -->
         @endif
@@ -114,7 +114,7 @@ $page_attr_title = ($page_attr->title == '' ? '' : $page_attr->title . ' | ') . 
                 <div class="container-login100">
                     <div class="wrap-login100 p-6" style="border-radius: 24px; box-shadow: none">
                         <div class="text-center">
-                            <img style="max-height: 100px;"
+                            <img style="max-height: 65px;"
                                 src="{{ asset(settings()->get(set_admin('app.foto_light_landscape_mode'))) }}"
                                 class="header-brand-img" alt="Logo" id="logo">
                         </div>

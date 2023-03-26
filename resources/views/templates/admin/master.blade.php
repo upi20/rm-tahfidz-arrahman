@@ -114,7 +114,7 @@ $notifikasi = beTopNotification();
         <!-- GLOBAL-LOADER -->
         <div id="global-loader" style="background-color: #1a1a3c">
             <img src="{{ asset(settings()->get(set_admin('app.foto_light_mode'))) }}" class="loader-img"
-                alt="Loader">
+                alt="Loader" style="max-width: 150px">
         </div>
         <!-- /GLOBAL-LOADER -->
     @endif

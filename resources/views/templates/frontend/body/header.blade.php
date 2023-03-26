@@ -28,8 +28,8 @@
                     </div>
                     <div class="logo">
                         <a href="index.html">
-                            <img class="lazy" data-src="{{ asset('assets/templates/frontend/images/logo/01.png') }}"
-                                alt="logo">
+                            <img class="lazy" alt="logo" style="max-height: 65px"
+                                data-src="{{ asset(settings()->get(set_front('app.foto_dark_landscape_mode'))) }}">
                         </a>
                     </div>
                     <div class="ellepsis-bar d-lg-none">
