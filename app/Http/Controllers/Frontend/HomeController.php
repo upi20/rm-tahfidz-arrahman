@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Artikel\Artikel;
 use App\Models\Contact\FAQ;
 use App\Models\Galeri;
-use App\Models\Home\Testimonial;
+use App\Models\Home\KataKata;
 use App\Models\Home\ProgramPembelajaran;
 use App\Models\Produk\Produk;
 use App\Models\Tracker;
@@ -23,7 +23,7 @@ class HomeController extends Controller
             'navigation' => 'home',
         ];
 
-        $testimonials = Testimonial::getFeViewData();
+        $kata_katas = KataKata::getFeViewData();
         $produks = Produk::getFeHomeData();
         $program_pembelajarans = ProgramPembelajaran::getFeViewData();
 
@@ -43,11 +43,12 @@ class HomeController extends Controller
         $faqs = FAQ::getFeViewData();
 
         $data = compact(
-            'page_attr',
-            'articles',
-            'galeries',
-            'program_pembelajarans',
             'faqs',
+            'galeries',
+            'articles',
+            'page_attr',
+            'kata_katas',
+            'program_pembelajarans',
         );
         $data['compact'] = $data;
         return view('frontend.home', $data);

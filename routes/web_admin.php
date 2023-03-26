@@ -49,7 +49,7 @@ use App\Http\Controllers\Admin\Produk\KategoriController as ProdukKategoriContro
 use App\Http\Controllers\Admin\Produk\ProdukController;
 
 // HOme ===============================================================================================================
-use App\Http\Controllers\Admin\Home\TestimonialController;
+use App\Http\Controllers\Admin\Home\KataKataController;
 use App\Http\Controllers\Admin\Home\ProgramPembelajaranController;
 use App\Http\Controllers\Admin\Produk\MarketplaceController;
 use App\Http\Controllers\Admin\Setting\AboutController;
@@ -148,9 +148,9 @@ $prefix = 'home';
 Route::group(['prefix' => $prefix], function () use ($name, $prefix) {
     $name = "$name.$prefix"; // admin.home
 
-    $prefix = 'testimonial';
-    Route::controller(TestimonialController::class)->prefix($prefix)->group(function () use ($name, $prefix) {
-        $name = "$name.$prefix"; // admin.home.testimonial
+    $prefix = 'kata_kata';
+    Route::controller(KataKataController::class)->prefix($prefix)->group(function () use ($name, $prefix) {
+        $name = "$name.$prefix"; // admin.home.kata_kata
         Route::get('/', 'index')->name($name)->middleware("permission:$name");
         Route::get('/find', 'find')->name("$name.find")->middleware("permission:$name.update");
         Route::post('/', 'insert')->name("$name.insert")->middleware("permission:$name.insert");

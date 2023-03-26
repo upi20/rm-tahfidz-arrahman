@@ -9,33 +9,25 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
 
-class Testimonial extends Model
+class KataKata extends Model
 {
     use HasFactory;
     protected $fillable = [
         'nama',
         'sebagai',
-        'testimoni',
+        'kata_kata',
         'tampilkan',
     ];
     protected $primaryKey = 'id';
-    protected $table = 'home_testimonials';
-    const tableName = 'home_testimonials';
-    const image_folder = '/assets/home/testimonials';
-    const feCacheKey = 'feTestimonial';
-
-    public function fotoUrl()
-    {
-        $foto = $this->attributes['foto'];
-        return $foto ? url(self::image_folder . '/' . $foto) : asset('assets/logo.png');
-    }
+    protected $table = 'home_kata_katas';
+    const tableName = 'home_kata_katas';
+    const feCacheKey = 'feKataKata';
 
     public static function datatable(Request $request): mixed
     {
         $query = [];
         // list table
         $table = static::tableName;
-        $base_url_image_folder = url(str_replace('./', '', self::image_folder)) . '/';
 
         // cusotm query
         // ========================================================================================================
@@ -55,13 +47,6 @@ class Testimonial extends Model
         $query = array_merge($query, $date_format_fun('created_at', '%W, %d %M %Y %H:%i:%s', $c_created_str));
         $query = array_merge($query, $date_format_fun('updated_at', '%d-%b-%Y', $c_updated));
         $query = array_merge($query, $date_format_fun('updated_at', '%W, %d %M %Y %H:%i:%s', $c_updated_str));
-
-        // foto
-        $c_foto_link = 'foto_link';
-        $query[$c_foto_link] = <<<SQL
-                (concat('$base_url_image_folder',$table.foto))
-        SQL;
-        $query["{$c_foto_link}_alias"] = $c_foto_link;
         // ========================================================================================================
 
 
@@ -71,7 +56,6 @@ class Testimonial extends Model
             return $query[$col] . ' as ' . $query[$col . '_alias'];
         };
         $model_filter = [
-            $c_foto_link,
             $c_created,
             $c_created_str,
             $c_updated,
@@ -140,10 +124,10 @@ class Testimonial extends Model
         return $datatable->make(true);
     }
 
-    public static function getFeViewData()
+    public static function getFeViewData($seconds = 360)
     {
-        return Cache::rememberForever(self::feCacheKey, function () {
-            return static::where('tampilkan', 'Ya')->orderBy('nama')->get();
+        return Cache::remember(self::feCacheKey, $seconds, function () {
+            return static::where('tampilkan', 'Ya')->inRandomOrder()->get();
         });
     }
 

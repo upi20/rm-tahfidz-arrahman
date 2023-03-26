@@ -37,7 +37,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactMessagesTableSeeder::class);
         $this->call(FaqTableSeeder::class);
         $this->call(HomeSlidersTableSeeder::class);
-        $this->call(HomeTestimonialsTableSeeder::class);
         $this->call(VisitorsTableSeeder::class);
         $this->call(ProdukKategoriTableSeeder::class);
         $this->call(ProdukTableSeeder::class);
@@ -47,5 +46,6 @@ class DatabaseSeeder extends Seeder
         $this->call(HomeProgramPembelajaranTableSeeder::class);
         $this->call(BannersTableSeeder::class);
         $this->call(PendaftaransTableSeeder::class);
+        $this->call(HomeKataKatasTableSeeder::class);
     }
 }

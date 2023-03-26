@@ -4845,59 +4845,59 @@ h6 {
   line-height: 20px;
 }
 
-/* testimonial css */
-.testimonial__area .owl-item img {
+/* kata_kata css */
+.kata_kata__area .owl-item img {
   width: auto;
 }
 
-.testimonial__area .shape {
+.kata_kata__area .shape {
   right: 0;
   top: -50px;
 }
 
 @media (max-width: 1199px) {
-  .testimonial__area .shape {
+  .kata_kata__area .shape {
     width: 20%;
   }
 }
 
-.testimonial__active .owl-nav div {
+.kata_kata__active .owl-nav div {
   top: 85px;
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.testimonial__item .quote {
+.kata_kata__item .quote {
   display: inline-block;
 }
 
-.testimonial__item .quote img {
+.kata_kata__item .quote img {
   margin: 0 auto;
 }
 
-.testimonial__item p {
+.kata_kata__item p {
   font-size: 20px;
   color: #ffffff;
 }
 
-.testimonial__item .thumb {
+.kata_kata__item .thumb {
   border-radius: 50%;
 }
 
-.testimonial__item .thumb img {
+.kata_kata__item .thumb img {
   border-radius: 50%;
   margin: 0 auto;
 }
 
-.testimonial__item .name {
+.kata_kata__item .name {
   color: #ffffff;
   font-size: 18px;
   text-transform: uppercase;
   font-family: "Jost", sans-serif;
 }
 
-.testimonial__item .designation {
+.kata_kata__item .designation {
   font-size: 14;
   text-transform: uppercase;
   color: #C7A17A;

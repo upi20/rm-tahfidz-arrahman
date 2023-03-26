@@ -76,13 +76,7 @@
                                 <h5>Tentang Kami</h5>
                             </div>
                             <div class="fm-item-content">
-                                <p class="mb-4">
-                                    Kini saatnya memperdalam hubungan dengan Al-Quran melalui program hafalan yang
-                                    terarah dan didukung oleh para pengajar yang berpengalaman di Rumah Tahfizh Quran
-                                    Ar-Rahman
-                                    kami. Bergabunglah dengan kami untuk meraih keberkahan dan keutamaan dalam hidup
-                                    Anda.
-                                </p>
+                                <p class="mb-4"> {{ settings()->get(set_front('meta.description')) }} </p>
                             </div>
                         </div>
                     </div>

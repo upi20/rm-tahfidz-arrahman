@@ -135,7 +135,7 @@
 	});
 
 	// testemonial slider
-	var owl = $('.testimonial__active');
+	var owl = $('.kata_kata__active');
 	owl.owlCarousel({
 		items: 1,
 		loop: true,

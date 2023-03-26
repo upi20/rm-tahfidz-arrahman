@@ -454,7 +454,7 @@ class PMenuTableSeeder extends Seeder
                 'parent_id' => 418,
                 'title' => 'Kata Kata',
                 'icon' => 'fas fa-star',
-                'route' => 'admin.home.testimonial',
+                'route' => 'admin.home.kata_kata',
                 'sequence' => 18,
                 'active' => 1,
                 'type' => 1,

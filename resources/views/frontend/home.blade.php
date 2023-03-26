@@ -174,42 +174,42 @@
         <!-- Galeri Section end here -->
     @endif
 
-    <!-- Qoute Section start Here -->
-    <div class="qoute-section padding-tb">
-        <div class="qoute-section-wrapper">
-            <div class="qoute-overlay"></div>
-            <div class="container">
-                <div class="qoute-container">
-                    <div class="swiper-wrapper">
-                        @for ($i = 0; $i < 5; $i++)
-                            <div class="swiper-slide">
-                                <div class="lab-item qoute-item">
-                                    <div class="lab-inner d-flex align-items-center">
-                                        <div class="lab-thumb">
-                                            <span>Quote From
-                                                Prophat{{ $i }}</span>
-                                            <i class="icofont-quote-left"></i>
-                                        </div>
-                                        <div class="lab-content">
-                                            <blockquote class="blockquote">
-                                                <p>Hazrat Mohammod (s) Said <span>"It is Better For Any Of You
-                                                        To Carry A Load Of Firewood On His Own Back Than To
-                                                        Beg From Someone Else"</span> </p>
-                                                <footer class="blockquote-footer bg-transparent">
-                                                    Riyadh-Us-Saleheen, Chapter 59, hadith 540
-                                                </footer>
-                                            </blockquote>
+    @php $k = "$p.kata_kata"; @endphp
+    @if (settings()->get("$k.visible"))
+        <!-- Qoute Section start Here -->
+        <div class="qoute-section padding-tb" style="background-image: url({{ asset(settings()->get("$k.image")) }})">
+            <div class="qoute-section-wrapper">
+                <div class="qoute-overlay"></div>
+                <div class="container">
+                    <div class="qoute-container">
+                        <div class="swiper-wrapper">
+                            @foreach ($kata_katas as $kata)
+                                <div class="swiper-slide">
+                                    <div class="lab-item qoute-item">
+                                        <div class="lab-inner d-flex align-items-center">
+                                            <div class="lab-thumb">
+                                                <span>{{ $kata->sebagai }}</span>
+                                                <i class="icofont-quote-left"></i>
+                                            </div>
+                                            <div class="lab-content">
+                                                <blockquote class="blockquote">
+                                                    <p> {!! $kata->kata_kata !!} </p>
+                                                    <footer class="blockquote-footer bg-transparent">
+                                                        {{ $kata->nama }}
+                                                    </footer>
+                                                </blockquote>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endfor
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Qoute Section end Here -->
+        <!-- Qoute Section end Here -->
+    @endif
 
     @php $k = "setting.contact.faq"; @endphp
     @if (settings()->get("$k.visible"))
@@ -319,20 +319,4 @@
         </section>
         <!-- Artikel section end here -->
     @endif
-
-@endsection
-@section('stylesheet')
-    <style>
-        .foto-produk {
-            width: 40%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        @media (max-width: 767px) {
-            .foto-produk {
-                width: 100%;
-            }
-        }
-    </style>
 @endsection

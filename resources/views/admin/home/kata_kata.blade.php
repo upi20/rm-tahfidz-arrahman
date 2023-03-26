@@ -42,20 +42,6 @@
                                     </label>
 
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Judul<span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="title" name="title" class="form-control"
-                                            placeholder="Judul" value="{{ $setting->title }}" required />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="form-label" for="sub_title">Sub Judul<span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="sub_title" name="sub_title" class="form-control"
-                                            placeholder="Sub Judul" value="{{ $setting->sub_title }}" required />
-                                    </div>
-
-                                    <div class="form-group">
                                         <label class="form-label">Foto Latar Belakang
                                             <span class="badge bg-primary" id="deskripsi_foto"
                                                 onclick='viewImage(`{{ $setting->image }}`, `Foto Latar Belakang`)'>
@@ -112,10 +98,9 @@
             <table class="table table-striped" id="tbl_main">
                 <thead>
                     <tr>
-                        <th>Urutan</th>
-                        <th>Foto</th>
+                        <th>No</th>
                         <th>Nama</th>
-                        <th>Testimoni</th>
+                        <th>Kata Kata</th>
                         <th>Tampilkan</th>
                         {!! $can_delete || $can_update ? '<th>Aksi</th>' : '' !!}
                     </tr>
@@ -137,11 +122,6 @@
                         enctype="multipart/form-data">
                         <input type="hidden" name="id" id="id">
                         <div class="form-group">
-                            <label class="form-label" for="urutan">Urutan <span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="urutan" name="urutan"
-                                placeholder="Urutan Ditampilkan" required="" />
-                        </div>
-                        <div class="form-group">
                             <label class="form-label" for="nama">Nama <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="nama" name="nama"
                                 placeholder="Nama Lengkap" required="" />
@@ -152,16 +132,10 @@
                                 placeholder="Sebagai" required="" />
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="foto">Foto
-                                <span class="badge bg-success" id="lihat-foto">Lihat</span>
-                            </label>
-                            <input type="file" class="form-control" id="foto" name="foto" required />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="testimoni">Testimonial
+                            <label class="form-label" for="kata_kata">Kata Kata
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea rows="3" class="form-control" id="testimoni" name="testimoni" placeholder="Isi testimoni"
+                            <textarea rows="3" class="form-control" id="kata_kata" name="kata_kata" placeholder="Kata Kata"
                                 required=""></textarea>
                         </div>
                         <div class="form-group">
@@ -264,7 +238,6 @@
 
         const table_html = $('#tbl_main');
         let isEdit = true;
-        const image_url = '{{ asset($image_folder) }}';
         $(document).ready(function() {
             // datatable ====================================================================================
             $.ajaxSetup({
@@ -288,18 +261,9 @@
                     }
                 },
                 columns: [{
-                        data: 'urutan',
-                        name: 'urutan',
-                    },
-                    {
-                        data: 'foto',
-                        name: 'foto',
-                        render(data, type, full, meta) {
-                            return data ? `
-                            <img class="table-foto" src="${image_url}/${data}" alt="${full.nama}" onclick="viewIcon('${data}')">
-                            ` : '';
-                        },
-                        orderable: false
+                        data: null,
+                        name: 'id',
+                        orderable: false,
                     },
                     {
                         data: 'nama',
@@ -309,8 +273,8 @@
                         },
                     },
                     {
-                        data: 'testimoni',
-                        name: 'testimoni',
+                        data: 'kata_kata',
+                        name: 'kata_kata',
                         render(data, type, full, meta) {
                             return `<small>${data}</small>`;
                         },
@@ -337,7 +301,7 @@
                     }] : []),
                 ],
                 order: [
-                    [0, 'asc']
+                    [1, 'asc']
                 ],
                 language: {
                     url: datatable_indonesia_language_url
@@ -346,6 +310,12 @@
 
             new_table.on('draw.dt', function() {
                 tooltip_refresh();
+                var PageInfo = table_html.DataTable().page.info();
+                new_table.column(0, {
+                    page: 'current'
+                }).nodes().each(function(cell, i) {
+                    cell.innerHTML = i + 1 + PageInfo.start;
+                });
             });
 
             $('#FilterForm').submit(function(e) {
@@ -486,7 +456,7 @@
                     $('#nama').val(data.nama);
                     $('#sebagai').val(data.sebagai);
                     $('#tampilkan').val(data.tampilkan);
-                    $('#testimoni').val(data.testimoni);
+                    $('#kata_kata').val(data.kata_kata);
                     $('#lihat-foto').fadeIn();
                     $('#lihat-foto').attr('onclick', `viewIcon('${data.foto}')`);
                     $('#foto').removeAttr('required');
@@ -555,18 +525,5 @@
                 }
             });
         }
-
-        function viewIcon(image) {
-            $('#modal-icon').modal('show');
-            $('#icon-view-image').attr('src', `${image_url}/${image}`);
-        }
-
-        function viewImage(image, title) {
-            $('#modal-image').modal('show');
-            $('#modal-image-title').html(title);
-            const ele = $('#modal-image-element');
-            ele.attr('src', `{{ url('') }}${image}`);
-            ele.attr('alt', title);
-        };
     </script>
 @endsection

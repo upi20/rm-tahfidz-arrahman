@@ -12,7 +12,7 @@ use App\Models\Contact\FAQ;
 use App\Models\Contact\ListContact;
 use App\Models\Contact\Message;
 use App\Models\Galeri;
-use App\Models\Home\Testimonial;
+use App\Models\Home\KataKata;
 use App\Models\Home\ProgramPembelajaran;
 use App\Models\Menu\Admin as MenuAdmin;
 use App\Models\Menu\Frontend as MenuFrontend;
@@ -120,7 +120,7 @@ class backup extends Command
                 FAQ::tableName,
             ],
             'home' => [
-                Testimonial::tableName,
+                KataKata::tableName,
                 ProgramPembelajaran::tableName,
             ],
             'setting' => [

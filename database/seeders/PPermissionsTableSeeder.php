@@ -230,7 +230,7 @@ class PPermissionsTableSeeder extends Seeder
             26 => 
             array (
                 'id' => 28,
-                'name' => 'admin.home.testimonial',
+                'name' => 'admin.home.kata_kata',
                 'guard_name' => 'web',
                 'created_at' => '2023-01-18 02:46:46',
                 'updated_at' => '2023-03-10 13:30:02',
@@ -238,7 +238,7 @@ class PPermissionsTableSeeder extends Seeder
             27 => 
             array (
                 'id' => 29,
-                'name' => 'admin.home.testimonial.insert',
+                'name' => 'admin.home.kata_kata.insert',
                 'guard_name' => 'web',
                 'created_at' => '2023-01-18 02:46:46',
                 'updated_at' => '2023-03-10 13:30:10',
@@ -246,7 +246,7 @@ class PPermissionsTableSeeder extends Seeder
             28 => 
             array (
                 'id' => 30,
-                'name' => 'admin.home.testimonial.delete',
+                'name' => 'admin.home.kata_kata.delete',
                 'guard_name' => 'web',
                 'created_at' => '2023-01-18 02:46:46',
                 'updated_at' => '2023-03-10 13:30:07',
@@ -254,7 +254,7 @@ class PPermissionsTableSeeder extends Seeder
             29 => 
             array (
                 'id' => 31,
-                'name' => 'admin.home.testimonial.update',
+                'name' => 'admin.home.kata_kata.update',
                 'guard_name' => 'web',
                 'created_at' => '2023-01-18 02:46:46',
                 'updated_at' => '2023-03-10 13:30:18',
@@ -262,7 +262,7 @@ class PPermissionsTableSeeder extends Seeder
             30 => 
             array (
                 'id' => 32,
-                'name' => 'admin.home.testimonial.setting',
+                'name' => 'admin.home.kata_kata.setting',
                 'guard_name' => 'web',
                 'created_at' => '2023-01-18 02:46:46',
                 'updated_at' => '2023-03-10 13:30:14',

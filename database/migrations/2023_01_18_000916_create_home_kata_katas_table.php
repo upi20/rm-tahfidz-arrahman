@@ -1,5 +1,7 @@
+
 <?php
 
+use App\Models\Home\KataKata;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,14 +15,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('home_testimonials', function (Blueprint $table) {
+        Schema::create(KataKata::tableName, function (Blueprint $table) {
             $table->id();
-            $table->integer('urutan')->nullable()->default(0);
             $table->string('nama')->nullable()->default(null);
             $table->string('sebagai')->nullable()->default(null);
-            $table->string('foto')->nullable()->default(null);
-            $table->text('testimoni')->nullable()->default(null);
-            $table->string('tampilkan')->nullable()->default(null);
+            $table->text('kata_kata')->nullable()->default(null);
+            $table->string('tampilkan')->nullable()->default('Tidak');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_testimonials');
+        Schema::dropIfExists(KataKata::tableName);
     }
 };
