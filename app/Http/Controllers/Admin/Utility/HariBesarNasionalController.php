@@ -32,7 +32,7 @@ class HariBesarNasionalController extends Controller
             'title' => 'Hari Besar Nasional',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
-                ['name' => 'Utility'],
+                ['name' => 'Peralatan'],
             ]
         ];
 

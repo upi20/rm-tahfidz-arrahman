@@ -32,7 +32,7 @@ class NotifAdminAtasController extends Controller
             'title' => 'Notifikasi Admin Atas',
             'breadcrumbs' => [
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
-                ['name' => 'Utility'],
+                ['name' => 'Peralatan'],
             ]
         ];
         return view('admin.utility.notif_admin_atas', compact('page_attr'));

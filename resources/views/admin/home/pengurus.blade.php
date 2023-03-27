@@ -334,10 +334,10 @@
 
 
                             let kontak = no_telepon;
-                            kontak += ((kontak ? '<br>' : '') + no_whatsapp);
-                            kontak += ((kontak ? '<br>' : '') + facebook);
-                            kontak += ((kontak ? '<br>' : '') + instagram);
-                            kontak += ((kontak ? '<br>' : '') + twitter);
+                            kontak += ((kontak && no_whatsapp ? '<br>' : '') + no_whatsapp);
+                            kontak += ((kontak && facebook ? '<br>' : '') + facebook);
+                            kontak += ((kontak && instagram ? '<br>' : '') + instagram);
+                            kontak += ((kontak && twitter ? '<br>' : '') + twitter);
 
                             return `<small>${kontak}</small>`;
                         },
