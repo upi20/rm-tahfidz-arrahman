@@ -152,7 +152,9 @@ class PengurusController extends Controller
 
     public function find(Request $request)
     {
-        return Pengurus::findOrFail($request->id);
+        $pengurus = Pengurus::findOrFail($request->id);
+        $pengurus->foto_link = $pengurus->fotoUrl();
+        return $pengurus;
     }
 
     public function setting(Request $request)

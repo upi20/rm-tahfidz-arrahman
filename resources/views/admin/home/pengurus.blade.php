@@ -296,7 +296,7 @@
                         name: 'foto',
                         render(data, type, full, meta) {
                             return data ? `
-                            <img class="table-foto" src="${image_url}/${data}" alt="${full.nama}" onclick="viewImage('${data}', '${full.nama}')">
+                            <img class="table-foto" src="${image_url}/${data}" alt="${full.nama}" onclick="viewImage('${full.foto_link}', '${full.nama}')">
                             ` : '';
                         },
                         orderable: false
@@ -520,7 +520,7 @@
                     $('#twitter').val(data.twitter);
                     $('#instagram').val(data.instagram);
                     $('#lihat-foto').fadeIn();
-                    $('#lihat-foto').attr('onclick', `viewImage('${data.foto}', '${data.nama}')`);
+                    $('#lihat-foto').attr('onclick', `viewImage('${data.foto_link}', '${data.nama}')`);
                     $('#foto').removeAttr('required');
                     $('#foto').val('');
                 },
@@ -592,7 +592,7 @@
             $('#modal-image').modal('show');
             $('#modal-image-title').html(title);
             const ele = $('#modal-image-element');
-            ele.attr('src', `{{ url('') }}${image}`);
+            ele.attr('src', `${image}`);
             ele.attr('alt', title);
         };
     </script>
