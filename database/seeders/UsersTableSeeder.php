@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
                 'foto' => NULL,
                 'username' => NULL,
                 'email_verified_at' => NULL,
-                'password' => '$2y$10$WtiIAAq7xqbtuxvTMKB4n.s7pCJLkiehMX/auuTFg32yS9c5dfDs.',
+                'password' => '$2y$10$HL9ziBLtmEaeocsJwvnWveYUyFCMwmEty9H.DBi1Qu4VpR8q4Qyrq',
                 'active' => '1',
                 'two_factor_secret' => NULL,
                 'two_factor_recovery_codes' => NULL,
@@ -55,7 +55,7 @@ class UsersTableSeeder extends Seeder
                 'profile_photo_path' => NULL,
                 'remember_token' => NULL,
                 'created_at' => '2023-01-22 17:16:25',
-                'updated_at' => '2023-03-25 00:22:12',
+                'updated_at' => '2023-03-27 16:23:29',
             ),
         ));
         

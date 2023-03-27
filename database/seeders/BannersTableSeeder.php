@@ -55,9 +55,9 @@ class BannersTableSeeder extends Seeder
                 'nama' => 'Iklan 4',
                 'foto' => '20230324234534.jpg',
                 'status' => '1',
-                'ditampilkan' => '24',
+                'ditampilkan' => '25',
                 'created_at' => '2023-03-24 23:45:34',
-                'updated_at' => '2023-03-27 05:03:38',
+                'updated_at' => '2023-03-27 16:46:33',
             ),
             4 => 
             array (

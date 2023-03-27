@@ -22,12 +22,12 @@ class HomeProgramPembelajaranTableSeeder extends Seeder
             0 => 
             array (
                 'id' => '5',
-                'nama' => 'Tafsir Quran',
+                'nama' => 'Tahfizh Quran',
                 'foto' => '20230326130805.png',
-                'keterangan' => 'Mempelajari tentang teknik dan metode penafsiran Al-Quran serta makna ayat-ayat Al-Quran',
+                'keterangan' => 'Menghafal al-Quran dan Belajar Tahsin',
                 'urutan' => '1',
                 'created_at' => '2023-03-26 13:08:05',
-                'updated_at' => '2023-03-26 13:08:05',
+                'updated_at' => '2023-03-27 16:59:19',
             ),
             1 => 
             array (
