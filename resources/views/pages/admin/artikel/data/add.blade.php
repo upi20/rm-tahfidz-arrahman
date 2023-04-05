@@ -12,6 +12,7 @@
     $detail = $is_edit ? $artikel->detail : '';
     $status = $is_edit ? $artikel->status : 1;
     $status = [$status == 0 ? 'checked' : '', $status == 1 ? 'checked' : ''];
+    $user_id = $is_edit ? $artikel->user_id : auth()->user()->id;
     
     $kategori = isset($kategori) ? $kategori : [];
     $tag = isset($tag) ? $tag : [];
@@ -108,6 +109,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12" {!! config('app.artikel_tampilkan_penulis') ? '' : 'style="display: none"' !!}>
+                                <div class="form-group">
+                                    <label for="user_id">Penulis</label>
+                                    <select class="form-control select2" id="user_id" name="user_id" style="width: 100%">
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->id }}"
+                                                {{ $user->id == $user_id ? 'selected' : '' }}>
+                                                {{ $user->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -131,6 +145,7 @@
     <script type="text/javascript">
         const is_edit = '{{ $is_edit }}';
         $(document).ready(function() {
+            $('.select2').select2();
             $('#kategori').select2({
                 ajax: {
                     url: "{{ route(h_prefix('kategori.select2', $min + 1)) }}",
