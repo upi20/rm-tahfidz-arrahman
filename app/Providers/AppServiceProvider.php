@@ -10,22 +10,16 @@ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
-        // $this->app->bind('path.public', function () {
-        //     return realpath(base_path() . '/../public_html');
-        // });
+        //
     }
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         setlocale(LC_ALL, 'IND');
         DB::statement("SET lc_time_names = 'id_ID'");

@@ -23,7 +23,7 @@ class PendaftaranController extends Controller
 
         $data = compact('page_attr');
         $data['compact'] = $data;
-        return view('admin.pendaftaran', $data);
+        return view('pages.admin.pendaftaran', $data);
     }
 
     public function delete(Pendaftaran $model): mixed

@@ -31,7 +31,7 @@ class FrontendController extends Controller
         $data = compact(
             'page_attr',
         );
-        return view('admin.menu.frontend',  array_merge($data, ['compact' => $data]));
+        return view('pages.admin.menu.frontend',  array_merge($data, ['compact' => $data]));
     }
 
 

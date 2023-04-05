@@ -1,4 +1,4 @@
-@extends('templates.frontend.master')
+@extends('layouts.frontend.master')
 @section('content')
     <div class="faq__area pt-120 pb-120">
         <div class="container text-center">

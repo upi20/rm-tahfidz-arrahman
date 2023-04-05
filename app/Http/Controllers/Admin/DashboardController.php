@@ -26,7 +26,7 @@ class DashboardController extends Controller
         );
         $data['compact'] = $data;
 
-        return view('admin.dashboard', $data);
+        return view('pages.admin.dashboard', $data);
     }
 
     public function vistor_counter(Request $request)

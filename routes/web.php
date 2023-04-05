@@ -25,6 +25,7 @@ use App\Http\Controllers\Frontend\MarketplaceController;
 use App\Http\Controllers\Frontend\PendaftaranController;
 use App\Http\Controllers\Frontend\ProdukController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\SocialiteController;
 
 // ====================================================================================================================
 // ====================================================================================================================
@@ -35,6 +36,10 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name("login");
     Route::post('/login', 'check_login')->name("login.check_login");
     Route::get('/logout', 'logout')->name("login.logout");
+});
+Route::controller(SocialiteController::class)->group(function () {
+    Route::get('/auth/{provider}', 'redirectToProvider');
+    Route::get('/auth/{provider}/callback', 'handleProvideCallback');
 });
 // ====================================================================================================================
 

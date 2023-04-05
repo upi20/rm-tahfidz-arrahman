@@ -181,7 +181,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
-
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*
@@ -203,4 +203,5 @@ return [
 
     // my config
     'super_admin_role' => env('SUPER_ADMIN_ROLE', 'Super Admin'),
+    'admin_assets_url' => env('ADMIN_ASSETS_URL', 'https://assets.iseplutpi.site/sash/'),
 ];

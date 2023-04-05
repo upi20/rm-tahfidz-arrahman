@@ -35,7 +35,7 @@ class NotifAdminAtasController extends Controller
                 ['name' => 'Peralatan'],
             ]
         ];
-        return view('admin.utility.notif_admin_atas', compact('page_attr'));
+        return view('pages.admin.utility.notif_admin_atas', compact('page_attr'));
     }
 
     public function insert(Request $request): mixed

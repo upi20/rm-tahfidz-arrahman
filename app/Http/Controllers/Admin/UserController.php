@@ -28,7 +28,7 @@ class UserController extends Controller
             'navigation' => 'user.view',
         ];
         $user_role = Role::all();
-        return view('admin.user', compact('page_attr', 'user_role'));
+        return view('pages.admin.user', compact('page_attr', 'user_role'));
     }
 
     public function store(Request $request)
@@ -123,7 +123,7 @@ class UserController extends Controller
             ],
         ];
         $user_role = Role::all();
-        return view('admin.change_password', compact('page_attr', 'user_role'));
+        return view('pages.admin.change_password', compact('page_attr', 'user_role'));
     }
 
     public function save_password(Request $request)

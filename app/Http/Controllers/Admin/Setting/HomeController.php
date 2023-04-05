@@ -28,7 +28,7 @@ class HomeController extends Controller
             'page_attr',
             's'
         );
-        return view('admin.setting.home',  array_merge($data, ['compact' => $data]));
+        return view('pages.admin.setting.home',  array_merge($data, ['compact' => $data]));
     }
 
     public function hero(Request $request)

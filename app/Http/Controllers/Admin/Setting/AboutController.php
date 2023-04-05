@@ -20,7 +20,7 @@ class AboutController extends Controller
         $data = compact(
             'page_attr'
         );
-        return view('admin.setting.about',  array_merge($data, ['compact' => $data]));
+        return view('pages.admin.setting.about',  array_merge($data, ['compact' => $data]));
     }
 
     public function update(Request $request)

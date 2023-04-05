@@ -32,7 +32,7 @@ class PendaftaranController extends Controller
 
         $data = compact('page_attr', 'routeTitle');
         $data['compact'] = $data;
-        return view('frontend.pendaftaran', $data);
+        return view('pages.frontend.pendaftaran', $data);
     }
 
     public function insert(Request $request): mixed

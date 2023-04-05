@@ -32,7 +32,7 @@ class BannerController extends Controller
         ];
 
         $image_folder = $this->image_folder;
-        return view('admin.banner', compact('page_attr', 'image_folder'));
+        return view('pages.admin.banner', compact('page_attr', 'image_folder'));
     }
 
     public function insert(Request $request): mixed

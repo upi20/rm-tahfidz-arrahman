@@ -37,7 +37,7 @@ class FAQController extends Controller
 
         $data = compact('page_attr', 'setting');
         $data['compact'] = $data;
-        return view('admin.kontak.faq', $data);
+        return view('pages.admin.kontak.faq', $data);
     }
 
     public function insert(Request $request): mixed

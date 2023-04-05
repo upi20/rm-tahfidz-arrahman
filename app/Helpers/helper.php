@@ -325,3 +325,11 @@ if (!function_exists('text_cutter')) {
         return (strlen($text) > $end) ? substr($text, 0, $end) . '...' : $text;
     }
 }
+
+if (!function_exists('asset_admin')) {
+    function asset_admin($asset)
+    {
+        $base_url = config('app.admin_assets_url');
+        return $base_url . $asset;
+    }
+}

@@ -48,7 +48,7 @@ class ArtikelController extends Controller
             'banner',
         );
         $data['compact'] = $data;
-        return view('frontend.artikel.list', $data);
+        return view('pages.frontend.artikel.list', $data);
     }
 
     public function detail(Artikel $model)
@@ -96,7 +96,7 @@ class ArtikelController extends Controller
 
         $banner = Banner::getViewData();
         // return
-        return view('frontend.artikel.detail', compact(
+        return view('pages.frontend.artikel.detail', compact(
             'page_attr',
             'model',
             'next_post',

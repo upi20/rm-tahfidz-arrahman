@@ -39,7 +39,7 @@ class ProgramPembelajaranController extends Controller
             'sub_title' => settings()->get("$this->key.sub_title"),
             'number' => settings()->get("$this->key.number")
         ];
-        return view('admin.home.program_pembelajaran', compact('page_attr', 'image_folder', 'setting'));
+        return view('pages.admin.home.program_pembelajaran', compact('page_attr', 'image_folder', 'setting'));
     }
 
     public function insert(Request $request): mixed

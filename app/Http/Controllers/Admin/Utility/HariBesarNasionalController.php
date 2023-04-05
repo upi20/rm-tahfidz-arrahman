@@ -38,7 +38,7 @@ class HariBesarNasionalController extends Controller
 
         $data = compact('page_attr');
         $data['compact'] = $data;
-        return view('admin.utility.hari_besar_nasional', $data);
+        return view('pages.admin.utility.hari_besar_nasional', $data);
     }
 
     public function insert(Request $request): mixed

@@ -68,23 +68,22 @@ $page_attr_title = ($page_attr->title == '' ? '' : $page_attr->title . ' | ') . 
     <meta itemprop="image" content="{{ $page_attr->image }}">
 
     <!-- BOOTSTRAP CSS -->
-    <link id="style" href="{{ asset('assets/templates/admin/plugins/bootstrap/css/bootstrap.min.css') }}"
-        rel="stylesheet" />
+    <link id="style" href="{{ asset_admin('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- STYLE CSS -->
-    <link href="{{ asset('assets/templates/admin/css/style.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/templates/admin/css/dark-style.css') }}" rel="stylesheet" />
+    <link href="{{ asset_admin('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset_admin('css/dark-style.css') }}" rel="stylesheet" />
 
-    <link href="{{ asset('assets/templates/admin/css/skin-modes.css') }}" rel="stylesheet" />
+    <link href="{{ asset_admin('css/skin-modes.css') }}" rel="stylesheet" />
 
     <!--- FONT-ICONS CSS -->
-    <link href="{{ asset('assets/templates/admin/css/icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset_admin('css/icons.css') }}" rel="stylesheet" />
 
     <!-- COLOR SKIN CSS -->
     <link id="theme" rel="stylesheet" type="text/css" media="all"
-        href="{{ asset('assets/templates/admin/colors/color1.css') }}" />
+        href="{{ asset_admin('colors/color1.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('assets/templates/admin/plugins/sweet-alert/sweetalert2.css') }}">
+    <link rel="stylesheet" href="{{ asset_admin('plugins/sweet-alert/sweetalert2.css') }}">
 
     @foreach (json_decode(settings()->get(set_admin('meta_list'), '{}')) as $meta)
         <!-- custom {{ $meta->name }} -->
@@ -186,24 +185,24 @@ $page_attr_title = ($page_attr->title == '' ? '' : $page_attr->title . ' | ') . 
     <!-- BACKGROUND-IMAGE CLOSED -->
 
     <!-- JQUERY JS -->
-    <script src="{{ asset('assets/templates/admin/js/jquery.min.js') }}"></script>
+    <script src="{{ asset_admin('js/jquery.min.js') }}"></script>
 
     <!-- BOOTSTRAP JS -->
-    <script src="{{ asset('assets/templates/admin/plugins/bootstrap/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/templates/admin/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset_admin('plugins/bootstrap/js/popper.min.js') }}"></script>
+    <script src="{{ asset_admin('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <!-- SHOW PASSWORD JS -->
-    <script src="{{ asset('assets/templates/admin/js/show-password.min.js') }}"></script>
+    <script src="{{ asset_admin('js/show-password.min.js') }}"></script>
 
     <!-- Color Theme js -->
-    <script src="{{ asset('assets/templates/admin/js/themeColors.js') }}"></script>
+    <script src="{{ asset_admin('js/themeColors.js') }}"></script>
 
     <!-- CUSTOM JS -->
-    <script src="{{ asset('assets/templates/admin/js/custom.js') }}"></script>
+    <script src="{{ asset_admin('js/custom.js') }}"></script>
 
-    <script src="{{ asset('assets/templates/admin/plugins/sweet-alert/sweetalert2.all.js') }}"></script>
+    <script src="{{ asset_admin('plugins/sweet-alert/sweetalert2.all.js') }}"></script>
 
-    <script src="{{ asset('assets/templates/admin/plugins/particle/particles.js') }}"></script>
+    <script src="{{ asset_admin('plugins/particle/particles.js') }}"></script>
 
     <script>
         {{-- if (localStorage.getItem('lightMode') || localStorage.getItem('darkMode') == null) {

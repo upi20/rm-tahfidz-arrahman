@@ -27,7 +27,7 @@ class KategoriController extends Controller
                 ['name' => 'Produk'],
             ]
         ];
-        return view('admin.produk.kategori', compact('page_attr'));
+        return view('pages.admin.produk.kategori', compact('page_attr'));
     }
 
     public function insert(Request $request): mixed

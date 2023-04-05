@@ -25,7 +25,7 @@ class MarketplaceController extends Controller
             return MarketPlaceJenis::datatable($request);
         };
         $page_attr = adminTitle(h_prefix());
-        return view('admin.produk.marketplace', compact('page_attr'));
+        return view('pages.admin.produk.marketplace', compact('page_attr'));
     }
 
     public function insert(Request $request): mixed

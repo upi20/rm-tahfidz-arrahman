@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $total_pesan = ContactMessage::count();
         $total_kata_kata = KataKata::count();
         $page_attr = ['title' => 'Halaman Utama'];
-        return view('member.dashborard', compact(
+        return view('pages.admin.member.dashborard', compact(
             'total_anggota',
             'total_artikel',
             'total_galeri',

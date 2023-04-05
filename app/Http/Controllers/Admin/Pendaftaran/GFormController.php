@@ -42,7 +42,7 @@ class GFormController extends Controller
                 ['name' => 'Pendaftaran'],
             ]
         ];
-        return view('admin.pendaftaran.gform', compact('page_attr', 'image_folder'));
+        return view('pages.admin.pendaftaran.gform', compact('page_attr', 'image_folder'));
     }
 
     public function insert(Request $request): mixed
@@ -326,6 +326,6 @@ class GFormController extends Controller
 
         $link = str_contains($model->link, '?') ? ($model->link . '&') : ($model->link . '?');
         $link = $link . 'embedded=true';
-        return view('frontend.pendaftaran.gform', compact('page_attr', 'model', 'link'));
+        return view('pages.frontend.pendaftaran.gform', compact('page_attr', 'model', 'link'));
     }
 }

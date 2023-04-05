@@ -26,7 +26,7 @@ class GaleriController extends Controller
             'image' => $foto,
         ];
 
-        return view('frontend.galeri.list', compact(
+        return view('pages.frontend.galeri.list', compact(
             'galeries',
             'filters',
             'page_attr',
@@ -46,6 +46,6 @@ class GaleriController extends Controller
             'image' => $model->fotoUrl(),
         ];
 
-        return view('frontend.galeri.detail', compact('page_attr', 'model'));
+        return view('pages.frontend.galeri.detail', compact('page_attr', 'model'));
     }
 }

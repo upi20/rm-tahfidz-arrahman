@@ -21,6 +21,6 @@ class AboutController extends Controller
             'page_attr',
         );
         $data['compact'] = $data;
-        return view('frontend.about', $data);
+        return view('pages.frontend.about', $data);
     }
 }

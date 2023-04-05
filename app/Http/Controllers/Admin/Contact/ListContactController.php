@@ -38,7 +38,7 @@ class ListContactController extends Controller
 
         $data = compact('page_attr', 'setting');
         $data['compact'] = $data;
-        return view('admin.kontak.list', $data);
+        return view('pages.admin.kontak.list', $data);
     }
 
     public function insert(Request $request): mixed

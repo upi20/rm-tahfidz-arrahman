@@ -52,7 +52,7 @@ class ProdukController extends Controller
         }
         $kategoris = ProdukKategori::orderBy('nama')->get();
         $page_attr = adminTitle(h_prefix());
-        return view('admin.produk.produk', compact('page_attr', 'kategoris'));
+        return view('pages.admin.produk.produk', compact('page_attr', 'kategoris'));
     }
 
     public function insert(Request $request): mixed
@@ -72,7 +72,7 @@ class ProdukController extends Controller
         $route_save = route(h_prefix('save', 1), $produk->id);
         $data = compact('page_attr', 'produk', 'kategoris', 'isEdit', 'route_save', 'marketplaceJenis');
         $data['compact'] = $data;
-        return view('admin.produk.produk_editor', $data);
+        return view('pages.admin.produk.produk_editor', $data);
     }
 
     public function update(Produk $produk): mixed
@@ -90,7 +90,7 @@ class ProdukController extends Controller
         $route_save = route(h_prefix('save', 2), $produk->id);
         $data = compact('page_attr', 'produk', 'kategoris', 'isEdit', 'route_save', 'marketplaceJenis');
         $data['compact'] = $data;
-        return view('admin.produk.produk_editor', $data);
+        return view('pages.admin.produk.produk_editor', $data);
     }
     // page function ==============================================================================
 

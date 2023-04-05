@@ -58,7 +58,7 @@ class HomeController extends Controller
             'penguruses',
         );
         $data['compact'] = $data;
-        return view('frontend.home', $data);
+        return view('pages.frontend.home', $data);
     }
 
     private function checkVisible(string $item): ?bool
@@ -68,6 +68,6 @@ class HomeController extends Controller
 
     public function fronted2(Request $request)
     {
-        return view('templates.frontend.master');
+        return view('layouts.frontend.master');
     }
 }

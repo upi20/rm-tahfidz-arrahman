@@ -6,10 +6,11 @@ use donatj\UserAgent\UserAgentParser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class Tracker extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $table = 'visitors';
     protected $fillable = [
         'ip',

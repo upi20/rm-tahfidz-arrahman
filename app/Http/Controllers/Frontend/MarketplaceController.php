@@ -31,6 +31,6 @@ class MarketplaceController extends Controller
             'routeTitle',
         );
         $data['compact'] = $data;
-        return view('frontend.marketplace', $data);
+        return view('pages.frontend.marketplace', $data);
     }
 }

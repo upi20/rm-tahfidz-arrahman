@@ -37,7 +37,7 @@ class GaleriController extends Controller
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
             ]
         ];
-        return view('admin.galeri', compact('page_attr'));
+        return view('pages.admin.galeri', compact('page_attr'));
     }
 
     public function insert(Request $request)

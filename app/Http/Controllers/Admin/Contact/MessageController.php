@@ -35,7 +35,7 @@ class MessageController extends Controller
 
         $data = compact('page_attr', 'setting');
         $data['compact'] = $data;
-        return view('admin.kontak.message', $data);
+        return view('pages.admin.kontak.message', $data);
     }
 
     public function setting(Request $request)

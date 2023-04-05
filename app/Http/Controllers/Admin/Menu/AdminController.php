@@ -43,7 +43,7 @@ class AdminController extends Controller
             'routes',
             'roles',
         );
-        return view('admin.menu.admin',  array_merge($data, ['compact' => $data]));
+        return view('pages.admin.menu.admin',  array_merge($data, ['compact' => $data]));
     }
 
 

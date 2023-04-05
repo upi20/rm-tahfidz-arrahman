@@ -53,7 +53,7 @@ class KatalogController extends Controller
             'banner',
         );
         $data['compact'] = $data;
-        return view('frontend.katalog.list', $data);
+        return view('pages.frontend.katalog.list', $data);
     }
 
     public function detail(Produk $model)
@@ -82,7 +82,7 @@ class KatalogController extends Controller
         }])->get();
 
         // return
-        return view('frontend.katalog.detail', compact(
+        return view('pages.frontend.katalog.detail', compact(
             'page_attr',
             'model',
             'routeTitle',

@@ -46,7 +46,7 @@ class PengurusController extends Controller
             'sub_title' => settings()->get("$this->key.sub_title"),
         ];
         $folder_image = $this->folder_image;
-        return view('admin.home.pengurus', compact('page_attr', 'image_folder', 'setting'));
+        return view('pages.admin.home.pengurus', compact('page_attr', 'image_folder', 'setting'));
     }
 
     public function insert(Request $request): mixed
