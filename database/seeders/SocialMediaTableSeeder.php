@@ -35,13 +35,13 @@ class SocialMediaTableSeeder extends Seeder
             array (
                 'id' => '6',
                 'nama' => 'Facebook',
-                'icon' => '1',
+                'icon' => 'fab fa-facebook-f',
                 'url' => 'https://web.facebook.com/profile.php?id=100089909671159',
                 'order' => '2',
                 'keterangan' => 'Akun Resmi Facebook',
                 'status' => '1',
                 'created_at' => '2023-03-27 16:32:30',
-                'updated_at' => '2023-03-27 16:32:30',
+                'updated_at' => '2023-03-27 21:58:10',
             ),
         ));
         
