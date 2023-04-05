@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class MarketPlaceJenis extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, Loggable;
     protected $fillable = [
         'nama',
         'link',

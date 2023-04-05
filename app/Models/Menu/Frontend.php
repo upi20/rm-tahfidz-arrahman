@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class Frontend extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $fillable = [
         'parent_id',
         'title',

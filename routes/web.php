@@ -24,6 +24,7 @@ use App\Http\Controllers\Frontend\KatalogController;
 use App\Http\Controllers\Frontend\MarketplaceController;
 use App\Http\Controllers\Frontend\PendaftaranController;
 use App\Http\Controllers\Frontend\ProdukController;
+use App\Http\Controllers\SitemapController;
 
 // ====================================================================================================================
 // ====================================================================================================================
@@ -153,8 +154,11 @@ Route::controller(LabController::class)->prefix($prefix)->group(function () {
 // ====================================================================================================================
 
 
-// frontend ==========================================================================================================
+// frontend ===========================================================================================================
 Route::get('/frontend', [HomeController::class, 'fronted2'])->name('frontend');
+
+// sitmap =============================================================================================================
+Route::get('/sitemap', [SitemapController::class, 'index']);
 
 // Gform
 Route::get('/f/{model:slug}', [GFormController::class, 'frontend_detail'])->name("frontend.gform.detail");

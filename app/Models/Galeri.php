@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class Galeri extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $fillable = [
         'id',
         'nama',

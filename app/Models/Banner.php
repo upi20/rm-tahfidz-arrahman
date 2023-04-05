@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class Banner extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $guarded = [
         'nama',
         'foto',

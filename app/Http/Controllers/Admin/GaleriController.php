@@ -67,6 +67,8 @@ class GaleriController extends Controller
                 'keterangan' => $request->keterangan,
                 // 'created_by' => auth()->user()->id,
             ]);
+
+            Galeri::clearCache();
             return response()->json();
         } catch (ValidationException $error) {
             return response()->json([
@@ -101,6 +103,7 @@ class GaleriController extends Controller
             $model->keterangan = $request->keterangan;
             // $model->updated_by = auth()->user()->id;
             $model->save();
+            Galeri::clearCache();
             return response()->json();
         } catch (ValidationException $error) {
             return response()->json([
@@ -114,6 +117,7 @@ class GaleriController extends Controller
     {
         try {
             $model->delete();
+            Galeri::clearCache();
             return response()->json();
         } catch (ValidationException $error) {
             return response()->json([

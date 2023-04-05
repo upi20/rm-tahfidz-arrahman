@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomeSlider extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $guarded = [];
     protected $primaryKey = 'id';
     protected $table = 'home_sliders';

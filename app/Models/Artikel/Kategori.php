@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class Kategori extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, Loggable;
     protected $fillable = [
         'nama',
         'slug',

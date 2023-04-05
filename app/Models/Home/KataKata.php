@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class KataKata extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $fillable = [
         'nama',
         'sebagai',

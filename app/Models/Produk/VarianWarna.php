@@ -4,10 +4,11 @@ namespace App\Models\Produk;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class VarianWarna extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $fillable = [
         'produk_id',
         'nama',

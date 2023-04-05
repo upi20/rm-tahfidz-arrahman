@@ -5,10 +5,11 @@ namespace App\Models\Utility;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class NotifAdminAtas extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $fillable = [
         'nama',
         'deskripsi',

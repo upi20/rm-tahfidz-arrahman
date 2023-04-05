@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class FAQ extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $fillable = [
         'nama',
         'link',

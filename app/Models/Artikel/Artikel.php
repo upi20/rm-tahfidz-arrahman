@@ -12,10 +12,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class Artikel extends Model
 {
-    use HasFactory;
+    use HasFactory, Loggable;
     protected $fillable = [
         'nama',
         'slug',

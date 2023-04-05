@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class Produk extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, Loggable;
     protected $fillable = [
         'kategori_id',
         'nama',
