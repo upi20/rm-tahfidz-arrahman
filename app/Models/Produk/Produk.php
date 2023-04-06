@@ -173,23 +173,8 @@ class Produk extends Model
             if ((is_null($search) || $search == '') && count($model_filter) > 0) return false;
 
             // tambah pencarian
-            $search_add = [
-                'kategori_id',
-                'nama',
-                'slug',
-                'sku',
-                'kilasan',
-                'informasi_lain',
-                'harga',
-                'harga_diskon',
-                'status_stok',
-                'rating',
-                'rating_nama',
-                'jml_dilihat',
-                'tampilkan_di_halaman_utama',
-                'is_insert',
-                'created_by',
-            ];
+            $static = new static();
+            $search_add = $static->fillable;
             $search_add = array_map(function ($v) use ($table) {
                 return "$table.$v";
             }, $search_add);
@@ -248,7 +233,7 @@ class Produk extends Model
                 $a.sku like '%$search%' or
                 $a.kilasan like '%$search%' or
                 $a.informasi_lain like '%$search%' or
-                $a.harga like '%$search%' 
+                $a.harga like '%$search%'
             )");
         }
         return $model->paginate($paginate)

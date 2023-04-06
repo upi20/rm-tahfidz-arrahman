@@ -282,8 +282,7 @@ $notifikasi = beTopNotification();
                 scrollTop: 0
             }, "slow");
         })
-        const datatable_indonesia_language_url =
-            "{{ asset_admin('plugins/datatable/indonesia.json') }}";
+        const datatable_indonesia_language_url = "{{ asset('indonesia.json') }}";
     </script>
     @yield('javascript')
 </body>

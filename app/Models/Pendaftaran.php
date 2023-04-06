@@ -108,7 +108,8 @@ class Pendaftaran extends Model
             if ((is_null($search) || $search == '') && count($model_filter) > 0) return false;
 
             // tambah pencarian
-            $search_add = static::$fillable;
+            $static = new static();
+            $search_add = $static->fillable;
             $search_add = array_map(function ($v) use ($table) {
                 return "$table.$v";
             }, $search_add);
