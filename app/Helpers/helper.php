@@ -333,3 +333,10 @@ if (!function_exists('asset_admin')) {
         return $base_url . $asset;
     }
 }
+
+if (!function_exists('resource_loader')) {
+    function resource_loader($resource)
+    {
+        return url("loader/$resource?k=" . csrf_token());
+    }
+}

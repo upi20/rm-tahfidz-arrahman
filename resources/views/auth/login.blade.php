@@ -234,7 +234,7 @@ $page_attr_title = ($page_attr->title == '' ? '' : $page_attr->title . ' | ') . 
         })
     </script>
 
-    <script src="{{ url('loader/js/auth/login') }}"></script>
+    <script src="{{ resource_loader('js/auth/login') }}"></script>
 
 </body>
 

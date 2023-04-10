@@ -255,7 +255,7 @@ $notifikasi = beTopNotification();
     <script src="{{ asset_admin('plugins/p-scroll/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset_admin('plugins/p-scroll/pscroll.js') }}"></script>
     <script src="{{ asset_admin('plugins/p-scroll/pscroll-1.js') }}"></script>
-    <script src="{{ url('loader/js/admin2.js') }}"></script>
+    <script src="{{ resource_loader('js/admin') }}"></script>
     <script src="{{ asset_admin('plugins/fontawesome-free-5.15.4-web/js/all.min.js') }}"></script>
     <script>
         $.ajaxSetup({
