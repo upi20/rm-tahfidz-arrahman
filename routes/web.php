@@ -137,12 +137,12 @@ Route::get('/dashboard', function () {
 $prefix = 'loader';
 Route::controller(LoaderController::class)->prefix($prefix)->group(function () {
     Route::prefix('js')->group(function () {
-        Route::get('/{file}.js', 'js')->name("load_js");
-        Route::get('/{f}/{file}.js', 'js_f')->name("load_js_a");
-        Route::get('/{f}/{f_a}/{file}.js', 'js_a')->name("load_js_b");
-        Route::get('/{f}/{f_a}/{f_b}/{file}.js', 'js_b')->name("load_js_b");
-        Route::get('/{f}/{f_a}/{f_b}/{f_c}/{file}.js', 'js_c')->name("load_js_c");
-        Route::get('/{f}/{f_a}/{f_b}/{f_c}/{f_d}/{file}.js', 'js_d')->name("load_js_d");
+        Route::get('/{file}', 'js')->name("load_js");
+        Route::get('/{f}/{file}', 'js_f')->name("load_js_a");
+        Route::get('/{f}/{f_a}/{file}', 'js_a')->name("load_js_b");
+        Route::get('/{f}/{f_a}/{f_b}/{file}', 'js_b')->name("load_js_b");
+        Route::get('/{f}/{f_a}/{f_b}/{f_c}/{file}', 'js_c')->name("load_js_c");
+        Route::get('/{f}/{f_a}/{f_b}/{f_c}/{f_d}/{file}', 'js_d')->name("load_js_d");
     });
 });
 // ====================================================================================================================
