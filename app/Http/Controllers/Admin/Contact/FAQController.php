@@ -35,9 +35,10 @@ class FAQController extends Controller
             'visible' => settings()->get('setting.contact.faq.visible'),
         ];
 
-        $data = compact('page_attr', 'setting');
+        $view = path_view('pages.admin.kontak.faq');
+        $data = compact('page_attr', 'setting', 'view');
         $data['compact'] = $data;
-        return view('pages.admin.kontak.faq', $data);
+        return view($view, $data);
     }
 
     public function insert(Request $request): mixed
