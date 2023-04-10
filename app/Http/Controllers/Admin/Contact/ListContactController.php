@@ -36,9 +36,11 @@ class ListContactController extends Controller
             'sub_title' => settings()->get('setting.contact.list.sub_title'),
         ];
 
-        $data = compact('page_attr', 'setting');
+        $view = path_view('pages.admin.kontak.list');
+        $data = compact('page_attr', 'setting', 'view');
         $data['compact'] = $data;
-        return view('pages.admin.kontak.list', $data);
+
+        return view($view, $data);
     }
 
     public function insert(Request $request): mixed

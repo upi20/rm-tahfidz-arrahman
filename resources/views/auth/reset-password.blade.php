@@ -227,7 +227,7 @@ $page_attr_title = ($page_attr->title == '' ? '' : $page_attr->title . ' | ') . 
         })
     </script>
 
-    <script src="{{ resource_loader('js/auth/forgot-password') }}"></script>
+    <script src="{{ resource_loader('auth/forgot-password') }}"></script>
 
 </body>
 

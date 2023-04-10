@@ -7,7 +7,6 @@ use App\Models\Utility\NotifDepanAtas;
 use Illuminate\Support\Facades\Blade;
 use MatthiasMullie\Minify\JS;
 use App\Models\Menu\Admin as MenuAdmin;
-use Illuminate\Http\Request;
 
 if (!function_exists('h_prefix_uri')) {
     function h_prefix_uri(?string $param = null, int $min = 0)
@@ -334,9 +333,68 @@ if (!function_exists('asset_admin')) {
     }
 }
 
-if (!function_exists('resource_loader')) {
-    function resource_loader($resource)
+if (!function_exists('url_params_generator')) {
+    function url_params_generator(array $params = []): string
     {
-        return url("loader/$resource?k=" . csrf_token());
+        $results = "?";
+        foreach ($params as $key => $value) {
+            $results .= ($results == "?" ? '' : "&");
+            $results .= "$key=$value";
+        }
+        return $results == "?" ? '' : $results;
+    }
+}
+
+if (!function_exists('resource_loader')) {
+    function resource_loader(?string $resource = null, ?string $blade_path = null, ?array $params = [], ?string $type = 'js'): string
+    {
+        $generate_params = url_params_generator(array_merge([
+            'k' => csrf_token(),
+            'hpu' => urlencode(h_prefix_uri()),
+        ], $params));
+
+        if (is_null($resource) && $blade_path !== null) {
+            $resource = str_replace('.', '/', $blade_path);
+        }
+
+        if (is_null($resource)) return '';
+        $resource = str_parse($resource, [
+            ['search' => '.js', 'replace' => ''],
+            ['search' => '.css', 'replace' => ''],
+        ]);
+
+        $generate_params = url_params_generator(array_merge([
+            'k' => csrf_token(),
+            'hpu' => urlencode(h_prefix_uri()),
+        ], $params));
+
+        return url("loader/{$type}/{$resource}{$generate_params}");
+    }
+}
+
+if (!function_exists('path_view')) {
+    function path_view(string $view): string
+    {
+        return $view;
+    }
+}
+
+if (!function_exists('l_prefix_uri')) {
+    // loader prefix uri
+    function l_prefix_uri(string $prefix, ?string $param = null, int $min = 0)
+    {
+        $prefix_uri = explode('/', $prefix);
+        for ($i = 0; $i < $min; $i++) unset($prefix_uri[count($prefix_uri) - 1]);
+        $prefix_uri = implode('/', $prefix_uri);
+        return $param ? "$prefix_uri/$param" : $prefix_uri;
+    }
+}
+
+if (!function_exists('l_prefix')) {
+    // loader prefix uri
+    function l_prefix(string $prefix, ?string $param = null, int $min = 0)
+    {
+        $prefix_uri = l_prefix_uri($prefix, $param, $min);
+        return str_replace('/', '.', $prefix_uri);
     }
 }

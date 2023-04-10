@@ -255,35 +255,8 @@ $notifikasi = beTopNotification();
     <script src="{{ asset_admin('plugins/p-scroll/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset_admin('plugins/p-scroll/pscroll.js') }}"></script>
     <script src="{{ asset_admin('plugins/p-scroll/pscroll-1.js') }}"></script>
-    <script src="{{ resource_loader('js/admin') }}"></script>
     <script src="{{ asset_admin('plugins/fontawesome-free-5.15.4-web/js/all.min.js') }}"></script>
-    <script>
-        $.ajaxSetup({
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
-            }
-        });
-
-        // BACK TO TOP BUTTON
-        const btn_scroll = $('#back-to-top');
-        $(window).scroll(function() {
-            // position
-            const p = $(window).scrollTop();
-
-            if (p >= 100) btn_scroll.parent().fadeIn();
-            else btn_scroll.parent().fadeOut();
-
-
-            // document height
-            const d_height = $(document).height() - $(window).height();
-        });
-        btn_scroll.click(() => {
-            $("html, body").animate({
-                scrollTop: 0
-            }, "slow");
-        })
-        const datatable_indonesia_language_url = "{{ asset('indonesia.json') }}";
-    </script>
+    <script src="{{ resource_loader('pages/admin/admin.js') }}"></script>
     @yield('javascript')
 </body>
 

@@ -86,3 +86,30 @@ function youtube_parser(url) {
 function tooltip_refresh() {
     $('[data-toggle="tooltip"]').tooltip();
 }
+
+// Admin master
+$.ajaxSetup({
+    beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
+    }
+});
+
+// BACK TO TOP BUTTON
+const btn_scroll = $('#back-to-top');
+$(window).scroll(function () {
+    // position
+    const p = $(window).scrollTop();
+
+    if (p >= 100) btn_scroll.parent().fadeIn();
+    else btn_scroll.parent().fadeOut();
+
+
+    // document height
+    const d_height = $(document).height() - $(window).height();
+});
+btn_scroll.click(() => {
+    $("html, body").animate({
+        scrollTop: 0
+    }, "slow");
+})
+const datatable_indonesia_language_url = "{{ asset('indonesia.json') }}";

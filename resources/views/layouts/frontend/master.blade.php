@@ -117,9 +117,7 @@ $compact = array_merge($compact, compact('page_attr_title', 'search_master_key',
     @include('layouts.frontend.body.header', $compact)
 
 
-    <main>
-        @yield('content')
-    </main>
+    <main> @yield('content') </main>
 
 
     @include('layouts.frontend.body.footer', $compact)
@@ -140,16 +138,10 @@ $compact = array_merge($compact, compact('page_attr_title', 'search_master_key',
     <script src="{{ asset('assets/templates/frontend/js/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/templates/frontend/js/lightcase.js') }}"></script>
     <script src="{{ asset('assets/templates/frontend/js/functions.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset_admin('plugins/fontawesome-free-5.15.4-web/css/all.min.css') }}">
+    <script src="{{ asset_admin('plugins/fontawesome-free-5.15.4-web/js/all.min.js') }}"></script>
     <script src="{{ asset_admin('plugins/jquery.lazy-master/jquery.lazy.min.js') }}"></script>
+    <script src="{{ resource_loader('pages/frontend/frontend.js') }}"></script>
     @yield('javascript')
-    <script>
-        $(window).on('load', function() {
-            $('.lazy').Lazy({
-                scrollDirection: 'vertical',
-            });
-        });
-    </script>
 </body>
 
 </html>

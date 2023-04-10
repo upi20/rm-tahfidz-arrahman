@@ -79,5 +79,5 @@
     {{-- sweetalert --}}
     <script src="{{ asset_admin('plugins/sweet-alert/sweetalert2.all.js') }}"></script>
     {{-- Main script --}}
-    <script src="{{ resource_loader('js/pages/frontend/kontak') }}"></script>
+    <script src="{{ resource_loader('pages/frontend/kontak.js') }}"></script>
 @endsection
