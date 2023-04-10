@@ -65,14 +65,11 @@
                     data: 'id',
                     name: 'id',
                     render(data, type, full, meta) {
-                        const btn_edit = can_update ? `<a href="{{ url(h_prefix_uri('edit')) }}/${data}" type="button" class="btn btn-rounded btn-primary btn-sm me-1" title="Ubah Data">
-                                <i class="fas fa-edit"></i> Ubah
-                                </a>` : '';
+                        const btn_edit = can_update ? `<a href="{{ url(h_prefix_uri('edit')) }}/${data}" type="button" data-toggle="tooltip" class="btn btn-rounded btn-primary btn-sm me-1" title="Ubah Data">
+                                <i class="fas fa-edit"></i></a>` : '';
 
-                        const btn_delete = can_delete ? `<button type="button" class="btn btn-rounded btn-danger btn-sm me-1" title="Hapus Data" onClick="deleteFunc('${data}')">
-                                <i class="fas fa-trash"></i> Hapus
-                                </button>
-                                ` : '';
+                        const btn_delete = can_delete ? `<button type="button" data-toggle="tooltip" class="btn btn-rounded btn-danger btn-sm me-1" title="Hapus Data" onClick="deleteFunc('${data}')">
+                                <i class="fas fa-trash"></i></button> ` : '';
                         return btn_edit + btn_delete;
                     },
                     orderable: false

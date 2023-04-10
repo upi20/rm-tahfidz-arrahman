@@ -1,41 +1,16 @@
-## Halaman
-
-### Utama
-[x] Hero
-[] Program
-[] Kata Kata
-[x] FAQ
-[x] Galeri
-[x] Artikel
-
-### Tentang
-[x] Admin
-[x] Frontend
-
-### Galeri
-[x] Daftar Galeri Kegiatan
-[x] Detail Galeri
-
-### Artikel
-[x] Daftar Artikel
-[x] Detail Artikel
-
-### Pendaftaran
-[x] Rancangan database
-  - Nama Lengkap
-  - Jenis Kelamin
-  - Tanggal Lahir
-  - Alamat Lengkap
-  - Nomor Telepon
-  - Whatsapp
-
-### Kontak
-[x] Admin 
-[x] Message tambah hapus
-[x] Frontend
-
-### Gform
-[x] Admin (Hilangkan user)
-[x] Frontend
+[] User Profile
+[] Rombak artikel
+    [] Super admin edit author
+[] Vistor counter refresh perangkat
 
 
+
+$view = path_view('pages.admin.kontak.faq');
+$data = compact('page_attr', 'setting', 'view');
+$data['compact'] = $data;
+return view($view, $data);
+
+data-toggle="tooltip"
+
+<i class="fas fa-edit"></i></button>
+<i class="fas fa-trash"></i></button>

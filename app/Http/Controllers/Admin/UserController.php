@@ -28,7 +28,11 @@ class UserController extends Controller
             'navigation' => 'user.view',
         ];
         $user_role = Role::all();
-        return view('pages.admin.user', compact('page_attr', 'user_role'));
+
+        $view = path_view('pages.admin.user');
+        $data = compact('page_attr', 'user_role', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function store(Request $request)
@@ -64,7 +68,6 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-
         Artikel::clearCache();
 
         try {
@@ -99,7 +102,6 @@ class UserController extends Controller
 
     public function delete(Request $user)
     {
-
         Artikel::clearCache();
 
         try {
@@ -122,8 +124,10 @@ class UserController extends Controller
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
             ],
         ];
-        $user_role = Role::all();
-        return view('pages.admin.change_password', compact('page_attr', 'user_role'));
+        $view = path_view('pages.admin.change_password');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function save_password(Request $request)
