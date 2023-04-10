@@ -46,20 +46,16 @@ class LoaderController extends Controller
 
     private function render($path)
     {
-        try {
-            $csrf_token = Session::token();
-            $key = request('k');
-            $check_token = $csrf_token == $key;
-            $full_path = resource_path("js/views/$path");
-            if (file_exists($full_path) && $check_token) {
-                $minifier = new JS($full_path);
-                $data = request()->query();
-                $result = Blade::render($minifier->minify(), $data);
-                return response($result)->header('Content-Type', 'application/javascript');
-            } else return $this->js_nf($path);
-        } catch (\Throwable $th) {
-            return $this->js_err($path);
-        }
+        $csrf_token = Session::token();
+        $key = request('k');
+        $check_token = $csrf_token == $key;
+        $full_path = resource_path("js/views/$path");
+        if (file_exists($full_path) && $check_token) {
+            $minifier = new JS($full_path);
+            $data = request()->query();
+            $result = Blade::render($minifier->minify(), $data);
+            return response($result)->header('Content-Type', 'application/javascript');
+        } else return $this->js_nf($path);
     }
 
     private function js_nf($file)

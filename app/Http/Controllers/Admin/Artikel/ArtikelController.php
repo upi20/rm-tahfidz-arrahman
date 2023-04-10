@@ -43,7 +43,10 @@ class ArtikelController extends Controller
                 ['name' => 'Artikel'],
             ]
         ];
-        return view('pages.admin.artikel.data.list', compact('page_attr'));
+        $view = path_view('pages.admin.artikel.data.list');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function add(Request $request)
@@ -61,7 +64,10 @@ class ArtikelController extends Controller
         Artikel::clearCache();
 
         $users = User::all();
-        return view('pages.admin.artikel.data.add', compact('page_attr', 'users'));
+        $view = path_view('pages.admin.artikel.data.add');
+        $data = compact('page_attr', 'users', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function edit(Artikel $artikel)
@@ -94,7 +100,11 @@ class ArtikelController extends Controller
             ->where("$tbl.artikel_id", "=", $artikel->id)
             ->get();
         $users = User::all();
-        return view('pages.admin.artikel.data.add', compact('page_attr', 'edit', 'artikel', 'kategori', 'tag', 'users'));
+
+        $view = path_view('pages.admin.artikel.data.add');
+        $data = compact('page_attr', 'edit', 'artikel', 'kategori', 'tag', 'users', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function insert(Request $request)
