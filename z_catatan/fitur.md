@@ -10,10 +10,6 @@ $data = compact('page_attr', 'setting', 'view');
 $data['compact'] = $data;
 return view($view, $data);
 
-<script>
-    const can_update = {{ $can_update ? 'true' : 'false' }};
-    const can_delete = {{ $can_delete ? 'true' : 'false' }};
-</script>
 @php
     $resource = resource_loader(
         blade_path: $view,

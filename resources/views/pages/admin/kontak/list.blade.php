@@ -137,23 +137,13 @@
 @endsection
 
 @section('javascript')
-    <!-- DATA TABLE JS-->
     <script src="{{ asset_admin('plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset_admin('plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
     <script src="{{ asset_admin('plugins/datatable/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset_admin('plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
     <script src="{{ asset_admin('plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
-
-    {{-- sweetalert --}}
     <script src="{{ asset_admin('plugins/sweet-alert/sweetalert2.all.js') }}"></script>
-    {{-- loading --}}
     <script src="{{ asset_admin('plugins/loading/loadingoverlay.min.js') }}"></script>
-
-    <script>
-        const can_update = {{ $can_update ? 'true' : 'false' }};
-        const can_delete = {{ $can_delete ? 'true' : 'false' }};
-    </script>
-
     @php
         $resource = resource_loader(
             blade_path: $view,
@@ -164,6 +154,5 @@
             ],
         );
     @endphp
-    {{-- Main javascript --}}
     <script src="{{ $resource }}"></script>
 @endsection

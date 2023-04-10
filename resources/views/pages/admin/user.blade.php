@@ -163,12 +163,6 @@
     <script src="{{ asset_admin('plugins/sweet-alert/sweetalert2.all.js') }}"></script>
     <script src="{{ asset_admin('plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset_admin('plugins/loading/loadingoverlay.min.js') }}"></script>
-
-    <script>
-        const can_update = {{ $can_update ? 'true' : 'false' }};
-        const can_delete = {{ $can_delete ? 'true' : 'false' }};
-    </script>
-
     @php
         $resource = resource_loader(
             blade_path: $view,

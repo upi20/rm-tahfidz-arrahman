@@ -123,19 +123,14 @@
     <script src="{{ asset_admin('plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
     <script src="{{ asset_admin('plugins/sweet-alert/sweetalert2.all.js') }}"></script>
     <script src="{{ asset_admin('plugins/loading/loadingoverlay.min.js') }}"></script>
-
-    <script>
-        const can_delete = {{ $can_delete ? 'true' : 'false' }};
-    </script>
-
     @php
         $resource = resource_loader(
             blade_path: $view,
             params: [
                 'page_title' => $page_attr['title'],
+                'can_delete' => $can_delete ? 'true' : 'false',
             ],
         );
     @endphp
-    {{-- Main javascript --}}
     <script src="{{ $resource }}"></script>
 @endsection

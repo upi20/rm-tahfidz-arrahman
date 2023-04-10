@@ -1,3 +1,6 @@
+const can_update = "{{ $can_update ? 'true' : 'false' }}" === "true";
+const can_delete = "{{ $can_delete ? 'true' : 'false' }}" === "true";
+const can_setting = "{{ $can_setting ? 'true' : 'false' }}" === "true";
 const table_html = $('#tbl_main');
 let isEdit = true;
 $(document).ready(function () {
