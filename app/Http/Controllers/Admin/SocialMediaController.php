@@ -49,7 +49,11 @@ class SocialMediaController extends Controller
                 ['name' => 'Kontak'],
             ]
         ];
-        return view('pages.admin.social_media', compact('page_attr'));
+
+        $view = path_view('pages.admin.social_media');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function insert(Request $request)

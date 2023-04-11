@@ -20,10 +20,10 @@ class PendaftaranController extends Controller
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
             ]
         ];
-
-        $data = compact('page_attr');
+        $view = path_view('pages.admin.pendaftaran');
+        $data = compact('page_attr', 'view');
         $data['compact'] = $data;
-        return view('pages.admin.pendaftaran', $data);
+        return view($view, $data);
     }
 
     public function delete(Pendaftaran $model): mixed

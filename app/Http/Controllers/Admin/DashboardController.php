@@ -18,15 +18,17 @@ class DashboardController extends Controller
         $total_pendaftar = Pendaftaran::count();
         $page_attr = ['title' => 'Dashboard'];
 
+
+        $view = path_view('pages.admin.dashboard');
         $data = compact(
             'total_artikel',
             'total_pesan',
             'total_pendaftar',
             'page_attr',
+            'view',
         );
         $data['compact'] = $data;
-
-        return view('pages.admin.dashboard', $data);
+        return view($view, $data);
     }
 
     public function vistor_counter(Request $request)

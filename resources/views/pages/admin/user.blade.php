@@ -154,7 +154,6 @@
 @endsection
 
 @section('javascript')
-    <!-- DATA TABLE JS-->
     <script src="{{ asset_admin('plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset_admin('plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
     <script src="{{ asset_admin('plugins/datatable/dataTables.responsive.min.js') }}"></script>
