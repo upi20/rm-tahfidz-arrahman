@@ -6,6 +6,7 @@ use App\Models\Utility\NotifAdminAtas;
 use App\Models\Utility\NotifDepanAtas;
 use Illuminate\Support\Facades\Blade;
 use MatthiasMullie\Minify\JS;
+use MatthiasMullie\Minify\CSS;
 use App\Models\Menu\Admin as MenuAdmin;
 
 if (!function_exists('h_prefix_uri')) {
@@ -362,6 +363,10 @@ if (!function_exists('resource_loader')) {
             return resource_loader_render_js($resource, $params);
         }
 
+        if ($render && $type == 'css') {
+            return resource_loader_render_css($resource, $params);
+        }
+
         if (is_null($resource)) return '';
         $resource = str_parse($resource, [
             ['search' => '.js', 'replace' => ''],
@@ -389,6 +394,25 @@ if (!function_exists('resource_loader_render_js')) {
             <script>
                 $result
             </script>
+        HTML;
+    }
+}
+
+if (!function_exists('resource_loader_render_css')) {
+    function resource_loader_render_css(string $resource, array $params = []): string
+    {
+        $full_path = resource_path("css/views/$resource.css");
+        $minifier = new CSS($full_path);
+        $result = Blade::render($minifier->minify(), $params);
+
+        if ($result == $full_path) {
+            $result = "/* {$resource} not found */ ";
+        }
+
+        return <<<HTML
+            <style>
+                {$result}
+            </style>
         HTML;
     }
 }

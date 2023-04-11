@@ -453,4 +453,6 @@
 @endsection
 
 @section('stylesheet')
+    @php $resource = resource_loader(blade_path: 'pages.admin.menu', type: 'css'); @endphp
+    <link rel="stylesheet" href="{{ $resource }}">
 @endsection
