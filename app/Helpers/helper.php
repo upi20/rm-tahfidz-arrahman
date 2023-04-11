@@ -346,15 +346,20 @@ if (!function_exists('url_params_generator')) {
 }
 
 if (!function_exists('resource_loader')) {
-    function resource_loader(?string $resource = null, ?string $blade_path = null, ?array $params = [], ?string $type = 'js'): string
+    // $render output render langsung javascript output bukan url
+    function resource_loader(?string $resource = null, ?string $blade_path = null, ?array $params = [], ?string $type = 'js', bool $render = false): string
     {
-        $generate_params = url_params_generator(array_merge([
-            'k' => csrf_token(),
-            'hpu' => urlencode(h_prefix_uri()),
-        ], $params));
-
         if (is_null($resource) && $blade_path !== null) {
             $resource = str_replace('.', '/', $blade_path);
+        }
+
+        $params = array_merge([
+            'k' => csrf_token(),
+            'hpu' => h_prefix_uri(),
+        ], $params);
+
+        if ($render && $type == 'js') {
+            return resource_loader_render_js($resource, $params);
         }
 
         if (is_null($resource)) return '';
@@ -363,12 +368,28 @@ if (!function_exists('resource_loader')) {
             ['search' => '.css', 'replace' => ''],
         ]);
 
-        $generate_params = url_params_generator(array_merge([
-            'k' => csrf_token(),
-            'hpu' => urlencode(h_prefix_uri()),
-        ], $params));
+        $generate_params = url_params_generator($params);
 
         return url("loader/{$type}/{$resource}{$generate_params}");
+    }
+}
+
+if (!function_exists('resource_loader_render_js')) {
+    function resource_loader_render_js(string $resource, array $params = []): string
+    {
+        $full_path = resource_path("js/views/$resource.js");
+        $minifier = new JS($full_path);
+        $result = Blade::render($minifier->minify(), $params);
+
+        if ($result == $full_path) {
+            $result = "console.log('javascript {$resource} not found')";
+        }
+
+        return <<<HTML
+            <script>
+                $result
+            </script>
+        HTML;
     }
 }
 

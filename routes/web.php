@@ -144,6 +144,9 @@ Route::controller(LoaderController::class)->prefix($prefix)->group(function () {
         Route::get('/{f}/{f_a}/{f_b}/{f_c}/{file}', 'js_c')->name("load_js_c");
         Route::get('/{f}/{f_a}/{f_b}/{f_c}/{f_d}/{file}', 'js_d')->name("load_js_d");
     });
+    Route::prefix('css')->group(function () {
+        Route::get('/{file}', 'css')->name("load_css");
+    });
 });
 // ====================================================================================================================
 

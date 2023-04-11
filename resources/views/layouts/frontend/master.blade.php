@@ -22,7 +22,6 @@ $footerArtikels = \App\Models\Artikel\Artikel::getFooterViewData();
 $compact = isset($compact) ? $compact : [];
 $compact = array_merge($compact, compact('page_attr_title', 'search_master_key', 'notifikasi', 'page_attr', 'getSosmed_val', 'feKontakLists', 'footerArtikels'));
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

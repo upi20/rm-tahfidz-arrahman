@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Session;
 use MatthiasMullie\Minify\JS;
+use MatthiasMullie\Minify\CSS;
 
 class LoaderController extends Controller
 {
@@ -68,5 +69,10 @@ class LoaderController extends Controller
     {
         return response("console.log('javascript {$file} error')")
             ->header('Content-Type', 'application/javascript');
+    }
+
+    public function css($file)
+    {
+        dd($file);
     }
 }

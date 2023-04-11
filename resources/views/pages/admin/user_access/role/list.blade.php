@@ -6,7 +6,6 @@
         $can_update = auth_can('h_prefix().update');
         $can_delete = auth_can('h_prefix().delete');
     @endphp
-    <!-- Row -->
     <div class="card">
         <div class="card-header d-md-flex flex-row justify-content-between">
             <h3 class="card-title">Permission Table</h3>

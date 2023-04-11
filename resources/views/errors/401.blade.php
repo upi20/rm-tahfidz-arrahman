@@ -24,3 +24,6 @@
 @section('title')
     401 |
 @endsection
+@section('javascript')
+    {!! resource_loader(blade_path: 'pages.frontend.frontend', render: true) !!}
+@endsection
