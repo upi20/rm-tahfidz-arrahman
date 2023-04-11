@@ -19,9 +19,6 @@ class FrontController extends Controller
                 ['name' => 'Pengaturan'],
             ]
         ];
-        $data = compact(
-            'page_attr',
-        );
 
         $view = path_view('pages.admin.setting.front');
         $data = compact('page_attr', 'view');

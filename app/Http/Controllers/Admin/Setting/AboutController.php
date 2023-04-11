@@ -17,10 +17,6 @@ class AboutController extends Controller
             ]
         ];
 
-        $data = compact(
-            'page_attr'
-        );
-
         $view = path_view('pages.admin.setting.about');
         $data = compact('page_attr', 'view');
         $data['compact'] = $data;

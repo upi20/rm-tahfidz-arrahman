@@ -24,10 +24,6 @@ class HomeController extends Controller
         $s = function (string $str) use ($pre): string {
             return "$pre.$str";
         };
-        $data = compact(
-            'page_attr',
-            's'
-        );
 
         $view = path_view('pages.admin.setting.home');
         $data = compact('page_attr', 'view', 's');

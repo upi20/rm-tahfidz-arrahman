@@ -19,9 +19,6 @@ class AdminController extends Controller
                 ['name' => 'Pengaturan'],
             ]
         ];
-        $data = compact(
-            'page_attr',
-        );
 
         $view = path_view('pages.admin.setting.admin');
         $data = compact('page_attr', 'view');
