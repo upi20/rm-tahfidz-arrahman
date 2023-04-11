@@ -199,6 +199,6 @@ class RoleController extends Controller
             $ui = request('v') == 1;
         }
 
-        return $ui ? 'admin.user_access.role.editor' : 'admin.user_access.role.editor2';
+        return $ui ? 'pages.admin.user_access.role.editor' : 'pages.admin.user_access.role.editor2';
     }
 }
