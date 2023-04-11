@@ -17,7 +17,6 @@ class AdminController extends Controller
         'title' => ['required', 'string', 'max:255'],
         'active' => ['required', 'integer', 'max:9'],
         'icon' => ['nullable', 'string', 'max:255'],
-        'title' => ['required', 'string', 'max:255'],
         'roles' => ['required'],
         'sequence' => ['required', 'integer'],
     ];
@@ -38,12 +37,11 @@ class AdminController extends Controller
                 ['name' => 'Admin'],
             ]
         ];
-        $data = compact(
-            'page_attr',
-            'routes',
-            'roles',
-        );
-        return view('pages.admin.menu.admin',  array_merge($data, ['compact' => $data]));
+
+        $view = path_view('pages.admin.menu.admin');
+        $data = compact('page_attr', 'routes', 'roles', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
 

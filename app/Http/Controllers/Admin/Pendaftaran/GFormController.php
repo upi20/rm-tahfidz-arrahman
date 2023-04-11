@@ -42,7 +42,11 @@ class GFormController extends Controller
                 ['name' => 'Pendaftaran'],
             ]
         ];
-        return view('pages.admin.pendaftaran.gform', compact('page_attr', 'image_folder'));
+
+        $view = path_view('pages.admin.pendaftaran.gform');
+        $data = compact('page_attr', 'image_folder', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function insert(Request $request): mixed
@@ -311,7 +315,7 @@ class GFormController extends Controller
         $folder = GForm::image_folder;
         $user = User::find($model->user_id);
 
-        $image = is_null($model->foto) ? Pendaftaran::image_default : url("$folder/$model->foto");
+        $image = is_null($model->foto) ? '' : url("$folder/$model->foto");
         $page_attr = [
             'title' => $model->nama,
             'url' => url(h_prefix_uri()),

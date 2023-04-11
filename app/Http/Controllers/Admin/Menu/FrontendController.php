@@ -14,7 +14,6 @@ class FrontendController extends Controller
         'title' => ['required', 'string', 'max:255'],
         'active' => ['required', 'integer', 'max:9'],
         'icon' => ['nullable', 'string', 'max:255'],
-        'title' => ['required', 'string', 'max:255'],
         'sequence' => ['required', 'integer'],
     ];
 
@@ -28,10 +27,10 @@ class FrontendController extends Controller
             ]
         ];
 
-        $data = compact(
-            'page_attr',
-        );
-        return view('pages.admin.menu.frontend',  array_merge($data, ['compact' => $data]));
+        $view = path_view('pages.admin.menu.frontend');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
 
