@@ -37,7 +37,11 @@ class KataKataController extends Controller
             'sub_title' => settings()->get("$this->key.sub_title"),
             'image' => settings()->get("$this->key.image"),
         ];
-        return view('pages.admin.home.kata_kata', compact('page_attr', 'setting'));
+
+        $view = path_view('pages.admin.home.kata_kata');
+        $data = compact('page_attr', 'setting', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function insert(Request $request): mixed

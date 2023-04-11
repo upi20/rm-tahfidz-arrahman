@@ -1,8 +1,7 @@
 const can_update = "{{ $can_update == 'true' ? 'true' : 'false' }}" === "true";
 const can_delete = "{{ $can_delete == 'true' ? 'true' : 'false' }}" === "true";
 const table_html = $('#tbl_main');
-let isEdit = true;
-
+let isUpdate = true;
 $(document).ready(function () {
     // datatable ====================================================================================
     $.ajaxSetup({
@@ -20,9 +19,10 @@ $(document).ready(function () {
         bAutoWidth: false,
         type: 'GET',
         ajax: {
-            url: "{{ route(l_prefix($hpu, )) }}",
+            url: "{{ route(l_prefix($hpu)) }}",
             data: function (d) {
-                d['filter[status]'] = $('#filter_status').val();
+                // d['filter[active]'] = $('#filter_active').val();
+                // d['filter[role]'] = $('#filter_role').val();
             }
         },
         columns: [{
@@ -31,39 +31,28 @@ $(document).ready(function () {
             orderable: false,
         },
         {
-            data: 'nama',
-            name: 'nama',
-            render(data, type, full, meta) {
-                return `${data}<br><small>${full.keterangan}</small>`;
-            },
+            data: 'name',
+            name: 'name'
         },
         {
-            data: 'url',
-            name: 'url',
-            render(data, type, full, meta) {
-                return `${data}<br><small><i class="${full.icon} ms-0 me-2"></i>${full.icon}</small>`;
-            },
+            data: 'guard_name',
+            name: 'guard_name'
         },
         {
-            data: 'order',
-            name: 'order'
-        },
-        {
-            data: 'status_str',
-            name: 'status',
-            render(data, type, full, meta) {
-                const class_ = full.status == 1 ? 'success' : 'danger';
-                return `<i class="fas fa-circle text-${class_} ms-0 me-2"></i>${data}`;
-            },
-            className: 'text-nowrap'
+            data: 'created_at',
+            name: 'created_at'
         },
         ...(can_update || can_delete ? [{
             data: 'id',
             name: 'id',
             render(data, type, full, meta) {
-                const btn_update = can_update ? `<button type="button" class="btn btn-rounded btn-primary btn-sm me-1" data-toggle="tooltip" title="Ubah Data" onClick="editFunc('${data}')">
+                const btn_update = can_update ? `<button type="button" data-toggle="tooltip" class="btn btn-rounded btn-primary btn-sm me-1" title="Ubah Data"
+                        data-id="${full.id}"
+                        data-name="${full.name}"
+                        data-guard_name="${full.guard_name}"
+                        onClick="editFunc(this)">
                         <i class="fas fa-edit"></i></button>` : '';
-                const btn_delete = can_delete ? `<button type="button" class="btn btn-rounded btn-danger btn-sm me-1" data-toggle="tooltip" title="Hapus Data" onClick="deleteFunc('${data}')">
+                const btn_delete = can_delete ? `<button type="button" data-toggle="tooltip" class="btn btn-rounded btn-danger btn-sm me-1" title="Hapus Data" onClick="deleteFunc('${data}')">
                         <i class="fas fa-trash"></i></button>` : '';
                 return btn_update + btn_delete;
             },
@@ -71,7 +60,7 @@ $(document).ready(function () {
         }] : []),
         ],
         order: [
-            [3, 'asc']
+            [1, 'asc']
         ],
         language: {
             url: datatable_indonesia_language_url
@@ -97,12 +86,11 @@ $(document).ready(function () {
     // insertForm ===================================================================================
     $('#MainForm').submit(function (e) {
         e.preventDefault();
-        resetErrorAfterInput();
         var formData = new FormData(this);
-        setBtnLoading('#btn-save', 'Simpan Perubahan');
-        const route = ($('#id').val() == '') ?
-            "{{ route(l_prefix($hpu, 'insert')) }}" :
-            "{{ route(l_prefix($hpu, 'update')) }}";
+        setBtnLoading('#btn-save', 'Save Changes');
+        resetErrorAfterInput();
+        const route = isUpdate ? `{{ route(l_prefix($hpu,'update')) }}` :
+            `{{ route(l_prefix($hpu,'store')) }}`;
         $.ajax({
             type: "POST",
             url: route,
@@ -120,11 +108,11 @@ $(document).ready(function () {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Data berhasil disimpan',
+                    title: 'Data saved successfully',
                     showConfirmButton: false,
                     timer: 1500
                 })
-                isEdit = true;
+
             },
             error: function (data) {
                 const res = data.responseJSON ?? {};
@@ -143,56 +131,39 @@ $(document).ready(function () {
             },
             complete: function () {
                 setBtnLoading('#btn-save',
-                    '<li class="fas fa-save mr-1"></li> Simpan Perubahan',
+                    '<li class="fas fa-save mr-1"></li> Save changes',
                     false);
             }
         });
     });
 });
 
-function editFunc(id) {
-    $.LoadingOverlay("show");
-    $.ajax({
-        type: "GET",
-        url: `{{ route(l_prefix($hpu,'find')) }}`,
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-            id
-        },
-        success: (data) => {
-            isEdit = true;
-            $('#modal-default-title').html("Ubah {{ $page_title }}");
-            $('#modal-default').modal('show');
-            $('#id').val(data.id);
-            $('#nama').val(data.nama);
-            $('#icon').val(data.icon);
-            $('#url').val(data.url);
-            $('#order').val(data.order);
-            $('#keterangan').val(data.keterangan);
-            $('#status').val(data.status);
-        },
-        error: function (data) {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'error',
-                title: 'Something went wrong',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        },
-        complete: function () {
-            $.LoadingOverlay("hide");
-        }
-    });
+function add() {
+    if (!isUpdate) return;
+    $('#MainForm').trigger("reset");
+    $('#modal-default-title').html("Tambah Permission");
+    $('#modal-default').modal('show');
+    $('#id').val('');
+    $('#guard_name').val('web');
+    resetErrorAfterInput();
+    isUpdate = false;
+}
 
+function editFunc(datas) {
+    isUpdate = true;
+    const data = datas.dataset;
+    $('#modal-default-title').html("Ubah Permission");
+    $('#modal-default').modal('show');
+    $('#MainForm').trigger("reset");
+    $('#id').val(data.id);
+    $('#name').val(data.name);
+    $('#guard_name').val(data.guard_name);
 }
 
 function deleteFunc(id) {
     swal.fire({
-        title: 'Apakah anda yakin?',
-        text: "Apakah anda yakin akan menghapus data ini ?",
+        title: 'Are you sure?',
+        text: "Are you sure you want to proceed ?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes'
@@ -216,9 +187,9 @@ function deleteFunc(id) {
                 },
                 success: function (data) {
                     Swal.fire({
-                        position: 'center',
+                        position: 'top-end',
                         icon: 'success',
-                        title: 'Berhasil Menghapus Data',
+                        title: 'Permission deleted successfully',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -235,17 +206,4 @@ function deleteFunc(id) {
             });
         }
     });
-}
-
-
-function add() {
-    if (!isEdit) return false;
-    $('#MainForm').trigger("reset");
-    $('#modal-default-title').html("Tambah {{ $page_title }}");
-    $('#modal-default').modal('show');
-    $('#id').val('');
-    $('#lihat-foto').hide();
-    resetErrorAfterInput();
-    isEdit = false;
-    return true;
 }

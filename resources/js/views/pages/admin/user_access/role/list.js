@@ -1,6 +1,8 @@
 const can_update = "{{ $can_update == 'true' ? 'true' : 'false' }}" === "true";
 const can_delete = "{{ $can_delete == 'true' ? 'true' : 'false' }}" === "true";
+
 const table_html = $('#tbl_main');
+let isUpdate = true;
 $(document).ready(function () {
     // datatable ====================================================================================
     $.ajaxSetup({
@@ -8,6 +10,22 @@ $(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    const column = [];
+    if (can_update || can_delete) {
+        column.push({
+            data: 'id',
+            name: 'id',
+            render(data, type, full, meta) {
+                const btn_edit = can_update ? `<a href="{{ url(l_prefix_uri($hpu,'edit')) }}/${data}" type="button" data-toggle="tooltip" class="btn btn-rounded btn-primary btn-sm me-1" title="Ubah Data">
+                        <i class="fas fa-edit"></i></a>` : '';
+
+                const btn_delete = can_delete ? `<button type="button" data-toggle="tooltip" class="btn btn-rounded btn-danger btn-sm me-1" title="Hapus Data" onClick="deleteFunc('${data}')">
+                        <i class="fas fa-trash"></i></button> ` : '';
+                return btn_edit + btn_delete;
+            },
+            orderable: false
+        });
+    }
     const new_table = table_html.DataTable({
         searchDelay: 500,
         processing: true,
@@ -20,7 +38,8 @@ $(document).ready(function () {
         ajax: {
             url: "{{ route(l_prefix($hpu)) }}",
             data: function (d) {
-                d['filter[status]'] = $('#filter_status').val();
+                // d['filter[active]'] = $('#filter_active').val();
+                // d['filter[role]'] = $('#filter_role').val();
             }
         },
         columns: [{
@@ -29,60 +48,23 @@ $(document).ready(function () {
             orderable: false,
         },
         {
-            data: 'nama',
-            name: 'nama'
+            data: 'name',
+            name: 'name'
         },
         {
-            data: 'slug',
-            name: 'slug',
-            render(data, type, full, meta) {
-                return data ? `
-                    <a class="btn btn-primary btn-sm" target="_blank" href="{{ url('artikel') }}/${data}?preview=1"><i class="fas fa-eye" aria-hidden="true"></i> </a>
-                    ` : '';
-            },
+            data: 'guard_name',
+            name: 'guard_name'
         },
         {
-            data: 'slug',
-            name: 'slug'
+            data: 'created_at',
+            name: 'created_at'
         },
-        {
-            data: 'excerpt',
-            name: 'excerpt'
-        },
-        {
-            data: 'date',
-            name: 'date',
-            render(data, type, full, meta) {
-                const d = new Date(data);
-                return data ? `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()}` : '';
-            },
-        },
-        {
-            data: 'status_str',
-            name: 'status',
-            render(data, type, full, meta) {
-                const class_el = full.status == 1 ? 'text-success' :
-                    'text-danger';
-                return `<i class="fas fa-circle me-2 ${class_el}"></i>${full.status_str}`;
-            },
-            className: 'text-nowrap'
-        },
-        ...(can_update || can_delete ? [{
-            data: 'id',
-            name: 'id',
-            render(data, type, full, meta) {
-                const btn_update = can_update ? `<a class="btn btn-rounded btn-primary btn-sm my-1" data-toggle="tooltip" title="Ubah Data"
-                        href="{{ url(l_prefix_uri($hpu,'edit')) }}/${data}" >
-                        <i class="fas fa-edit"></i></a>` : '';
-                const btn_delete = can_delete ? `<button type="button" class="btn btn-rounded btn-danger btn-sm my-1" data-toggle="tooltip" title="Hapus Data" onClick="deleteFunc('${data}')">
-                        <i class="fas fa-trash"></i></button>` : '';
-                return btn_update + btn_delete;
-            },
-            orderable: false
-        }] : []),
+        ...column
+
+
         ],
         order: [
-            [5, 'desc']
+            [1, 'asc']
         ],
         language: {
             url: datatable_indonesia_language_url
@@ -104,6 +86,7 @@ $(document).ready(function () {
         var oTable = table_html.dataTable();
         oTable.fnDraw(false);
     });
+
 });
 
 function deleteFunc(id) {
@@ -135,7 +118,7 @@ function deleteFunc(id) {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Data deleted successfully',
+                        title: 'Permission deleted successfully',
                         showConfirmButton: false,
                         timer: 1500
                     })

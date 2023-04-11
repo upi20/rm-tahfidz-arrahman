@@ -28,8 +28,10 @@ class PermissionController extends Controller
             ]
         ];
 
-        $data = compact('page_attr');
-        return view('pages.admin.user_access.permission',  array_merge($data, ['compact' => $data]));
+        $view = path_view('pages.admin.user_access.permission');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function store(Request $request)

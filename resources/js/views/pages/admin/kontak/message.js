@@ -1,4 +1,4 @@
-const can_delete = "{{ $can_delete ? 'true' : 'false' }}" === "true";
+const can_delete = "{{ $can_delete == 'true' ? 'true' : 'false' }}" === "true";
 const table_html = $('#tbl_main');
 $(document).ready(function () {
     // datatable ====================================================================================

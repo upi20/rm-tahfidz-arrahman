@@ -22,6 +22,9 @@ return view($view, $data);
 @endphp
 <script src="{{ $resource }}"></script>
 
+const can_update = "{{ $can_update == 'true' ? 'true' : 'false' }}" === "true";
+const can_delete = "{{ $can_delete == 'true' ? 'true' : 'false' }}" === "true";
+
 $page_title
 
 

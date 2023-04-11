@@ -1,8 +1,8 @@
 const can_update = "{{ $can_update == 'true' ? 'true' : 'false' }}" === "true";
 const can_delete = "{{ $can_delete == 'true' ? 'true' : 'false' }}" === "true";
+
 const table_html = $('#tbl_main');
 let isEdit = true;
-
 $(document).ready(function () {
     // datatable ====================================================================================
     $.ajaxSetup({
@@ -14,15 +14,15 @@ $(document).ready(function () {
         searchDelay: 500,
         processing: true,
         serverSide: true,
-        // responsive: true,
+        responsive: true,
         scrollX: true,
         aAutoWidth: false,
         bAutoWidth: false,
         type: 'GET',
         ajax: {
-            url: "{{ route(l_prefix($hpu, )) }}",
+            url: "{{ route(l_prefix($hpu)) }}",
             data: function (d) {
-                d['filter[status]'] = $('#filter_status').val();
+                d['filter[tampilkan]'] = $('#filter_tampilkan').val();
             }
         },
         columns: [{
@@ -34,36 +34,31 @@ $(document).ready(function () {
             data: 'nama',
             name: 'nama',
             render(data, type, full, meta) {
-                return `${data}<br><small>${full.keterangan}</small>`;
+                return `<b>${data}</b><br><small>${full.sebagai}</small>`;
             },
         },
         {
-            data: 'url',
-            name: 'url',
+            data: 'kata_kata',
+            name: 'kata_kata',
             render(data, type, full, meta) {
-                return `${data}<br><small><i class="${full.icon} ms-0 me-2"></i>${full.icon}</small>`;
+                return `<small>${data}</small>`;
             },
         },
         {
-            data: 'order',
-            name: 'order'
-        },
-        {
-            data: 'status_str',
-            name: 'status',
+            data: 'tampilkan',
+            name: 'tampilkan',
             render(data, type, full, meta) {
-                const class_ = full.status == 1 ? 'success' : 'danger';
-                return `<i class="fas fa-circle text-${class_} ms-0 me-2"></i>${data}`;
+                const class_el = data == 'Ya' ? 'text-success' : 'text-danger';
+                return `<i class="fas fa-circle me-2 ${class_el}"></i>${data}`;
             },
-            className: 'text-nowrap'
         },
         ...(can_update || can_delete ? [{
             data: 'id',
             name: 'id',
             render(data, type, full, meta) {
-                const btn_update = can_update ? `<button type="button" class="btn btn-rounded btn-primary btn-sm me-1" data-toggle="tooltip" title="Ubah Data" onClick="editFunc('${data}')">
+                const btn_update = can_update ? `<button type="button" class="btn btn-rounded btn-primary btn-sm me-1 mt-1" data-toggle="tooltip" title="Ubah Data" onClick="editFunc('${data}')">
                         <i class="fas fa-edit"></i></button>` : '';
-                const btn_delete = can_delete ? `<button type="button" class="btn btn-rounded btn-danger btn-sm me-1" data-toggle="tooltip" title="Hapus Data" onClick="deleteFunc('${data}')">
+                const btn_delete = can_delete ? `<button type="button" class="btn btn-rounded btn-danger btn-sm me-1 mt-1" data-toggle="tooltip" title="Hapus Data" onClick="deleteFunc('${data}')">
                         <i class="fas fa-trash"></i></button>` : '';
                 return btn_update + btn_delete;
             },
@@ -71,7 +66,7 @@ $(document).ready(function () {
         }] : []),
         ],
         order: [
-            [3, 'asc']
+            [1, 'asc']
         ],
         language: {
             url: datatable_indonesia_language_url
@@ -99,10 +94,10 @@ $(document).ready(function () {
         e.preventDefault();
         resetErrorAfterInput();
         var formData = new FormData(this);
-        setBtnLoading('#btn-save', 'Simpan Perubahan');
+        setBtnLoading('#btn-save', 'Save Changes');
         const route = ($('#id').val() == '') ?
-            "{{ route(l_prefix($hpu, 'insert')) }}" :
-            "{{ route(l_prefix($hpu, 'update')) }}";
+            "{{ route(l_prefix($hpu,'insert')) }}" :
+            "{{ route(l_prefix($hpu,'update')) }}";
         $.ajax({
             type: "POST",
             url: route,
@@ -120,11 +115,12 @@ $(document).ready(function () {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Data berhasil disimpan',
+                    title: 'Data saved successfully',
                     showConfirmButton: false,
                     timer: 1500
                 })
                 isEdit = true;
+
             },
             error: function (data) {
                 const res = data.responseJSON ?? {};
@@ -143,12 +139,67 @@ $(document).ready(function () {
             },
             complete: function () {
                 setBtnLoading('#btn-save',
-                    '<li class="fas fa-save mr-1"></li> Simpan Perubahan',
+                    '<li class="fas fa-save mr-1"></li> Save changes',
                     false);
             }
         });
     });
+
+    $('#setting_form').submit(function (e) {
+        const load_el = $(this).parent().parent();
+        e.preventDefault();
+        var formData = new FormData(this);
+        load_el.LoadingOverlay("show");
+        $.ajax({
+            type: "POST",
+            url: `{{ route(l_prefix($hpu,'setting')) }}`,
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: (data) => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Data saved successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
+                // set foto
+                $('#deskripsi_foto').attr('onclick',
+                    `viewImage('${data.foto}', 'Foto Latar Belakang')`);
+            },
+            error: function (data) {
+                const res = data.responseJSON ?? {};
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: res.message ?? 'Something went wrong',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            },
+            complete: function () {
+                load_el.LoadingOverlay("hide");
+            }
+        });
+    });
 });
+
+function add() {
+    if (!isEdit) return false;
+    $('#MainForm').trigger("reset");
+    $('#modal-default-title').html("Tambah");
+    $('#modal-default').modal('show');
+    $('#id').val('');
+    $('#foto').val('');
+    $('#lihat-foto').hide();
+    $('#foto').attr('required', '');
+    resetErrorAfterInput();
+    isEdit = false;
+    return true;
+}
 
 function editFunc(id) {
     $.LoadingOverlay("show");
@@ -163,15 +214,18 @@ function editFunc(id) {
         },
         success: (data) => {
             isEdit = true;
-            $('#modal-default-title').html("Ubah {{ $page_title }}");
+            $('#modal-default-title').html("Ubah");
             $('#modal-default').modal('show');
             $('#id').val(data.id);
+            $('#urutan').val(data.urutan);
             $('#nama').val(data.nama);
-            $('#icon').val(data.icon);
-            $('#url').val(data.url);
-            $('#order').val(data.order);
-            $('#keterangan').val(data.keterangan);
-            $('#status').val(data.status);
+            $('#sebagai').val(data.sebagai);
+            $('#tampilkan').val(data.tampilkan);
+            $('#kata_kata').val(data.kata_kata);
+            $('#lihat-foto').fadeIn();
+            $('#lihat-foto').attr('onclick', `viewIcon('${data.foto}')`);
+            $('#foto').removeAttr('required');
+            $('#foto').val('');
         },
         error: function (data) {
             Swal.fire({
@@ -191,8 +245,8 @@ function editFunc(id) {
 
 function deleteFunc(id) {
     swal.fire({
-        title: 'Apakah anda yakin?',
-        text: "Apakah anda yakin akan menghapus data ini ?",
+        title: 'Are you sure?',
+        text: "Are you sure you want to proceed ?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes'
@@ -218,7 +272,7 @@ function deleteFunc(id) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Berhasil Menghapus Data',
+                        title: '{{ $page_title }} deleted successfully',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -237,15 +291,10 @@ function deleteFunc(id) {
     });
 }
 
-
-function add() {
-    if (!isEdit) return false;
-    $('#MainForm').trigger("reset");
-    $('#modal-default-title').html("Tambah {{ $page_title }}");
-    $('#modal-default').modal('show');
-    $('#id').val('');
-    $('#lihat-foto').hide();
-    resetErrorAfterInput();
-    isEdit = false;
-    return true;
-}
+function viewImage(image, title) {
+    $('#modal-image').modal('show');
+    $('#modal-image-title').html(title);
+    const ele = $('#modal-image-element');
+    ele.attr('src', `{{ url('') }}${image}`);
+    ele.attr('alt', title);
+};
