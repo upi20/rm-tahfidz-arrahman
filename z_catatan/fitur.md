@@ -5,7 +5,7 @@
 
 
 
-$view = path_view('pages.admin.kontak.faq');
+$view = path_view();
 $data = compact('page_attr', 'view');
 $data['compact'] = $data;
 return view($view, $data);

@@ -35,10 +35,10 @@ class HariBesarNasionalController extends Controller
                 ['name' => 'Peralatan'],
             ]
         ];
-
-        $data = compact('page_attr');
+        $view = path_view('pages.admin.utility.hari_besar_nasional');
+        $data = compact('page_attr', 'view');
         $data['compact'] = $data;
-        return view('pages.admin.utility.hari_besar_nasional', $data);
+        return view($view, $data);
     }
 
     public function insert(Request $request): mixed

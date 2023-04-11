@@ -20,7 +20,11 @@ class AboutController extends Controller
         $data = compact(
             'page_attr'
         );
-        return view('pages.admin.setting.about',  array_merge($data, ['compact' => $data]));
+
+        $view = path_view('pages.admin.setting.about');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function update(Request $request)

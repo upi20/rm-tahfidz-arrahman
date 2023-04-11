@@ -35,7 +35,11 @@ class HomeSliderController extends Controller
                 ['name' => 'Pengaturan'],
             ]
         ];
-        return view('pages.admin.setting.home_slider', compact('page_attr', 'image_folder'));
+
+        $view = path_view('pages.admin.setting.home_slider');
+        $data = compact('page_attr', 'image_folder', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function insert(Request $request): mixed

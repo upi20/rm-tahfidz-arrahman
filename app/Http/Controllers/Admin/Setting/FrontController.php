@@ -22,7 +22,11 @@ class FrontController extends Controller
         $data = compact(
             'page_attr',
         );
-        return view('pages.admin.setting.front',  array_merge($data, ['compact' => $data]));
+
+        $view = path_view('pages.admin.setting.front');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function save_app(Request $request)

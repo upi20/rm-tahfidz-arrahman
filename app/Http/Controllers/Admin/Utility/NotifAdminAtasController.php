@@ -34,8 +34,11 @@ class NotifAdminAtasController extends Controller
                 ['name' => 'Dashboard', 'url' => 'admin.dashboard'],
                 ['name' => 'Peralatan'],
             ]
-        ];
-        return view('pages.admin.utility.notif_admin_atas', compact('page_attr'));
+        ];;
+        $view = path_view('pages.admin.utility.notif_admin_atas');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function insert(Request $request): mixed

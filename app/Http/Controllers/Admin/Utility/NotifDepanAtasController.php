@@ -35,7 +35,10 @@ class NotifDepanAtasController extends Controller
                 ['name' => 'Peralatan'],
             ]
         ];
-        return view('pages.admin.utility.notif_depan_atas', compact('page_attr'));
+        $view = path_view('pages.admin.utility.notif_depan_atas');
+        $data = compact('page_attr', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function insert(Request $request): mixed

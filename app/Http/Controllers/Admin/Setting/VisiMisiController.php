@@ -35,7 +35,10 @@ class VisiMisiController extends Controller
 
         ];
 
-        return view('pages.admin.setting.visi_misi', compact('page_attr', 'setting'));
+        $view = path_view('pages.admin.setting.visi_misi');
+        $data = compact('page_attr', 'setting', 'view');
+        $data['compact'] = $data;
+        return view($view, $data);
     }
 
     public function update(Request $request)
