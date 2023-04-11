@@ -104,7 +104,7 @@ $notifikasi = beTopNotification();
         <!-- custom {{ $meta->name }} -->
         {!! $meta->value !!}
     @endforeach
-    @vite('resources/js/app.js')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="app sidebar-mini ltr light-mode">

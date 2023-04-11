@@ -95,7 +95,7 @@ $compact = array_merge($compact, compact('page_attr_title', 'search_master_key',
         {!! $meta->value !!}
     @endforeach
     @yield('stylesheet')
-    @vite('resources/js/app.js')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>

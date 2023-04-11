@@ -229,21 +229,6 @@
     </div>
 @endsection
 
-@section('stylesheet')
-    <style>
-        .table-foto {
-            margin: auto;
-            position: relative;
-            margin: auto;
-            width: 50px;
-            height: 50px;
-            border-radius: 4px;
-            object-fit: cover;
-            object-position: center;
-            cursor: pointer;
-        }
-    </style>
-@endsection
 @section('javascript')
     <script src="{{ asset_admin('plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset_admin('plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
