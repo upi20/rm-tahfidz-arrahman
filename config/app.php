@@ -203,6 +203,6 @@ return [
 
     // my config
     'super_admin_role' => env('SUPER_ADMIN_ROLE', 'Super Admin'),
-    'admin_assets_url' => env('ADMIN_ASSETS_URL', 'https://assets.iseplutpi.site/sash/'),
+    'admin_assets_url' => 'https://cempor.bandung.go.id/assets/templates/admin/sash/',
     'artikel_tampilkan_penulis' => env('ARTIKEL_TAMPILKAN_PENULIS', false),
 ];
